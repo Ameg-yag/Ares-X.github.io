@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ares-x.com/about/index.html</loc>
+    
+    <lastmod>2017-07-29T16:24:01.337Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ares-x.com/2017/07/28/hello-world/</loc>
     
     <lastmod>2017-07-29T15:27:05.396Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://ares-x.com/2017/07/29/MMP/</loc>
     
     <lastmod>2017-07-29T02:47:10.702Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ares-x.com/about/index.html</loc>
-    
-    <lastmod>2017-07-28T13:55:13.703Z</lastmod>
     
   </url>
   

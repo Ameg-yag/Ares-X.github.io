@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>https://ares-x.com/2017/08/04/%E5%BC%82%E5%9F%9F%E9%95%87%E9%AD%82%E6%9B%B2-%E4%B8%BB%E7%AE%A1%E4%BF%A1%E4%BB%B0%E4%B8%8E%E5%AE%A2%E8%A7%82%E5%AE%9E%E5%9C%A8/</loc>
+    <lastmod>2017-08-04T06:45:45.070Z</lastmod>
+    <data>
+        <display>
+        <title>异域镇魂曲:主管信仰与客观实在</title>
+        <pubTime>2017-08-04T06:43:26.000Z</pubTime>
+        
+        <tag>异域镇魂曲</tag>
+         
+        <tag>哲学</tag>
+         
+        <tag>游戏</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文" url="https://ares-x.com/categories/%E6%9D%82%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ares-x.com/2017/07/30/%E6%96%B0%E7%9A%84%E5%81%B6%E5%83%8F/</loc>
+    <lastmod>2017-08-04T06:44:52.390Z</lastmod>
+    <data>
+        <display>
+        <title>新的偶像</title>
+        <pubTime>2017-07-30T07:45:52.000Z</pubTime>
+        
+        <tag>哲学</tag>
+         
+        <tag>杂文</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文" url="https://ares-x.com/categories/%E6%9D%82%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ares-x.com/2017/07/29/Metasploit%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2017-08-04T03:56:32.716Z</lastmod>
     <data>
@@ -11,9 +57,9 @@
         <title>Metasploit基础使用</title>
         <pubTime>2017-07-29T13:25:11.000Z</pubTime>
         
-        <tag>Metasploit</tag>
-         
         <tag>渗透工具</tag>
+         
+        <tag>Metasploit</tag>
          
          
            
@@ -50,26 +96,6 @@
 
     
   <url>
-    <loc>https://ares-x.com/2017/07/30/%E6%96%B0%E7%9A%84%E5%81%B6%E5%83%8F/</loc>
-    <lastmod>2017-07-30T12:34:35.011Z</lastmod>
-    <data>
-        <display>
-        <title>新的偶像</title>
-        <pubTime>2017-07-30T07:45:52.000Z</pubTime>
-        
-        <tag>杂文</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂文" url="https://ares-x.com/categories/%E6%9D%82%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://ares-x.com/2017/07/30/%E6%83%98%E4%BA%BA%E9%97%B4-%E5%8D%83%E8%88%AC%E5%A9%89%E8%BD%AC%E7%9A%86%E6%88%8F%E8%A8%80/</loc>
     <lastmod>2017-07-30T12:28:05.737Z</lastmod>
     <data>
@@ -98,9 +124,9 @@
         <title>Parrot系统初始配置</title>
         <pubTime>2017-07-29T13:56:37.000Z</pubTime>
         
-        <tag>渗透工具</tag>
-         
         <tag>Parrot</tag>
+         
+        <tag>渗透工具</tag>
          
         <tag>环境部署</tag>
          

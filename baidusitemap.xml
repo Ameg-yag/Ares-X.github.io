@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://ares-x.com/2017/08/04/%E5%BC%82%E5%9F%9F%E9%95%87%E9%AD%82%E6%9B%B2-%E4%B8%BB%E7%AE%A1%E4%BF%A1%E4%BB%B0%E4%B8%8E%E5%AE%A2%E8%A7%82%E5%AE%9E%E5%9C%A8/</loc>
-    <lastmod>2017-08-04T06:48:43.487Z</lastmod>
+    <lastmod>2017-08-04T07:12:17.586Z</lastmod>
     <data>
         <display>
         <title>异域镇魂曲:主管信仰与客观实在</title>
@@ -16,6 +16,26 @@
         <tag>哲学</tag>
          
         <tag>游戏</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂文" url="https://ares-x.com/categories/%E6%9D%82%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ares-x.com/2017/08/04/%E5%B1%8E%E5%9D%91%E4%B9%8B%E7%8E%8B-%E5%BC%82%E5%9F%9F%E9%95%87%E9%AD%82%E6%9B%B2/</loc>
+    <lastmod>2017-08-04T07:12:13.035Z</lastmod>
+    <data>
+        <display>
+        <title>屎坑之王:异域镇魂曲</title>
+        <pubTime>2017-08-04T07:08:58.000Z</pubTime>
+        
+        <tag>异域镇魂曲,游戏</tag>
          
          
            
@@ -79,9 +99,9 @@
         <title>一句话Powershell调用mimikatz抓取Windows密码</title>
         <pubTime>2017-07-30T05:39:10.000Z</pubTime>
         
-        <tag>渗透工具</tag>
-         
         <tag>密码攻击</tag>
+         
+        <tag>渗透工具</tag>
          
         <tag>PowerShell</tag>
          
@@ -124,9 +144,9 @@
         <title>Parrot系统初始配置</title>
         <pubTime>2017-07-29T13:56:37.000Z</pubTime>
         
-        <tag>Parrot</tag>
-         
         <tag>渗透工具</tag>
+         
+        <tag>Parrot</tag>
          
         <tag>环境部署</tag>
          

@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>https://ares-x.com/2017/09/02/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Shadowsocks-qt5/</loc>
+    <lastmod>2017-09-02T04:35:12.802Z</lastmod>
+    <data>
+        <display>
+        <title>编译安装Shadowsocks_qt5</title>
+        <pubTime>2017-09-02T04:34:02.000Z</pubTime>
+        
+        <tag>翻墙</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ares-x.com/2017/08/30/SearchSploit%E6%BC%8F%E6%B4%9E%E6%9F%A5%E6%89%BE%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2017-08-30T15:11:02.374Z</lastmod>
     <data>
@@ -33,9 +50,9 @@
         <title>Parrot系统常用配置</title>
         <pubTime>2017-07-29T13:56:37.000Z</pubTime>
         
-        <tag>渗透工具</tag>
-         
         <tag>Parrot</tag>
+         
+        <tag>渗透工具</tag>
          
         <tag>环境部署</tag>
          

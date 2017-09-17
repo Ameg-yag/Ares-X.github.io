@@ -76,7 +76,7 @@
 
     
         <meta property="article:published_time" content="9月 05, 2017" />
-        <meta property="article:modified_time" content="9月 05, 2017" />
+        <meta property="article:modified_time" content="9月 17, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -117,7 +117,7 @@
     "headline": "Python图片转换成字符画",
     "url": "https://ares-x.com/2017/09/05/Python图片转换成字符画/index.html",
     "datePublished": "9月 05, 2017",
-    "dateModified": "9月 05, 2017",
+    "dateModified": "9月 17, 2017",
     "description": "There is no description",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -525,64 +525,65 @@
         <p><em>今天看见一个很有意思的脚本，用py实现把一副图片转换成字符画</em></p>
 <p>Code:</p>
 <p>usage:python pic2str.py xxx.jpg</p>
-<pre><code># coding:utf-8  
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># coding:utf-8  </span>
 
-#  为一张图片生成对应的字符集图片  
+<span class="token comment" spellcheck="true">#  为一张图片生成对应的字符集图片  </span>
 
-import Image  
-import argparse  
+<span class="token keyword">import</span> Image  
+<span class="token keyword">import</span> argparse  
 
-# 命令行输入参数处理  
-parser = argparse.ArgumentParser()  
+<span class="token comment" spellcheck="true"># 命令行输入参数处理  </span>
+parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span><span class="token punctuation">)</span>  
 
-parser.add_argument(&#39;file&#39;)     # 输入文件  
-parser.add_argument(&#39;-o&#39;, &#39;--output&#39;)   # 输出文件  
-parser.add_argument(&#39;--width&#39;, type=int, default=140) # 输出字符画宽  
-parser.add_argument(&#39;--height&#39;, type=int, default=90) # 输出字符画高  
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 输入文件  </span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'-o'</span><span class="token punctuation">,</span> <span class="token string">'--output'</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 输出文件  </span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--width'</span><span class="token punctuation">,</span> type<span class="token operator">=</span>int<span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">140</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 输出字符画宽  </span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--height'</span><span class="token punctuation">,</span> type<span class="token operator">=</span>int<span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 输出字符画高  </span>
 
-# 获取参数  
-args = parser.parse_args()  
+<span class="token comment" spellcheck="true"># 获取参数  </span>
+args <span class="token operator">=</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>  
 
-IMG = args.file  
-WIDTH = args.width  
-HEIGHT = args.height  
-OUTPUT = args.output  
+IMG <span class="token operator">=</span> args<span class="token punctuation">.</span>file  
+WIDTH <span class="token operator">=</span> args<span class="token punctuation">.</span>width  
+HEIGHT <span class="token operator">=</span> args<span class="token punctuation">.</span>height  
+OUTPUT <span class="token operator">=</span> args<span class="token punctuation">.</span>output  
 
-ascii_char = list(&quot;$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;&gt;i!lI;:,\&quot;^`&#39;. &quot;)  
+ascii_char <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token string">"$@B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~&lt;>i!lI;:,\"^`'. "</span><span class="token punctuation">)</span>  
 
 
-# 将256灰度映射到70个字符上  
-def get_char(r, b, g, alpha=256):  
-    if alpha == 0:  
-        return &#39; &#39;  
-    length = len(ascii_char)  
-    gray = int(0.2126 * r + 0.7152 * g + 0.0722 * b)  
+<span class="token comment" spellcheck="true"># 将256灰度映射到70个字符上  </span>
+<span class="token keyword">def</span> <span class="token function">get_char</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> b<span class="token punctuation">,</span> g<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token keyword">if</span> alpha <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>  
+        <span class="token keyword">return</span> <span class="token string">' '</span>  
+    length <span class="token operator">=</span> len<span class="token punctuation">(</span>ascii_char<span class="token punctuation">)</span>  
+    gray <span class="token operator">=</span> int<span class="token punctuation">(</span><span class="token number">0.2126</span> <span class="token operator">*</span> r <span class="token operator">+</span> <span class="token number">0.7152</span> <span class="token operator">*</span> g <span class="token operator">+</span> <span class="token number">0.0722</span> <span class="token operator">*</span> b<span class="token punctuation">)</span>  
 
-    unit = (256.0 + 1)/length  
-    return ascii_char[int(gray/unit)]  
+    unit <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">256.0</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>length  
+    <span class="token keyword">return</span> ascii_char<span class="token punctuation">[</span>int<span class="token punctuation">(</span>gray<span class="token operator">/</span>unit<span class="token punctuation">)</span><span class="token punctuation">]</span>  
 
-if __name__ == &#39;__main__&#39;:  
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>  
 
-    im = Image.open(IMG)  
-    im = im.resize((WIDTH, HEIGHT), Image.NEAREST)  
+    im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span>IMG<span class="token punctuation">)</span>  
+    im <span class="token operator">=</span> im<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span>WIDTH<span class="token punctuation">,</span> HEIGHT<span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>NEAREST<span class="token punctuation">)</span>  
 
-    txt = &quot;&quot;  
+    txt <span class="token operator">=</span> <span class="token string">""</span>  
 
-    for i in range(HEIGHT):  
-        for j in range(WIDTH):  
-            txt += get_char(*im.getpixel((j, i)))  
-        txt += &#39;\n&#39;  
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>HEIGHT<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>WIDTH<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+            txt <span class="token operator">+=</span> get_char<span class="token punctuation">(</span><span class="token operator">*</span>im<span class="token punctuation">.</span>getpixel<span class="token punctuation">(</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+        txt <span class="token operator">+=</span> <span class="token string">'\n'</span>  
 
-    print txt  
+    <span class="token keyword">print</span> txt  
 
-    # 字符画输出到文件  
-    if OUTPUT:  
-        with open(OUTPUT,&#39;w&#39;) as f:  
-            f.write(txt)  
-    else:  
-        with open(&quot;output.txt&quot;, &#39;w&#39;) as f:  
-            f.write(txt)
-</code></pre><p>试着转换了下头像233</p>
+    <span class="token comment" spellcheck="true"># 字符画输出到文件  </span>
+    <span class="token keyword">if</span> OUTPUT<span class="token punctuation">:</span>  
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span>OUTPUT<span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>txt<span class="token punctuation">)</span>  
+    <span class="token keyword">else</span><span class="token punctuation">:</span>  
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"output.txt"</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>  
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>txt<span class="token punctuation">)</span>
+</code></pre>
+<p>试着转换了下头像233</p>
 <pre><code>                                                         $                   .     &#39;                                                   
                                        .       $                 @                  @                                                       
                                        ^$`       $$       B       ^     .^   $      @     .                                                 

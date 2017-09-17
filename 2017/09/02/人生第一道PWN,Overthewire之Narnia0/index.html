@@ -76,7 +76,7 @@
 
     
         <meta property="article:published_time" content="9月 02, 2017" />
-        <meta property="article:modified_time" content="9月 02, 2017" />
+        <meta property="article:modified_time" content="9月 17, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -117,7 +117,7 @@
     "headline": "人生第一道PWN,Overthewire之Narnia0",
     "url": "https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html",
     "datePublished": "9月 02, 2017",
-    "dateModified": "9月 02, 2017",
+    "dateModified": "9月 17, 2017",
     "description": "There is no description",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -534,30 +534,31 @@ cd /narnia/
 </code></pre><p><code>ls</code>看到题目文件:<code>narnia0.c</code></p>
 <p>看一下源码</p>
 <pre><code>cat narnia0.c
-</code></pre><pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+</code></pre><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 
-int main(){
-    long val=0x41414141;
-    char buf[20];
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">long</span> val<span class="token operator">=</span><span class="token number">0x41414141</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> buf<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    printf(&quot;Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!\n&quot;);
-    printf(&quot;Here is your chance: &quot;);
-    scanf(&quot;%24s&quot;,&amp;buf);
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Correct val's value from 0x41414141 -> 0xdeadbeef!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Here is your chance: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%24s"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    printf(&quot;buf: %s\n&quot;,buf);
-    printf(&quot;val: 0x%08x\n&quot;,val);
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"buf: %s\n"</span><span class="token punctuation">,</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"val: 0x%08x\n"</span><span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    if(val==0xdeadbeef)
-        system(&quot;/bin/sh&quot;);
-    else {
-        printf(&quot;WAY OFF!!!!\n&quot;);
-        exit(1);
-    }
+    <span class="token keyword">if</span><span class="token punctuation">(</span>val<span class="token operator">==</span><span class="token number">0xdeadbeef</span><span class="token punctuation">)</span>
+        <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"/bin/sh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"WAY OFF!!!!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    return 0;
-}
-</code></pre><p>读一遍代码，是一个十分简单的C语言程序：</p>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>读一遍代码，是一个十分简单的C语言程序：</p>
 <pre><code>首先对变量val进行赋值，然后申请了一个20字节的字符数组buf
 
 之后输出题目要求，获取用户对数组buf的输入

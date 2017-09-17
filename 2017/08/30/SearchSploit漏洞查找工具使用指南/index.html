@@ -524,49 +524,49 @@
     
         <h1 id="SearchSploit漏洞查找工具使用指南"><a href="#SearchSploit漏洞查找工具使用指南" class="headerlink" title="SearchSploit漏洞查找工具使用指南"></a>SearchSploit漏洞查找工具使用指南</h1><p><em><a href="https://www.exploit-db.com/searchsploit/#using" target="_blank" rel="external">SearchSploit</a></em>官网文档</p>
 <hr>
-<h2 id="详细参数"><a href="#详细参数" class="headerlink" title="详细参数"></a>详细参数</h2><pre class=" language-shell"><code class="language-shell">Usage: searchsploit [options] term1 [term2] ... [termN]
+<h2 id="详细参数"><a href="#详细参数" class="headerlink" title="详细参数"></a>详细参数</h2><pre class=" language-bash"><code class="language-bash">Usage: searchsploit <span class="token punctuation">[</span>options<span class="token punctuation">]</span> term1 <span class="token punctuation">[</span>term2<span class="token punctuation">]</span> <span class="token punctuation">..</span>. <span class="token punctuation">[</span>termN<span class="token punctuation">]</span>
 
-==========
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
  Examples
-==========
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
   searchsploit afd windows local
   searchsploit -t oracle windows
   searchsploit -p 39446
-  searchsploit linux kernel 3.2 --exclude="(PoC)|/dos/"
+  searchsploit linux kernel 3.2 --exclude<span class="token operator">=</span><span class="token string">"(PoC)|/dos/"</span>
 
-  For more examples, see the manual: https://www.exploit-db.com/searchsploit/
+  For <span class="token function">more</span> examples, see the manual: https://www.exploit-db.com/searchsploit/
 
-=========
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
  Options
-=========
-   -c, --case     [Term]      区分大小写(默认不区分大小写)
-   -e, --exact    [Term]      对exploit标题进行EXACT匹配 (默认为 AND) [Implies "-t"].
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+   -c, --case     <span class="token punctuation">[</span>Term<span class="token punctuation">]</span>      区分大小写<span class="token punctuation">(</span>默认不区分大小写<span class="token punctuation">)</span>
+   -e, --exact    <span class="token punctuation">[</span>Term<span class="token punctuation">]</span>      对exploit标题进行EXACT匹配 <span class="token punctuation">(</span>默认为 AND<span class="token punctuation">)</span> <span class="token punctuation">[</span>Implies <span class="token string">"-t"</span><span class="token punctuation">]</span>.
    -h, --help                 显示帮助
-   -j, --json     [Term]      以JSON格式显示结果
-   -m, --mirror   [EDB-ID]    把一个exp拷贝到当前工作目录,参数后加目标id
-   -o, --overflow [Term]      Exploit标题被允许溢出其列
-   -p, --path     [EDB-ID]    显示漏洞利用的完整路径（如果可能，还将路径复制到剪贴板），后面跟漏洞ID号
-   -t, --title    [Term]      仅仅搜索漏洞标题（默认是标题和文件的路径）
+   -j, --json     <span class="token punctuation">[</span>Term<span class="token punctuation">]</span>      以JSON格式显示结果
+   -m, --mirror   <span class="token punctuation">[</span>EDB-ID<span class="token punctuation">]</span>    把一个exp拷贝到当前工作目录,参数后加目标id
+   -o, --overflow <span class="token punctuation">[</span>Term<span class="token punctuation">]</span>      Exploit标题被允许溢出其列
+   -p, --path     <span class="token punctuation">[</span>EDB-ID<span class="token punctuation">]</span>    显示漏洞利用的完整路径（如果可能，还将路径复制到剪贴板），后面跟漏洞ID号
+   -t, --title    <span class="token punctuation">[</span>Term<span class="token punctuation">]</span>      仅仅搜索漏洞标题（默认是标题和文件的路径）
    -u, --update               检查并安装任何exploitdb软件包更新（deb或git）
-   -w, --www      [Term]      显示Exploit-DB.com的URL而不是本地路径（在线搜索）
-   -x, --examine  [EDB-ID]    使用$ PAGER检查（副本）Exp
+   -w, --www      <span class="token punctuation">[</span>Term<span class="token punctuation">]</span>      显示Exploit-DB.com的URL而不是本地路径（在线搜索）
+   -x, --examine  <span class="token punctuation">[</span>EDB-ID<span class="token punctuation">]</span>    使用$ PAGER检查（副本）Exp
        --colour               搜索结果不高亮显示关键词
        --id                   显示EDB-ID
-       --nmap     [file.xml]  使用服务版本检查Nmap XML输出中的所有结果（例如：nmap -sV -oX file.xml）
+       --nmap     <span class="token punctuation">[</span>file.xml<span class="token punctuation">]</span>  使用服务版本检查Nmap XML输出中的所有结果（例如：nmap -sV -oX file.xml）
                                 使用“-v”（详细）来尝试更多的组合
-       --exclude="term"       从结果中删除值。通过使用“|”分隔多个值
-                              例如--exclude=“term1 | term2 | term3”。
+       --exclude<span class="token operator">=</span><span class="token string">"term"</span>       从结果中删除值。通过使用“<span class="token operator">|</span>”分隔多个值
+                              例如--exclude<span class="token operator">=</span>“term1 <span class="token operator">|</span> term2 <span class="token operator">|</span> term3”。
 
 
-=======
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
  Notes
-=======
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
  * 你可以使用任意数量的搜索词。
- * Search terms are not case-sensitive (by default), and ordering is irrelevant.
-   * 搜索术语不区分大小写(默认情况下)，而排序则无关紧要。
+ * Search terms are not case-sensitive <span class="token punctuation">(</span>by default<span class="token punctuation">)</span>, and ordering is irrelevant.
+   * 搜索术语不区分大小写<span class="token punctuation">(</span>默认情况下<span class="token punctuation">)</span>，而排序则无关紧要。
    * 如果你想用精确的匹配来过滤结果，请使用用 -e 参数
- * 使用' - t '将文件的路径排除，以过滤搜索结果
-   * 删除误报(特别是在搜索使用数字时 - i.e. 版本).
+ * 使用<span class="token string">' - t '</span>将文件的路径排除，以过滤搜索结果
+   * 删除误报<span class="token punctuation">(</span>特别是在搜索使用数字时 - i.e. 版本<span class="token punctuation">)</span>.
  * 当更新或显示帮助时，搜索项将被忽略。
 </code></pre>
 <h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><h3 id="基本搜索"><a href="#基本搜索" class="headerlink" title="基本搜索"></a>基本搜索</h3><p><em>基本搜索会同时匹配标题和路径中的内容</em></p>

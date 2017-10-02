@@ -12,7 +12,7 @@
     
     <title>
         
-            时间轴 | 
+            2017xdctf密码学-基础之base64 writeup | 
         
         AresX&#39;s Blog
     </title>
@@ -40,7 +40,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="AresX">
     <meta name="description" itemprop="description" content="There is no description">
-    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Writeup,Crypto">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
@@ -69,15 +69,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://ares-x.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="时间轴 | AresX&#39;s Blog">
+    <meta property="og:title" content="2017xdctf密码学-基础之base64 writeup | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png" />
     <meta property="og:description" content="There is no description">
-    
+    <meta property="og:article:tag" content="Writeup"> <meta property="og:article:tag" content="Crypto"> 
 
+    
+        <meta property="article:published_time" content="10月 02, 2017" />
+        <meta property="article:modified_time" content="10月 02, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="时间轴 | AresX&#39;s Blog">
+    <meta name="twitter:title" content="2017xdctf密码学-基础之base64 writeup | AresX&#39;s Blog">
     <meta name="twitter:description" content="There is no description">
     <meta name="twitter:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -85,13 +88,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/timeline/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "AresX&#39;s Blog",
+        "logo": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "AresX",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+        },
+        "description": "Anarchy is the key"
+    },
+    "headline": "2017xdctf密码学-基础之base64 writeup",
+    "url": "https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html",
+    "datePublished": "10月 02, 2017",
+    "dateModified": "10月 02, 2017",
+    "description": "There is no description",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ares-x.com"
+    }
+}
+</script>
 
 
     
@@ -276,878 +309,446 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
 
 <!-- Layouts -->
 
-    <!-- Single Timeline Page -->
-    <style>
-	.md-container {
-		width: 90%;
-		max-width: 1170px;
-		margin: 0 auto;
-	}
-	.md-container::after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-	#md-timeline {
-		position: relative;
-		padding: 2em 0;
-		margin-top: 2em;
-		margin-bottom: 2em;
-	}
-	@media screen and (max-device-width:480px){
-		#md-timeline {
-			margin-top: 6em;
-		}
-	}
-	#md-timeline::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 18px;
-		height: 100%;
-		width: 2px;
-		background: #d7e4ed;
-	}
-	.md-timeline-title {
-		font-size: 20px;
-		line-height: 24px;
-	}
-	.md-timeline-content a {
-		text-decoration: none;
-	}
-	.md-timeline-info {
-		height: 20px;
-		width: 100%;
-		margin: 10px 0px;
-	}
-	.md-timeline-info-span {
-		float: right;
-		margin-right: 10px;
-		text-align: right;
-	}
-	.md-timeline-excerpt {
-	    	clear: right; 
-	}
-	@media only screen and (min-width: 1170px) {
-		#md-timeline {
-			margin-top: 3em;
-			margin-bottom: 3em;
-		}
-		#md-timeline::before {
-			left: 50%;
-			margin-left: -2px;
-		}
-	}
-	.md-timeline-block {
-		position: relative;
-		margin: 2em 0;
-	}
-	.md-timeline-block:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-	.md-timeline-block:first-child {
-		margin-top: 0;
-	}
-	.md-timeline-block:last-child {
-		margin-bottom: 0;
-	}
-	@media only screen and (min-width: 1170px) {
-		.md-timeline-block {
-			margin: 4em 0;
-		}
-		.md-timeline-block:first-child {
-			margin-top: 0;
-		}
-		.md-timeline-block:last-child {
-			margin-bottom: 0;
-		}
-	}
-	.md-timeline-date {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 60px;
-		height: 40px;
-		border-radius: box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
-	}
-	.md-timeline-date.blue {
-		background: #0D395F;
-		-webkit-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
-		box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
-	}
-	@media only screen and (min-width: 1170px) {
-		.md-timeline-date {
-			width: 60px;
-			height: 60px;
-			left: 50%;
-			margin-left: -30px;
-			/* Force Hardware Acceleration in WebKit */
-			-webkit-transform: translateZ(0);
-			-webkit-backface-visibility: hidden;
-		}
-		.cssanimations .md-timeline-date.is-hidden {
-			visibility: hidden;
-		}
-		.cssanimations .md-timeline-date.bounce-in {
-			visibility: visible;
-			-webkit-animation: md-bounce-1 0.6s;
-			-moz-animation: md-bounce-1 0.6s;
-			animation: md-bounce-1 0.6s;
-		}
-	}
-	@-webkit-keyframes md-bounce-1 {
-		0% {
-			opacity: 0;
-			-webkit-transform: scale(0.5);
-		}
-		60% {
-			opacity: 1;
-			-webkit-transform: scale(1.2);
-		}
-		100% {
-			-webkit-transform: scale(1);
-		}
-	}
-	@-moz-keyframes md-bounce-1 {
-		0% {
-			opacity: 0;
-			-moz-transform: scale(0.5);
-		}
-		60% {
-			opacity: 1;
-			-moz-transform: scale(1.2);
-		}
-		100% {
-			-moz-transform: scale(1);
-		}
-	}
-	@keyframes md-bounce-1 {
-		0% {
-			opacity: 0;
-			-webkit-transform: scale(0.5);
-			-moz-transform: scale(0.5);
-			-ms-transform: scale(0.5);
-			-o-transform: scale(0.5);
-			transform: scale(0.5);
-		}
-		60% {
-			opacity: 1;
-			-webkit-transform: scale(1.2);
-			-moz-transform: scale(1.2);
-			-ms-transform: scale(1.2);
-			-o-transform: scale(1.2);
-			transform: scale(1.2);
-		}
-		100% {
-			-webkit-transform: scale(1);
-			-moz-transform: scale(1);
-			-ms-transform: scale(1);
-			-o-transform: scale(1);
-			transform: scale(1);
-		}
-	}
-	.md-timeline-content {
-		position: relative;
-		margin-left: 60px;
-		background: white;
-		padding: 1em;
-		-webkit-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
-		box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.75);
-	}
-	.md-timeline-content:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-	.md-timeline-content h2 {
-		color: #303e49;
-	}
-	.md-timeline-content p, .md-timeline-content .md-read-more, .md-timeline-content .md-date {
-		font-size: 13px;
-		font-size: 0.8125rem;
-	}
-	.md-timeline-content .md-read-more, .md-timeline-content .md-date {
-		display: inline-block;
-	}
-	.md-timeline-content p {
-		margin: 1em 0;
-		line-height: 1.6;
-	}
-	.md-timeline-content .md-read-more {
-		float: right;
-		padding: .8em 1em;
-		background: #acb7c0;
-		color: white;
-		border-radius: 0.25em;
-	}
-	.md-date {
-		color: white;
-		text-align: center;
-	}
-	.no-touch .md-timeline-content .md-read-more:hover {
-		background-color: #bac4cb;
-	}
-	.md-timeline-content::before {
-		content: '';
-		position: absolute;
-		top: 16px;
-		right: 100%;
-		height: 0;
-		width: 0;
-		border: 7px solid transparent;
-		border-right: 7px solid white;
-	}
-	@media only screen and (min-width: 768px) {
-		.md-timeline-content h2 {
-			font-size: 20px;
-			font-size: 1.25rem;
-		}
-		.md-timeline-content p {
-			font-size: 16px;
-			font-size: 1rem;
-		}
-		.md-timeline-content .md-read-more {
-			font-size: 14px;
-			font-size: 0.875rem;
-		}
-	}
-	@media only screen and (min-width: 1170px) {
-		.md-date {
-			text-align: center;
-			margin-top: 10px;
-			line-height: 20px;
-		}
-		.md-timeline-content {
-			margin-left: 0;
-			padding: 1.6em;
-			width: 45%;
-		}
-		.md-timeline-content::before {
-			top: 24px;
-			left: 100%;
-			border-color: transparent;
-			border-left-color: white;
-		}
-		.md-timeline-content .md-read-more {
-			float: left;
-		}
-		.md-timeline-block:nth-child(even) .md-timeline-content {
-			float: right;
-		}
-		.md-timeline-block:nth-child(even) .md-timeline-content::before {
-			top: 24px;
-			left: auto;
-			right: 100%;
-			border-color: transparent;
-			border-right-color: white;
-		}
-		.md-timeline-block:nth-child(even) .md-timeline-content .md-read-more {
-			float: right;
-		}
-		.cssanimations .md-timeline-content.is-hidden {
-			visibility: hidden;
-		}
-		.cssanimations .md-timeline-content.bounce-in {
-			visibility: visible;
-			-webkit-animation: md-bounce-2 0.6s;
-			-moz-animation: md-bounce-2 0.6s;
-			animation: md-bounce-2 0.6s;
-		}
-	}
-	@media only screen and (min-width: 1170px) {
-		/* inverse bounce effect on even content blocks */
-		.cssanimations .md-timeline-block:nth-child(even) .md-timeline-content.bounce-in {
-			-webkit-animation: md-bounce-2-inverse 0.6s;
-			-moz-animation: md-bounce-2-inverse 0.6s;
-			animation: md-bounce-2-inverse 0.6s;
-		}
-	}
-	@-webkit-keyframes md-bounce-2 {
-		0% {
-			opacity: 0;
-			-webkit-transform: translateX(-100px);
-		}
-		60% {
-			opacity: 1;
-			-webkit-transform: translateX(20px);
-		}
-		100% {
-			-webkit-transform: translateX(0);
-		}
-	}
-	@-moz-keyframes md-bounce-2 {
-		0% {
-			opacity: 0;
-			-moz-transform: translateX(-100px);
-		}
-		60% {
-			opacity: 1;
-			-moz-transform: translateX(20px);
-		}
-		100% {
-			-moz-transform: translateX(0);
-		}
-	}
-	@keyframes md-bounce-2 {
-		0% {
-			opacity: 0;
-			-webkit-transform: translateX(-100px);
-			-moz-transform: translateX(-100px);
-			-ms-transform: translateX(-100px);
-			-o-transform: translateX(-100px);
-			transform: translateX(-100px);
-		}
-		60% {
-			opacity: 1;
-			-webkit-transform: translateX(20px);
-			-moz-transform: translateX(20px);
-			-ms-transform: translateX(20px);
-			-o-transform: translateX(20px);
-			transform: translateX(20px);
-		}
-		100% {
-			-webkit-transform: translateX(0);
-			-moz-transform: translateX(0);
-			-ms-transform: translateX(0);
-			-o-transform: translateX(0);
-			transform: translateX(0);
-		}
-	}
-	@-webkit-keyframes md-bounce-2-inverse {
-		0% {
-			opacity: 0;
-			-webkit-transform: translateX(100px);
-		}
-		60% {
-			opacity: 1;
-			-webkit-transform: translateX(-20px);
-		}
-		100% {
-			-webkit-transform: translateX(0);
-		}
-	}
-	@-moz-keyframes md-bounce-2-inverse {
-		0% {
-			opacity: 0;
-			-moz-transform: translateX(100px);
-		}
-		60% {
-			opacity: 1;
-			-moz-transform: translateX(-20px);
-		}
-		100% {
-			-moz-transform: translateX(0);
-		}
-	}
-	@keyframes md-bounce-2-inverse {
-		0% {
-			opacity: 0;
-			-webkit-transform: translateX(100px);
-			-moz-transform: translateX(100px);
-			-ms-transform: translateX(100px);
-			-o-transform: translateX(100px);
-			transform: translateX(100px);
-		}
-		60% {
-			opacity: 1;
-			-webkit-transform: translateX(-20px);
-			-moz-transform: translateX(-20px);
-			-ms-transform: translateX(-20px);
-			-o-transform: translateX(-20px);
-			transform: translateX(-20px);
-		}
-		100% {
-			-webkit-transform: translateX(0);
-			-moz-transform: translateX(0);
-			-ms-transform: translateX(0);
-			-o-transform: translateX(0);
-			transform: translateX(0);
-		}
-	}
-</style>
+    <!-- Post Module -->
+    <div class="material-post_container">
 
-<section id="md-timeline" class="md-container">
-   	   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">10月 02 2017</div>
-                		</div>
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
 
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/10/02/2017xdctf密码学基础之base64writeup/">2017xdctf密码学-基础之base64 writeup</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/CTF/">CTF</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/Crypto/">Crypto</a>, <a class="tag-link" href="/tags/Writeup/">Writeup</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							打开文件encode_code:
-bWFpbigpe2ludCBpLG5bXT17KCgoMSA8PDEpPDwgKDE8PDEpPDwoMTw8Cm==
-ICAgICAgIDEpPDwoMTw8KDE+PjEpKSkrKCgxPDwxKTw8KDE8PDE...
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">10月 02 2017</div>
-                		</div>
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/10/02/在VS中使用bits头文件/">在VS中使用bits头文件</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/屠龙之技/">屠龙之技</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/C/">C++</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							老司机应该都知道C/C艹有个牛逼的头文件 include &lt;bits/stdc++.h&gt; 这个头文件包含了C艹的所有头文件
-但是在宇宙第一IDE Visual Studio中并不自带,所以想用的话，就自己加呗
-
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">10月 02 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/10/02/Python2-7安装第三方库编码错误/">Python2.7安装第三方库编码错误</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/屠龙之技/">屠龙之技</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/Python/">Python</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							在Python 环境下，使用PiP 命令安装时，报错提示： UnicodeEncodeError: ‘ascii’ codec can’t encode characters in position 1-5: ordinal not in range(128)
-
-...
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">9月 19 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/09/19/2017年四川省网络安全技能大赛MISC/">2017年四川省网络安全技能大赛MISC,Crypto-Writeup</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/CTF/">CTF</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/Crypto/">Crypto</a>, <a class="tag-link" href="/tags/MISC/">MISC</a>, <a class="tag-link" href="/tags/Writeup/">Writeup</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">9月 17 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/09/17/分享一个Https图床/">分享一个Https图床</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/图床/">图床</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							链接: https://sm.ms
-修改了那些不是https的友链头像。。
-
-*转载请注明来自
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">9月 05 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/09/05/Python图片转换成字符画/">Python图片转换成字符画</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/编程无道/">编程无道</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/Python/">Python</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							今天看见一个很有意思的脚本，用py实现把一副图片转换成字符画
-Code:
-usage:python pic2str.py xxx.jpg
-
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">9月 02 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/09/02/人生第一道PWN,Overthewire之Narnia0/">人生第一道PWN,Overthewire之Narnia0</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/CTF/">CTF</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/Overthewire/">Overthewire</a>, <a class="tag-link" href="/tags/PWN/">PWN</a>, <a class="tag-link" href="/tags/Writeup/">Writeup</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							十分简单的PWN第一次做pwn题目，缘由在《THE HACKER PLAYBOOK2》中第一章有提及，并且作者带着...
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">9月 02 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/09/02/编译安装Shadowsocks-qt5/">编译安装Shadowsocks_qt5</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/翻墙/">翻墙</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							通过编译安装ss-qt5
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">8月 30 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/08/30/SearchSploit漏洞查找工具使用指南/">SearchSploit漏洞查找工具使用指南</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/渗透不测试/">渗透不测试</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/SearchSploit/">SearchSploit</a>, <a class="tag-link" href="/tags/渗透工具/">渗透工具</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							SearchSploit漏洞查找工具使用指南...
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">8月 16 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/08/16/转-《寂静之城》-马伯庸/">[转]《寂静之城》(马伯庸)</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/杂文/">杂文</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/杂文/">杂文</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							转这篇故事的用意很简单,也很讽刺,10年前看完觉得这是个笑话;10年后,现实成了一个笑话
-马伯庸
-And in the naked light I saw ten thousand people, maybe more. People ta...
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">8月 04 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/08/04/屎坑之王-异域镇魂曲/">屎坑之王:异域镇魂曲</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/杂文/">杂文</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/异域镇魂曲-游戏/">异域镇魂曲,游戏</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							屎坑之王：异域镇魂曲做这个游戏的人根本没指望你们喜欢，却落得一个被推上王座的下场
-
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">8月 04 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/08/04/异域镇魂曲-主管信仰与客观实在/">异域镇魂曲:主管信仰与客观实在</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/杂文/">杂文</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/哲学/">哲学</a>, <a class="tag-link" href="/tags/异域镇魂曲/">异域镇魂曲</a>, <a class="tag-link" href="/tags/游戏/">游戏</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							异域镇魂曲———从异域镇魂曲说起2008-Mar-19th Kya2008-May-17th Rev
-
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">7月 30 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/07/30/惘人间-千般婉转皆戏言/">惘人间-千般婉转皆戏言</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/In-My-Heart/">In My Heart</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/古风/">古风</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							
-戏腔古风收录
-戏子含着泪、把真情唱进了假戏、又被假戏冷了真心、唱尽了人生悲欢、涂尽了胭脂粉黛、回首看到芳草无情时、...
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">7月 30 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/07/30/新的偶像/">新的偶像</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/杂文/">杂文</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/哲学/">哲学</a>, <a class="tag-link" href="/tags/杂文/">杂文</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							兄弟们，别的地方现在还有民族与人群，但这决不是我们这里：我们这里只有国家。　　国家？这是什么？伸长你们的耳朵罢！我将告诉你们：民族怎样死灭的。　　国家是冷酷的怪物中之最冷酷者。他冷酷地说谎；这便是从他口里爬出来的诳语：「我，国家，便是民族。」　　这是一个诳语！凡创...
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">7月 30 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/07/30/一句话Powershell调用mimikatz抓取密码/">一句话Powershell调用mimikatz抓取Windows密码</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/渗透不测试/">渗透不测试</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/PowerShell/">PowerShell</a>, <a class="tag-link" href="/tags/密码攻击/">密码攻击</a>, <a class="tag-link" href="/tags/渗透工具/">渗透工具</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							mimikatz简要介绍
-这篇文章
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">7月 29 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/07/29/Parrot系统初始配置/">Parrot系统常用配置</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/渗透不测试/">渗透不测试</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/Parrot/">Parrot</a>, <a class="tag-link" href="/tags/渗透工具/">渗透工具</a>, <a class="tag-link" href="/tags/环境部署/">环境部署</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							//文章为个人整理搜集，部分借鉴他人经验，能找到原文的已经注明链接
-
-
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">7月 29 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/07/29/Metasploit基础使用/">Metasploit基础使用</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							<a class="category-link" href="/categories/渗透不测试/">渗透不测试</a>
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							<a class="tag-link" href="/tags/Metasploit/">Metasploit</a>, <a class="tag-link" href="/tags/渗透工具/">渗透工具</a>
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							
-笔记来自个人整理以及互联网,会在学习过程中坚持维护
-
-
-						...
-					</p>
-                    		</div>
-			</div>	
-   		
-			<div class="md-timeline-block">
-                		<div class="md-timeline-date blue">
-                   			<div class="md-date">7月 28 2017</div>
-                		</div>
-
-                		<div class="md-timeline-content">
-                    			<div class="md-timeline-title"><a href="/2017/07/28/hello-world/">Hello World</a></div>
-					<div class="md-timeline-info">
-						<span class="md-timeline-info-span">Categories:
-							
-						</span>
-						<span class="md-timeline-info-span">Tags:
-							
-						</span>
-						
-					</div>
-					<p class="md-timeline-excerpt">
-						
-							Hello World.
-据说这是惯例
-
-						...
-					</p>
-                    		</div>
-			</div>	
-   			   	  		
-   	</section>
-
-<script type="text/ls-javascript" id="page-timeline-script">
-    var adjustFooter = function() {
-        if( ($('#bottom').offset().top + $('#bottom').outerHeight() )<$(window).height() ) {
-            var footerBottom = $(window).height() - $('#bottom').outerHeight() - $('#bottom').offset().top;
-            $('#bottom').css('bottom', '-' + footerBottom + 'px');
-        }
-    };
-    $(document).ready(function() {
-        adjustFooter();
-    });
+    $('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                2017xdctf密码学-基础之base64 writeup
+            </p>
+        </div>
 
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>AresX</strong>
+        <span>10月 02, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Crypto/">Crypto</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Writeup/">Writeup</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2017xdctf密码学-基础之base64 writeup&url=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2017xdctf密码学-基础之base64 writeup&url=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html&via=AresX" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html&title=2017xdctf密码学-基础之base64 writeup" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=2017xdctf密码学-基础之base64 writeup&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/index.html&text=2017xdctf密码学-基础之base64 writeup" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>打开文件encode_code:</p>
+<pre><code>bWFpbigpe2ludCBpLG5bXT17KCgoMSA8PDEpPDwgKDE8PDEpPDwoMTw8Cm==
+ICAgICAgIDEpPDwoMTw8KDE+PjEpKSkrKCgxPDwxKTw8KDE8PDEpKSksKCgoMQp=
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxKQq=
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMQp=
+ICAgICAgIDw8MSk8PCgxPDwxKTw8ICAgICAgICAgKDE8PDEpKS0oKDE8PDEpPDwoCr==
+ICAgIAkxPDwxKTw8KDE8PDEpKSsgICAgICAgICgoMTw8MSk8PCgxPDwoMT4+Ch==
+ICAgICAgIDEpKSkrKDE8PCgxPj4xKSkpICAgICAgICAgICAgICAgICAgICAgICAgLAq=
+ICAgICAgICgoKDE8PDEpPDwoMTw8MSkgICAgICAgICAgICAgICAgICAgICAgICA8PAo=
+ICAgICAgICgxPDwxKTw8KDE8PDEpKS0oKDEgPDwxKTw8KDE8PDEpIDw8KDE8PCgxCl==
+ICAgICAgID4+MSkpKS0oKDE8PDEpPDwoMTw8KDE+PjEpKSkpLCgoKDE8PDEpCp==
+ICAgICAgIDw8KCAgICAxPDwgICAgICAgICAgICAgICAgICAgICAgICAgIDEpCt==
+ICAgICAgIDw8KCAgICAxPDwgICAgICAgICAgICAgICAgICAgICAgICAgIDEpCu==
+ICAgICAgIDw8KCAxPDwxKSktKCgxIDw8MSk8PCAoMSA8PDEpPDwoMSA8PAr=
+ICAgICAgICgxPj4xKSkpLSgoMTw8MSk8PCgxPDwoMT4+MSkpKSksKCgoMTw8MSk8PAo=
+ICAgICAgICgxPDwxKTw8KDE8PDEpPDwoMTw8MSkpLSgoMTw8MSk8PCgxPDwxKTw8KAr=
+ICAgICAgIDE8PCgxPj4xKSkpLSgxPDwoMT4+ICAgICAgICAgIDEpKSksKCgoMTw8MSk8PAq=
+ICAgICAgICgxPDwxKTw8KDE8PDEpKSsgICAgKCgxPDwxKSAgICA8PCgxPDwxKTw8Ch==
+ICAgICAgICgxPDwoMT4+MSkpKS0oKCAgICAgMTw8MSk8PCggICAgICAxPDwoMT4+Co==
+ICAgICAgIDEpKSkpLCgoMTw8MSk8PCAgICAgICgxPDwxKSAgICAgICAgPDwoMTw8MSkpCl==
+ICAgICAgICwoKCgxPDwxKTw8KDE8PCAgICAgIDEpPDwoICAgICAgIDE8PDEpPDwoMTw8MSkpLQr=
+ICAgICAgICgoMTw8MSk8PCgxPDwxKSAgICAgKS0oMTw8KDE+PjEpICAgICAgKSksKCgoCj==
+ICAgICAgIDE8PDEpPDwoMTw8MSk8PCggICAgMTw8MSk8PCgxPDwxKSktICAgICgoMQp=
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMQq=
+ICAgICAgICkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8PAp=
+ICAgICAgICgxPDwxKTw8KDE8PCgxPj4xKSkpLSgxPDwoMT4+MSkpKSwgKCgoMTw8MQp=
+ICAgICAgICk8PCgxPDwxKTw8KDE8PDEpPDwoMTw8MSkpLSgoMTw8MSk8PCAoMSAgCk==
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxCp==
+ICAgICAgICkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDw8Cn==
+ICAgICAgICggICAgIDE8PCgxPj4xKSkpKyAgICAoMTw8MSkpLCgoKDEgICAgIDw8Cj==
+ICAgICAgIDEpICAgIDw8KDE8PDEpPDwgICAgICAoMTw8MSk8PCgxICAgICAgIDw8Ck==
+ICAgICAgIDEgICAgICkpLSgoMTw8MSk8PCAgICAoMTw8MSk8PCgxICAgICAgIDw8Cj==
+ICAgICAgICggICAgIDE+PjEpKSktKCgxICAgICAgPDwxKTw8KDE8PCAgICAgICAoCj==
+ICAgICAgIDEgICAgID4+MSkpKSksKCgoMSAgICAgPDwxKTw8KDEgICAgICAgIDw8Cg==
+ICAgICAgIDEgICAgICk8PCgxPDwxKTw8KCAgICAgMTw8MSkpLSgoMSAgICAgIDw8Cm==
+ICAgICAgIDEgICAgICk8PCgxPDwxKTw8ICAgICAoMTw8MSkpKygoICAgICAgICAxCv==
+ICAgICAgIDw8MSk8PCgxPDwoMT4+MSkpKSksKCgoMTw8MSk8PCgxPDwxKSA8PCgxCm==
+ICAgICAgIDw8MSkpKygxPDwoMT4+MSkpKSwoKCgxPDwxKTw8KDE8PDEpKSArKCgxCs==
+ICAgICAgIDw8MSk8PCAoMTw8KDE+PjEpKSkgKyAoMTw8ICgxPj4xKSkpfSA7Zm9yCn==
+ICAgICAgIChpPSgxPj4xKTtpPCgoKDE8PDEpPDwoMSA8PDEpKSsoKDEgPDwxKTw8KAr=
+ICAgICAgIDE8PCgxPj4xKSkpKygxPDwxKSk7aSsrKSAgcHJpbnRmKCIlYyIsbltpXSk7fQp=
+</code></pre><p>丢进py脚本</p>
+<pre><code>import base64
+str=&quot;&quot;&quot;bWFpbigpe2ludCBpLG5bXT17KCgoMSA8PDEpPDwgKDE8PDEpPDwoMTw8Cm==
+ICAgICAgIDEpPDwoMTw8KDE+PjEpKSkrKCgxPDwxKTw8KDE8PDEpKSksKCgoMQp=
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxKQq=
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoMQp=
+ICAgICAgIDw8MSk8PCgxPDwxKTw8ICAgICAgICAgKDE8PDEpKS0oKDE8PDEpPDwoCr==
+ICAgIAkxPDwxKTw8KDE8PDEpKSsgICAgICAgICgoMTw8MSk8PCgxPDwoMT4+Ch==
+ICAgICAgIDEpKSkrKDE8PCgxPj4xKSkpICAgICAgICAgICAgICAgICAgICAgICAgLAq=
+ICAgICAgICgoKDE8PDEpPDwoMTw8MSkgICAgICAgICAgICAgICAgICAgICAgICA8PAo=
+ICAgICAgICgxPDwxKTw8KDE8PDEpKS0oKDEgPDwxKTw8KDE8PDEpIDw8KDE8PCgxCl==
+ICAgICAgID4+MSkpKS0oKDE8PDEpPDwoMTw8KDE+PjEpKSkpLCgoKDE8PDEpCp==
+ICAgICAgIDw8KCAgICAxPDwgICAgICAgICAgICAgICAgICAgICAgICAgIDEpCt==
+ICAgICAgIDw8KCAgICAxPDwgICAgICAgICAgICAgICAgICAgICAgICAgIDEpCu==
+ICAgICAgIDw8KCAxPDwxKSktKCgxIDw8MSk8PCAoMSA8PDEpPDwoMSA8PAr=
+ICAgICAgICgxPj4xKSkpLSgoMTw8MSk8PCgxPDwoMT4+MSkpKSksKCgoMTw8MSk8PAo=
+ICAgICAgICgxPDwxKTw8KDE8PDEpPDwoMTw8MSkpLSgoMTw8MSk8PCgxPDwxKTw8KAr=
+ICAgICAgIDE8PCgxPj4xKSkpLSgxPDwoMT4+ICAgICAgICAgIDEpKSksKCgoMTw8MSk8PAq=
+ICAgICAgICgxPDwxKTw8KDE8PDEpKSsgICAgKCgxPDwxKSAgICA8PCgxPDwxKTw8Ch==
+ICAgICAgICgxPDwoMT4+MSkpKS0oKCAgICAgMTw8MSk8PCggICAgICAxPDwoMT4+Co==
+ICAgICAgIDEpKSkpLCgoMTw8MSk8PCAgICAgICgxPDwxKSAgICAgICAgPDwoMTw8MSkpCl==
+ICAgICAgICwoKCgxPDwxKTw8KDE8PCAgICAgIDEpPDwoICAgICAgIDE8PDEpPDwoMTw8MSkpLQr=
+ICAgICAgICgoMTw8MSk8PCgxPDwxKSAgICAgKS0oMTw8KDE+PjEpICAgICAgKSksKCgoCj==
+ICAgICAgIDE8PDEpPDwoMTw8MSk8PCggICAgMTw8MSk8PCgxPDwxKSktICAgICgoMQp=
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMQq=
+ICAgICAgICkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8PAp=
+ICAgICAgICgxPDwxKTw8KDE8PCgxPj4xKSkpLSgxPDwoMT4+MSkpKSwgKCgoMTw8MQp=
+ICAgICAgICk8PCgxPDwxKTw8KDE8PDEpPDwoMTw8MSkpLSgoMTw8MSk8PCAoMSAgCk==
+ICAgICAgIDw8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxCp==
+ICAgICAgICkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDw8Cn==
+ICAgICAgICggICAgIDE8PCgxPj4xKSkpKyAgICAoMTw8MSkpLCgoKDEgICAgIDw8Cj==
+ICAgICAgIDEpICAgIDw8KDE8PDEpPDwgICAgICAoMTw8MSk8PCgxICAgICAgIDw8Ck==
+ICAgICAgIDEgICAgICkpLSgoMTw8MSk8PCAgICAoMTw8MSk8PCgxICAgICAgIDw8Cj==
+ICAgICAgICggICAgIDE+PjEpKSktKCgxICAgICAgPDwxKTw8KDE8PCAgICAgICAoCj==
+ICAgICAgIDEgICAgID4+MSkpKSksKCgoMSAgICAgPDwxKTw8KDEgICAgICAgIDw8Cg==
+ICAgICAgIDEgICAgICk8PCgxPDwxKTw8KCAgICAgMTw8MSkpLSgoMSAgICAgIDw8Cm==
+ICAgICAgIDEgICAgICk8PCgxPDwxKTw8ICAgICAoMTw8MSkpKygoICAgICAgICAxCv==
+ICAgICAgIDw8MSk8PCgxPDwoMT4+MSkpKSksKCgoMTw8MSk8PCgxPDwxKSA8PCgxCm==
+ICAgICAgIDw8MSkpKygxPDwoMT4+MSkpKSwoKCgxPDwxKTw8KDE8PDEpKSArKCgxCs==
+ICAgICAgIDw8MSk8PCAoMTw8KDE+PjEpKSkgKyAoMTw8ICgxPj4xKSkpfSA7Zm9yCn==
+ICAgICAgIChpPSgxPj4xKTtpPCgoKDE8PDEpPDwoMSA8PDEpKSsoKDEgPDwxKTw8KAr=
+ICAgICAgIDE8PCgxPj4xKSkpKygxPDwxKSk7aSsrKSAgcHJpbnRmKCIlYyIsbltpXSk7fQp=
+&quot;&quot;&quot;
+
+a=str.split(&quot;\n&quot;)
+for i in a:
+    s=base64.b64decode(i)
+    n=s.replace(&#39; &#39;,&#39;&#39;)
+    print n.replace(&#39;\n&#39;,&#39;&#39;)
+</code></pre><p>再手动删除换行得到:</p>
+<pre><code>main(){
+inti,n[]={(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))+((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))+((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))+(1&lt;&lt;(1&gt;&gt;1))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))-(1&lt;&lt;(1&gt;&gt;1))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))+((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))),((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-(1&lt;&lt;(1&gt;&gt;1))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))-(1&lt;&lt;(1&gt;&gt;1))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))+(1&lt;&lt;1)),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))-((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))+((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))+(1&lt;&lt;(1&gt;&gt;1))),(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))+((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))+(1&lt;&lt;(1&gt;&gt;1)))};
+for (i=(1&gt;&gt;1);i&lt;(((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;1))+((1&lt;&lt;1)&lt;&lt;(1&lt;&lt;(1&gt;&gt;1)))+(1&lt;&lt;1));i++)
+    printf(&quot;%c&quot;,n[i]);}
+</code></pre><p>c代码有木有?</p>
+<p>gcc编译运行。卵用没有。。。</p>
+<p>仔细这坨东西会发现，有很多相似的地方，几乎都是移位运算符，而且有很多相同的式子</p>
+<p>先用’2’替换’1&lt;<1'用'0'替换'1>&gt;1’</1'用'0'替换'1></p>
+<p>得到</p>
+<pre><code>main(){
+inti,n[]={(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))+((2)&lt;&lt;(2))),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(2))+((2)&lt;&lt;(1&lt;&lt;(0)))+(1&lt;&lt;(0))),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))-((2)&lt;&lt;(1&lt;&lt;(0)))),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))-((2)&lt;&lt;(1&lt;&lt;(0)))),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))-(1&lt;&lt;(0))),(((2)&lt;&lt;(2)&lt;&lt;(2))+((2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))-((2)&lt;&lt;(1&lt;&lt;(0)))),((2)&lt;&lt;(2)&lt;&lt;(2)),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2))-(1&lt;&lt;(0))),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))-(1&lt;&lt;(0))),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))+(2)),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(1&lt;&lt;(0)))-((2)&lt;&lt;(1&lt;&lt;(0)))),(((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2))-((2)&lt;&lt;(2)&lt;&lt;(2))+((2)&lt;&lt;(1&lt;&lt;(0)))),(((2)&lt;&lt;(2)&lt;&lt;(2))+(1&lt;&lt;(0))),(((2)&lt;&lt;(2))+((2)&lt;&lt;(1&lt;&lt;(0)))+(1&lt;&lt;(0)))};
+for (i=(0);i&lt;(((2)&lt;&lt;(2))+((2)&lt;&lt;(1&lt;&lt;(0)))+(2));i++)
+    printf(&quot;%c&quot;,n[i]);}
+</code></pre><p>然后，打开百度计算器,</p>
+<p>找其中有相同的，式子最长的比如<code>((2)&lt;&lt;(2)&lt;&lt;(2)&lt;&lt;(2)</code>丢进百度计算,直接百度’2&lt;&lt;2&lt;&lt;2&lt;&lt;2’得到’128’</p>
+<p>别问我为什么先找最长的。。血的教训。</p>
+<p>算了2啥的继续算，把所有移位运算都算完变成正常的加减法</p>
+<p>得到</p>
+<pre><code>main(){
+inti,n[]={((64)+(8)),((128)-(32)+(4)+(1)),((128)-(16)-(4)),((128)-(16)-(4)),((128)-(16)-(1)),((32)+(16)-(4)),(32),((128)-(8)-(1)),((128)-(16)-(1)),((128)-(16)+(2)),((128)-(16)-(4)),((128)-(32)+(4)),((32)+(1)),((8)+(4)+(1))};
+for (i=(0);i&lt;((8)+(4)+(2));i++)
+    printf(&quot;%c&quot;,n[i]);}
+</code></pre><p>然后再算加减法。。</p>
+<pre><code>main(){
+inti,n[]={72,101,108,108,111,44,32,119,111,114,108,100,33,13};
+for (i=0;i&lt;13;i++)
+    printf(&quot;%c&quot;,n[i]);}
+</code></pre><p>这就很明显了。。</p>
+<p>对应ascii找0-12位对应的字符</p>
+<p>最后得到<code>hello, world!</code></p>
+<hr>
+<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #D3D3D3;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://ares-x.com/2017/10/02/2017xdctf密码学基础之base64writeup/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//ares-x-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/02/在VS中使用bits头文件/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
 
 
 
@@ -1338,6 +939,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

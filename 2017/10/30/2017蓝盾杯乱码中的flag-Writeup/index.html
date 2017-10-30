@@ -12,6 +12,8 @@
     
     <title>
         
+            2017蓝盾杯乱码中的flag-Writeup | 
+        
         AresX&#39;s Blog
     </title>
 
@@ -38,7 +40,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="AresX">
     <meta name="description" itemprop="description" content="There is no description">
-    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Writeup,Crypto">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
@@ -67,15 +69,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://ares-x.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="AresX&#39;s Blog">
+    <meta property="og:title" content="2017蓝盾杯乱码中的flag-Writeup | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png" />
     <meta property="og:description" content="There is no description">
-    
+    <meta property="og:article:tag" content="Writeup"> <meta property="og:article:tag" content="Crypto"> 
 
+    
+        <meta property="article:published_time" content="10月 30, 2017" />
+        <meta property="article:modified_time" content="10月 30, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="AresX&#39;s Blog">
+    <meta name="twitter:title" content="2017蓝盾杯乱码中的flag-Writeup | AresX&#39;s Blog">
     <meta name="twitter:description" content="There is no description">
     <meta name="twitter:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +88,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/page/3/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "AresX&#39;s Blog",
+        "logo": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "AresX",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+        },
+        "description": "Anarchy is the key"
+    },
+    "headline": "2017蓝盾杯乱码中的flag-Writeup",
+    "url": "https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html",
+    "datePublished": "10月 30, 2017",
+    "dateModified": "10月 30, 2017",
+    "description": "There is no description",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ares-x.com"
+    }
+}
+</script>
 
 
     
@@ -285,222 +320,428 @@ document.getElementsByTagName('head')[0].appendChild(script);
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://image.3001.net/images/20170712/14998620275838.png">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/07/29/Parrot系统初始配置/">Parrot系统常用配置</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            //文章为个人整理搜集，部分借鉴他人经验，能找到原文的已经注明链接
-
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/07/29/Parrot系统初始配置/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>7月 29, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/渗透不测试/">渗透不测试</a>
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
             </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
+        </a>
     </div>
-</div>
+    -->
 
-            
-            
-        
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
     
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://cache-1253916356.file.myqcloud.com/%E7%B4%A0%E6%9D%90/u%3D1256657876%2C246930681%26fm%3D26%26gp%3D0.jpg">
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/07/29/Metasploit基础使用/">Metasploit基础使用</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-笔记来自个人整理以及互联网,会在学习过程中坚持维护
 
 
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/07/29/Metasploit基础使用/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>7月 29, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/渗透不测试/">渗透不测试</a>
-            </span>
 
-            
 
-            
+<!-- Layouts -->
 
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
+    <!-- Post Module -->
+    <div class="material-post_container">
 
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/07/28/hello-world/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Hello World.
-据说这是惯例
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/07/28/hello-world/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>7月 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                2017蓝盾杯乱码中的flag-Writeup
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>AresX</strong>
+        <span>10月 30, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Crypto/">Crypto</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Writeup/">Writeup</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2017蓝盾杯乱码中的flag-Writeup&url=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2017蓝盾杯乱码中的flag-Writeup&url=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html&via=AresX" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html&title=2017蓝盾杯乱码中的flag-Writeup" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=2017蓝盾杯乱码中的flag-Writeup&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html&text=2017蓝盾杯乱码中的flag-Writeup" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>题干:乱码中的flag</p>
+<p>密文:</p>
+<pre><code>fb+vArDN~wolP7`6DuZ0m@KFsw?ik{+.a1!xCsOyVzKJrsjp)$/T*}+kD0-&gt;i8GgA}U%mfXXoEyP,xHHuhIDtY&gt;LaZo.E_)K]mwwzeyt:0MQ7Ses@X01z4C?rB],/y6sB1pe([3Qaz=2ur$e$yHhE.Cq&gt;Clb(!@[39~a}ss$;aJD8@Vz$@qh4/o&gt;6+Es833O*a.92*=4^YJ:mp^&amp;l#Dn2O~&lt;d8lalkJ&amp;6WPesp33{(`-([3:!fK$Vik3^bWSG~]ql`J*hB_U:ZLQK#GNSl#4=-m0(Y#@aR2c7yj%Ko60opU6d2ar+UIQIkG;6P08x&amp;ibi&amp;ZNAl#lySal&amp;f,G}`9ur[shD[LJ-6ob4;98}vD$T8w+gG&lt;dt9w&gt;k?hZZ]4?%.W1S*Jyz/)C+@)DiaeE~%-})YmeBka(hu&gt;e`IZ9^?Z!A!6,e)X$g&amp;G6npG-Ke.4IjP%[+.1ug-P8i+fI9bFnq)TyT4X]}9P@Co$W%tgy_uKx&lt;h^U`gal)F0^.*svCMtzqt576]$cUR7tB[;tk@w&gt;UWmH`UM~g-KUNoipz]bI1.&amp;1e-tp*!z{^1Q?2BOytRSkZcRJ6*r7@=X?v8tCj0Y053)h_lpK5[x_l`lt@7NtYW:zPvijB#+3dUwt2HrH,uKN(*}D&gt;=Cq)?SbS*9S(n1m6!iOzw0&amp;wn`P5AsLoJ9XThC&lt;)pe_R&gt;@hV[me[v;d6+/_a_4g@-R`6qP#zD`8d,#):06!Qy?m{RQculp:nHe*_rm`Y%qP(xTGmwE/(8u**YDi7wk=bE5,_9){.P;3_J1W!eWnn8OKHTv,^*)#L0npJY-4%MxRwqWiJZ5iH&gt;4En.-i[{Abs;p8}FYUh/+*PWs&amp;mg]h&lt;aTfIHA%$vw$(Y.zm,3DN1)s]la[&gt;`cirnP`TPi`?EwmA]n!(1N*E~nD!sv[v{nV&gt;{N)#&gt;7ENc)g*sQmALczN{uFr@^2z&lt;@Vx$1j:4b_S?,)4up8G~jB?[Ttw0CGa({m`R/m@![G[vwE6z#ezs1j}#LrOmai9G&amp;0g0(XZ:c2US#F5lgc&gt;{QRNw6KaUN-[#d(0S{JD8]=:Ma,Y=r^vu6%8dj`yup#^Jh?$U&lt;@0tyB#JPY&lt;A`;Rkd&gt;Ksd6w91s}jH6Y5R=HoqmwbPj1&gt;kMs~K5,nKiTplz-Oo(W,BMpm8l[VzdbUB)MBcMpIh~.JHJ.}.DRLCdI{.wZ$DY6!quF{:ojZTs`&lt;x_JjFEkkR09B9&lt;Ra*s6N2p;I72z=Dt927mB)nZ[rJFAme#;_N4vTE;E`YWN^uGv@Ny@JvVY=L9hYBo^QHY#!_g@{LLn?PSccxS3UXu1F!dN3KGp$y`hn8(.._,VU&gt;njcg~vR9xZe0,5@Jb?q:33mjQ&gt;dhr?q,Xs^+JTlS#`jV2;ys:+X/kF,^0jKP#N5x7PmG+sl&lt;(ys~*yN5?)]Fy90f$G_5_]e$9ca$Q#7oxNX?smw`/*oqVq8X&gt;s_)T^]@rwSd&gt;74/4)Oso,(&gt;6nFL?`~yp):4$8dX+zp6v0IlT6];LZ_AqR]hJHbBJ+DQ9Tt/Aj6po[gpr_m,^pO1^R:br`,Nof&lt;5]Y,}
+
+
+
+
+
+
+
+
+
+flag:bdctf{xxxx}
+</code></pre><p>CTF中没有没有用处的提示,比如本题最下方写的<code>flag:bdctf{xxxx}</code></p>
+<p>仔细看这段乱码，第一个字母f,第11个字母是l,而a这个字母在第32位</p>
+<p>所以找一下这些字母之间的位次规律</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span>str<span class="token operator">=</span><span class="token string">'fb+vArDN~wolP7`6DuZ0m@KFsw?ik{+.a1!xCsOyVzKJrsjp)$/T*}+kD0->i8GgA}U%mfXXoEyP,xHHuhIDtY>LaZo.E_)K]mwwzeyt:0MQ7Ses@X01z4C?rB],/y6sB1pe([3Qaz=2ur$e$yHhE.Cq>Clb(!@[39~a}ss$;aJD8@Vz$@qh4/o>6+Es833O*a.92*=4^YJ:mp^&amp;l#Dn2O~&lt;d8lalkJ&amp;6WPesp33{(`-([3:!fK$Vik3^bWSG~]ql`J*hB_U:ZLQK#GNSl#4=-m0(Y#@aR2c7yj%Ko60opU6d2ar+UIQIkG;6P08x&amp;ibi&amp;ZNAl#lySal&amp;f,G}`9ur[shD[LJ-6ob4;98}vD$T8w+gG&lt;dt9w>k?hZZ]4?%.W1S*Jyz/)C+@)DiaeE~%-})YmeBka(hu>e`IZ9^?Z!A!6,e)X$g&amp;G6npG-Ke.4IjP%[+.1ug-P8i+fI9bFnq)TyT4X]}9P@Co$W%tgy_uKx&lt;h^U`gal)F0^.*svCMtzqt576]$cUR7tB[;tk@w>UWmH`UM~g-KUNoipz]bI1.&amp;1e-tp*!z{^1Q?2BOytRSkZcRJ6*r7@=X?v8tCj0Y053)h_lpK5[x_l`lt@7NtYW:zPvijB#+3dUwt2HrH,uKN(*}D>=Cq)?SbS*9S(n1m6!iOzw0&amp;wn`P5AsLoJ9XThC&lt;)pe_R>@hV[me[v;d6+/_a_4g@-R`6qP#zD`8d,#):06!Qy?m{RQculp:nHe*_rm`Y%qP(xTGmwE/(8u**YDi7wk=bE5,_9){.P;3_J1W!eWnn8OKHTv,^*)#L0npJY-4%MxRwqWiJZ5iH>4En.-i[{Abs;p8}FYUh/+*PWs&amp;mg]h&lt;aTfIHA%$vw$(Y.zm,3DN1)s]la[>`cirnP`TPi`?EwmA]n!(1N*E~nD!sv[v{nV>{N)#>7ENc)g*sQmALczN{uFr@^2z&lt;@Vx$1j:4b_S?,)4up8G~jB?[Ttw0CGa({m`R/m@![G[vwE6z#ezs1j}#LrOmai9G&amp;0g0(XZ:c2US#F5lgc>{QRNw6KaUN-[#d(0S{JD8]=:Ma,Y=r^vu6%8dj`yup#^Jh?$U&lt;@0tyB#JPY&lt;A`;Rkd>Ksd6w91s}jH6Y5R=HoqmwbPj1>kMs~K5,nKiTplz-Oo(W,BMpm8l[VzdbUB)MBcMpIh~.JHJ.}.DRLCdI{.wZ$DY6!quF{:ojZTs`&lt;x_JjFEkkR09B9&lt;Ra*s6N2p;I72z=Dt927mB)nZ[rJFAme#;_N4vTE;E`YWN^uGv@Ny@JvVY=L9hYBo^QHY#!_g@{LLn?PSccxS3UXu1F!dN3KGp$y`hn8(.._,VU>njcg~vR9xZe0,5@Jb?q:33mjQ>dhr?q,Xs^+JTlS#`jV2;ys:+X/kF,^0jKP#N5x7PmG+sl&lt;(ys~*yN5?)]Fy90f$G_5_]e$9ca$Q#7oxNX?smw`/*oqVq8X>s_)T^]@rwSd>74/4)Oso,(>6nFL?`~yp):4$8dX+zp6v0IlT6];LZ_AqR]hJHbBJ+DQ9Tt/Aj6po[gpr_m,^pO1^R:br`,Nof&lt;5]Y,}'</span>
+
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token string">'flag:bdctf{'</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> str<span class="token punctuation">.</span>index<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+<span class="token number">0</span>
+<span class="token number">11</span>
+<span class="token number">32</span>
+<span class="token number">63</span>
+<span class="token number">104</span>
+<span class="token number">1</span>
+<span class="token number">216</span>
+<span class="token number">287</span>
+<span class="token number">84</span>
+<span class="token number">0</span>
+<span class="token number">29</span>
+</code></pre>
+<p>看输出结果的前4个数</p>
+<p>0-11 个位0-&gt;1,十位+1</p>
+<p>11-32 个位1-&gt;2,十位+2</p>
+<p>32-63 个位2-&gt;3,十位+3</p>
+<p>63-104 个位3-&gt;4,十位+4</p>
+<p>然后到这里就断了，变成了1</p>
+<p>能看出这是一个个位从0-n依次变化，十位从1-n自增的变化规律</p>
+<p>到这里计算下一位</p>
+<p>十位10+5=15,个位4+1=5就是155</p>
+<p>下面依次按规律计算到287，又断了，剩下的需要自己去计算</p>
+<p>按规律，下面的是<br>368<br>459</p>
+<p>到459是flag格式内容的<code>f</code>,后面应该是<code>{</code>了</p>
+<p>找一下<code>{</code>的位置</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> num <span class="token operator">=</span><span class="token number">0</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> i <span class="token keyword">in</span> str<span class="token punctuation">:</span>
+    num<span class="token operator">+=</span><span class="token number">1</span>
+    <span class="token keyword">if</span> i <span class="token operator">==</span><span class="token string">'{'</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> num
+
+
+<span class="token number">30</span>
+<span class="token number">233</span>
+<span class="token number">561</span>
+<span class="token number">730</span>
+<span class="token number">777</span>
+<span class="token number">831</span>
+<span class="token number">915</span>
+<span class="token number">919</span>
+<span class="token number">939</span>
+<span class="token number">980</span>
+<span class="token number">1031</span>
+<span class="token number">1048</span>
+<span class="token number">1179</span>
+<span class="token number">1191</span>
+<span class="token number">1287</span>
+</code></pre>
+<p>据459最近的是561,由于python中的字符串是从0开始计数的，则在程序中字符串位置为<code>560</code></p>
+<p>到这里，个位由9-&gt;10,10向十位进一，个位为0，十位45+10+1=56,则结果为560,与判断一致</p>
+<p>然后依次进行下面的计算，到最后一个字母1547终止</p>
+<p>结果为: </p>
+<pre><code>0
+11
+32 2
+63 3
+104 4
+155 5
+216 6
+287 7
+368 8
+459 9
+560 10
+671 11
+792 12
+923 13
+1064 14
+1215 15
+1376 16
+1547 17
+</code></pre><p>第二列数字是十位之间的差，得到这个结果后用脚本依次输出所在位置的字符</p>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">63</span><span class="token punctuation">,</span><span class="token number">104</span><span class="token punctuation">,</span><span class="token number">155</span><span class="token punctuation">,</span><span class="token number">216</span><span class="token punctuation">,</span><span class="token number">287</span><span class="token punctuation">,</span><span class="token number">368</span><span class="token punctuation">,</span><span class="token number">459</span><span class="token punctuation">,</span><span class="token number">560</span><span class="token punctuation">,</span><span class="token number">671</span><span class="token punctuation">,</span><span class="token number">792</span><span class="token punctuation">,</span><span class="token number">923</span><span class="token punctuation">,</span><span class="token number">1064</span><span class="token punctuation">,</span><span class="token number">1215</span><span class="token punctuation">,</span><span class="token number">1376</span><span class="token punctuation">,</span><span class="token number">1547</span><span class="token punctuation">,</span><span class="token number">1728</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> i <span class="token keyword">in</span> a<span class="token punctuation">:</span>
+    <span class="token keyword">print</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+
+f l a g <span class="token punctuation">:</span> b d c t f <span class="token punctuation">{</span> s K <span class="token number">7</span> <span class="token operator">%</span> <span class="token operator">*</span> k <span class="token punctuation">}</span>
+</code></pre>
+<p>去掉空格,得到<code>flag:bdctf{sK7%*k}</code></p>
+<hr>
+<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #D3D3D3;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//ares-x-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/28/Typecho预留后门exp/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

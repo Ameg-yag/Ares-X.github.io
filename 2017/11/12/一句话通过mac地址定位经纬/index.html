@@ -536,29 +536,29 @@ document.getElementsByTagName('head')[0].appendChild(script);
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>命令:</p>
-<pre class=" language-shell"><code class="language-shell">curl -i -s -k -X 'POST' -H 'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)' -H 'Content-Type: application/x-www-form-urlencoded' \
-'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&lac=-1&cellid=-1&operatorid=null&countrycode=null&signalstrength=-1&wifinetworks=000000000000:-65&app=ymetro'
+<pre class=" language-bash"><code class="language-bash">curl -i -s -k -X <span class="token string">'POST'</span> -H <span class="token string">'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)'</span> -H <span class="token string">'Content-Type: application/x-www-form-urlencoded'</span> \
+<span class="token string">'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&amp;lac=-1&amp;cellid=-1&amp;operatorid=null&amp;countrycode=null&amp;signalstrength=-1&amp;wifinetworks=000000000000:-65&amp;app=ymetro'</span>
 </code></pre>
 <p>使用方法，将url中的000000000替换为要查询的mac地址</p>
 <p>例子</p>
-<pre class=" language-shell"><code class="language-shell">curl -i -s -k -X 'POST' -H 'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)' -H 'Content-Type: application/x-www-form-urlencoded' \
-'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&lac=-1&cellid=-1&operatorid=null&countrycode=null&signalstrength=-1&wifinetworks=801F0252BC64:-65&app=ymetro'
+<pre class=" language-bash"><code class="language-bash">curl -i -s -k -X <span class="token string">'POST'</span> -H <span class="token string">'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)'</span> -H <span class="token string">'Content-Type: application/x-www-form-urlencoded'</span> \
+<span class="token string">'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&amp;lac=-1&amp;cellid=-1&amp;operatorid=null&amp;countrycode=null&amp;signalstrength=-1&amp;wifinetworks=801F0252BC64:-65&amp;app=ymetro'</span>
 </code></pre>
-<pre class=" language-shell"><code class="language-shell">─[parrot@parrot]─[~]
-└──╼ $curl -i -s -k -X 'POST' -H 'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)' -H 'Content-Type: application/x-www-form-urlencoded' \
-> 'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&lac=-1&cellid=-1&operatorid=null&countrycode=null&signalstrength=-1&wifinetworks=801F0252BC64:-65&app=ymetro'
+<pre class=" language-bash"><code class="language-bash">─<span class="token punctuation">[</span>parrot@parrot<span class="token punctuation">]</span>─<span class="token punctuation">[</span>~<span class="token punctuation">]</span>
+└──╼ <span class="token variable">$curl</span> -i -s -k -X <span class="token string">'POST'</span> -H <span class="token string">'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)'</span> -H <span class="token string">'Content-Type: application/x-www-form-urlencoded'</span> \
+<span class="token operator">></span> <span class="token string">'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&amp;lac=-1&amp;cellid=-1&amp;operatorid=null&amp;countrycode=null&amp;signalstrength=-1&amp;wifinetworks=801F0252BC64:-65&amp;app=ymetro'</span>
 HTTP/1.1 200 Ok
 Server: nginx/1.8.1
 Date: Sun, 12 Nov 2017 08:47:27 GMT
-Content-Type: text/xml; charset=utf-8
+Content-Type: text/xml<span class="token punctuation">;</span> charset<span class="token operator">=</span>utf-8
 Content-Length: 192
 Connection: keep-alive
 X-YaRequestId: 2c7b6bbf-1fb1-1bab-d136-a47b149b6c0f
 
-<?xml version="1.0" encoding="utf-8"?>
-<location source="FoundByWifi">
-    <coordinates latitude="56.1088104" longitude="47.1786842" nlatitude="56.1096986" nlongitude="47.1802770" />
-</location>
+<span class="token operator">&lt;</span>?xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span>?<span class="token operator">></span>
+<span class="token operator">&lt;</span>location source<span class="token operator">=</span><span class="token string">"FoundByWifi"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>coordinates latitude<span class="token operator">=</span><span class="token string">"56.1088104"</span> longitude<span class="token operator">=</span><span class="token string">"47.1786842"</span> nlatitude<span class="token operator">=</span><span class="token string">"56.1096986"</span> nlongitude<span class="token operator">=</span><span class="token string">"47.1802770"</span> /<span class="token operator">></span>
+<span class="token operator">&lt;</span>/location<span class="token operator">></span>
 </code></pre>
 <p>经纬度即为:</p>
 <p><code>latitude=&quot;56.1088104&quot; longitude=&quot;47.1786842&quot;</code></p>

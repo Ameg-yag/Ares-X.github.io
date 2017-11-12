@@ -536,12 +536,14 @@ document.getElementsByTagName('head')[0].appendChild(script);
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>命令:</p>
-<pre><code>curl -i -s -k -X &#39;POST&#39; -H &#39;User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)&#39; -H &#39;Content-Type: application/x-www-form-urlencoded&#39; \
-&#39;http://mobile.maps.yandex.net/cellid_location/?clid=1866854&amp;lac=-1&amp;cellid=-1&amp;operatorid=null&amp;countrycode=null&amp;signalstrength=-1&amp;wifinetworks=000000000000:-65&amp;app=ymetro&#39;
-</code></pre><p>使用方法，将url中的000000000替换为要查询的mac地址</p>
+<pre class=" language-shell"><code class="language-shell">curl -i -s -k -X 'POST' -H 'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)' -H 'Content-Type: application/x-www-form-urlencoded' \
+'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&lac=-1&cellid=-1&operatorid=null&countrycode=null&signalstrength=-1&wifinetworks=000000000000:-65&app=ymetro'
+</code></pre>
+<p>使用方法，将url中的000000000替换为要查询的mac地址</p>
 <p>例子</p>
-<pre><code>curl -i -s -k -X &#39;POST&#39; -H &#39;User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)&#39; -H &#39;Content-Type: application/x-www-form-urlencoded&#39; \
-</code></pre><p>‘<a href="http://mobile.maps.yandex.net/cellid_location/?clid=1866854&amp;lac=-1&amp;cellid=-1&amp;operatorid=null&amp;countrycode=null&amp;signalstrength=-1&amp;wifinetworks=801F0252BC64:-65&amp;app=ymetro" target="_blank" rel="external">http://mobile.maps.yandex.net/cellid_location/?clid=1866854&amp;lac=-1&amp;cellid=-1&amp;operatorid=null&amp;countrycode=null&amp;signalstrength=-1&amp;wifinetworks=801F0252BC64:-65&amp;app=ymetro</a>‘</p>
+<pre class=" language-shell"><code class="language-shell">curl -i -s -k -X 'POST' -H 'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)' -H 'Content-Type: application/x-www-form-urlencoded' \
+'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&lac=-1&cellid=-1&operatorid=null&countrycode=null&signalstrength=-1&wifinetworks=801F0252BC64:-65&app=ymetro'
+</code></pre>
 <pre class=" language-shell"><code class="language-shell">─[parrot@parrot]─[~]
 └──╼ $curl -i -s -k -X 'POST' -H 'User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.1; Nexus 5 Build/LRX22C)' -H 'Content-Type: application/x-www-form-urlencoded' \
 > 'http://mobile.maps.yandex.net/cellid_location/?clid=1866854&lac=-1&cellid=-1&operatorid=null&countrycode=null&signalstrength=-1&wifinetworks=801F0252BC64:-65&app=ymetro'

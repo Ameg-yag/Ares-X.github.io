@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>https://ares-x.com/2017/11/07/CTF-Misc%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2017-11-20T03:11:54.629Z</lastmod>
+    <data>
+        <display>
+        <title>CTF-Misc总结</title>
+        <pubTime>2017-11-07T10:04:17.000Z</pubTime>
+        
+        <tag>Misc</tag>
+         
+         
+           
+             
+              <breadCrumb title="CTF" url="https://ares-x.com/categories/CTF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ares-x.com/2017/11/20/USB%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2017-11-20T03:10:45.731Z</lastmod>
+    <data>
+        <display>
+        <title>USB流量分析</title>
+        <pubTime>2017-11-20T03:08:16.000Z</pubTime>
+        
+        <tag>MISC</tag>
+         
+        <tag>流量分析</tag>
+         
+         
+           
+             
+              <breadCrumb title="CTF" url="https://ares-x.com/categories/CTF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ares-x.com/2017/11/12/%E4%B8%80%E5%8F%A5%E8%AF%9D%E9%80%9A%E8%BF%87mac%E5%9C%B0%E5%9D%80%E5%AE%9A%E4%BD%8D%E7%BB%8F%E7%BA%AC/</loc>
     <lastmod>2017-11-12T08:54:42.473Z</lastmod>
     <data>
@@ -31,9 +73,9 @@
         <title>Metasploit基础使用</title>
         <pubTime>2017-07-29T13:25:11.000Z</pubTime>
         
-        <tag>渗透工具</tag>
-         
         <tag>Metasploit</tag>
+         
+        <tag>渗透工具</tag>
          
          
            
@@ -79,26 +121,6 @@
         <tag>Writeup</tag>
          
         <tag>Crypto</tag>
-         
-         
-           
-             
-              <breadCrumb title="CTF" url="https://ares-x.com/categories/CTF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ares-x.com/2017/11/07/CTF-Misc%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2017-11-07T10:04:54.115Z</lastmod>
-    <data>
-        <display>
-        <title>CTF-Misc总结</title>
-        <pubTime>2017-11-07T10:04:17.000Z</pubTime>
-        
-        <tag>Misc</tag>
          
          
            
@@ -384,9 +406,9 @@
         <title>Parrot系统常用配置</title>
         <pubTime>2017-07-29T13:56:37.000Z</pubTime>
         
-        <tag>Parrot</tag>
-         
         <tag>渗透工具</tag>
+         
+        <tag>Parrot</tag>
          
         <tag>环境部署</tag>
          
@@ -472,9 +494,9 @@
         <title>异域镇魂曲:主管信仰与客观实在</title>
         <pubTime>2017-08-04T06:43:26.000Z</pubTime>
         
-        <tag>异域镇魂曲</tag>
-         
         <tag>哲学</tag>
+         
+        <tag>异域镇魂曲</tag>
          
         <tag>游戏</tag>
          
@@ -496,9 +518,9 @@
         <title>新的偶像</title>
         <pubTime>2017-07-30T07:45:52.000Z</pubTime>
         
-        <tag>哲学</tag>
-         
         <tag>杂文</tag>
+         
+        <tag>哲学</tag>
          
          
            

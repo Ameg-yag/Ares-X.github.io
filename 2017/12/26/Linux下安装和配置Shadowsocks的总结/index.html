@@ -538,42 +538,46 @@ document.getElementsByTagName('head')[0].appendChild(script);
         <h2 id="Shadowsocks-qt5"><a href="#Shadowsocks-qt5" class="headerlink" title="Shadowsocks-qt5"></a>Shadowsocks-qt5</h2><h3 id="通过更新源安装"><a href="#通过更新源安装" class="headerlink" title="通过更新源安装:"></a>通过更新源安装:</h3><p>在 /etc/apt/sources.list.d/ 目录下新建<code>shadowsocks-qt5.list</code>打开该文件添加 </p>
 <pre><code>deb http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu devel main 
 </code></pre><p>执行</p>
-<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6DA746A05F00FA99
-apt-get update &amp;&amp; apt-get install shadowsocks-qt5 
-</code></pre><hr>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6DA746A05F00FA99
+<span class="token function">apt-get</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">apt-get</span> <span class="token function">install</span> shadowsocks-qt5
+</code></pre>
+<hr>
 <h3 id="通过编译安装"><a href="#通过编译安装" class="headerlink" title="通过编译安装"></a>通过编译安装</h3><p>参考<a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki" target="_blank" rel="external">官方wiki</a></p>
-<h4 id="安装-libqtshadowsocks-dev"><a href="#安装-libqtshadowsocks-dev" class="headerlink" title="安装 libqtshadowsocks-dev"></a>安装 libqtshadowsocks-dev</h4><pre><code>apt-get install qt5-qmake qtbase5-dev libbotan1.10-dev pkg-config debhelper
-apt-get install cmake
-git clone https://github.com/shadowsocks/libQtShadowsocks.git
-cd libQtShadowsocks/
+<h4 id="安装-libqtshadowsocks-dev"><a href="#安装-libqtshadowsocks-dev" class="headerlink" title="安装 libqtshadowsocks-dev"></a>安装 libqtshadowsocks-dev</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> qt5-qmake qtbase5-dev libbotan1.10-dev pkg-config debhelper
+<span class="token function">apt-get</span> <span class="token function">install</span> cmake
+<span class="token function">git</span> clone https://github.com/shadowsocks/libQtShadowsocks.git
+<span class="token function">cd</span> libQtShadowsocks/
 dpkg-buildpackage -uc -us -b
-</code></pre><p>注意这一步选择对应的版本和架构(如果你是32位的，后面就不是amd64而是i386)，自己看编译好的文件名称进行安装</p>
+</code></pre>
+<p>注意这一步选择对应的版本和架构(如果你是32位的，后面就不是amd64而是i386)，自己看编译好的文件名称进行安装</p>
 <pre><code>dpkg -i ../libqtshadowsocks_1.11.0-1_amd64.deb ../libqtshadowsocks-dev_1.11.0-1_amd64.deb
 cd ..
 </code></pre><hr>
-<h4 id="安装ss-qt5"><a href="#安装ss-qt5" class="headerlink" title="安装ss-qt5"></a>安装ss-qt5</h4><pre><code>apt-get install libqrencode-dev libzbar-dev libappindicator-dev
-git clone https://github.com/shadowsocks/shadowsocks-qt5.git
-cd shadowsocks-qt5/
+<h4 id="安装ss-qt5"><a href="#安装ss-qt5" class="headerlink" title="安装ss-qt5"></a>安装ss-qt5</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libqrencode-dev libzbar-dev libappindicator-dev
+<span class="token function">git</span> clone https://github.com/shadowsocks/shadowsocks-qt5.git
+<span class="token function">cd</span> shadowsocks-qt5/
 dpkg-buildpackage -uc -us -b
-dpkg -i ../shadowsocks-qt5_2.9.0-1_amd64.deb
-</code></pre><hr>
+dpkg -i <span class="token punctuation">..</span>/shadowsocks-qt5_2.9.0-1_amd64.deb
+</code></pre>
+<hr>
 <h2 id="shadowsocks-console"><a href="#shadowsocks-console" class="headerlink" title="shadowsocks-console"></a>shadowsocks-console</h2><pre><code>sudo apt-get install python-pip
 sudo pip install shadowsocks
 </code></pre><p>  ● 然后创建配置文件</p>
 <pre><code>sudo gedit /etc/shadowsocks.json
 </code></pre><p>加入下面的配置内容，并补全配置信息</p>
-<pre><code>{
-    &quot;server&quot;:&quot;服务器地址&quot;,
-    &quot;server_port&quot;:服务器端口号,
-    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;password&quot;:&quot;密码&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;加密方式&quot;,
-    &quot;fast_open&quot;: true,
-    &quot;workers&quot;: 1
-}
-</code></pre><p>  ● 启动客户端</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"server"</span><span class="token operator">:</span><span class="token string">"服务器地址"</span><span class="token punctuation">,</span>
+    <span class="token property">"server_port"</span><span class="token operator">:</span>服务器端口号<span class="token punctuation">,</span>
+    <span class="token property">"local_address"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"local_port"</span><span class="token operator">:</span><span class="token number">1080</span><span class="token punctuation">,</span>
+    <span class="token property">"password"</span><span class="token operator">:</span><span class="token string">"密码"</span><span class="token punctuation">,</span>
+    <span class="token property">"timeout"</span><span class="token operator">:</span><span class="token number">300</span><span class="token punctuation">,</span>
+    <span class="token property">"method"</span><span class="token operator">:</span><span class="token string">"加密方式"</span><span class="token punctuation">,</span>
+    <span class="token property">"fast_open"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"workers"</span><span class="token operator">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>  ● 启动客户端</p>
 <pre><code> sslocal -c /etc/shadowsocks.json
 </code></pre><p>  ● 配置proxychain</p>
 <pre><code>默认已经安装

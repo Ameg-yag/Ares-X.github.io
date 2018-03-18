@@ -44,48 +44,6 @@
 
     
   <url>
-    <loc>https://ares-x.com/2018/02/21/%E4%BD%BF%E7%94%A8%E9%85%B7Q%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AE%9E%E7%8E%B0Discourse%E8%AE%BA%E5%9D%9B%E5%8A%A8%E6%80%81%E6%8E%A8%E9%80%81/</loc>
-    <lastmod>2018-02-21T04:24:23.603Z</lastmod>
-    <data>
-        <display>
-        <title>使用酷Q机器人实现Discourse论坛动态推送</title>
-        <pubTime>2018-02-21T04:22:46.000Z</pubTime>
-        
-        <tag>Discourse</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程无道" url="https://ares-x.com/categories/%E7%BC%96%E7%A8%8B%E6%97%A0%E9%81%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ares-x.com/2018/02/14/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8Discourse%E7%9A%84Webhook%E5%92%8CQQbot%E5%AE%9E%E7%8E%B0%E8%AE%BA%E5%9D%9B%E5%8A%A8%E6%80%81%E6%8E%A8%E9%80%81%E7%9A%84%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2018-02-14T08:12:16.579Z</lastmod>
-    <data>
-        <display>
-        <title>关于使用Discourse的Webhook和QQbot实现论坛动态推送的记录</title>
-        <pubTime>2018-02-14T08:08:47.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>Discourse</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程无道" url="https://ares-x.com/categories/%E7%BC%96%E7%A8%8B%E6%97%A0%E9%81%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://ares-x.com/2018/01/17/%E4%BD%BF%E7%94%A8Digispark%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84BadUSB/</loc>
     <lastmod>2018-02-02T16:06:12.180Z</lastmod>
     <data>
@@ -828,9 +786,9 @@
         <title>异域镇魂曲:主管信仰与客观实在</title>
         <pubTime>2017-08-04T06:43:26.000Z</pubTime>
         
-        <tag>哲学</tag>
-         
         <tag>异域镇魂曲</tag>
+         
+        <tag>哲学</tag>
          
         <tag>游戏</tag>
          
@@ -852,9 +810,9 @@
         <title>新的偶像</title>
         <pubTime>2017-07-30T07:45:52.000Z</pubTime>
         
-        <tag>杂文</tag>
-         
         <tag>哲学</tag>
+         
+        <tag>杂文</tag>
          
          
            

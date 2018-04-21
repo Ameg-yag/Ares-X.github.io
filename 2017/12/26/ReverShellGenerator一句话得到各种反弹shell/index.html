@@ -630,7 +630,7 @@ Select your payload, press any key to start the nc listener and send it to the t
     var guest_info = 'nick,mail,link'.split(',').filter(function(item){
         return GUEST_INFO.indexOf(item) > -1
     });
-    var notify = 'false' == true;
+    var notify = 'true' == true;
     var verify = 'false' == true;
     new Valine({
         el: '.vcomment',

@@ -130,11 +130,7 @@ var arduinoMap = {
   KEYMAP: arduinokeyMap,
   KEYSTROKES: function(modifiers, keys, commands) {
     var s ='';
-    for (i=0; i<modifiers.length; ++ i) {
-        s +=  '  Keyboard.press(' + modifiers[i] + ');\n';
-    }
-
-    if (modifiers.length > 0) {
+    for (i=0; i<modifiers.length; ++="" i)="" {="" s="" +="  Keyboard.press(" modifiers[i]="" ');\n';="" }="" if="" (modifiers.length=""> 0) {
       if (keys.length > 0)
         s += '  Keyboard.press(\'' + keys[0] + '\');\n';
 
@@ -251,7 +247,7 @@ var digisparkMap = {
     return 0;
   },
   PROLOG: function() {
-    return '#include <avr/pgmspace.h>\n'
+    return '#include <avr pgmspace.h="">\n'
     + '#include "DigiKeyboard.h"\n'
     + constOut + '\n'
     + 'char buffer[256];\n\n'
@@ -353,161 +349,7 @@ class Dckuinojs {
     }  // Returning the total uploadable script
 
     return '/*\n'
-    + ' * Generated with <3 by Dckuino.js, an open source project !\n'
-    + ' */\n\n'
-    + this.deviceMap['PROLOG']()
-    + parsedDucky
-    + this.deviceMap['EPILOG']();
-  }
-
-  // The parsing function
-   _parse(toParse)
-  {
-    // Init chronometer
-    var timerStart = Date.now();
-
-    // Preset all used vars
-    var parsedScript = '';
-    var lastLines;
-    var lastCount;
-    var parsedOut = '';
-
-    var commandKnown = false;
-    var noNewline = false;
-    var noDelay = false;
-    var nextNoDelay = false;
-
-    var wordArray;
-    var wordOne;
-
-    // Init default delay
-    var defaultDelay = 0;
-
-    // Trim whitespaces
-    toParse = toParse.replace(/^ +| +$/gm, '');
-
-    // Remove all *ugly* tabs
-    toParse = toParse.replace(/\t/g, '');
-
-    // Cut the input in lines
-    var lineArray = toParse.split('\n');
-
-    // Loop every line
-    for (var i = 0; i < lineArray.length; i++)
-    {
-      // Line empty, skip
-      if (lineArray[i] === '' || lineArray[i] === '\n')
-      {
-        console.log('Info: Skipped line ' + (i + 1) + ', because was empty.');
-        continue;
-      }
-
-      // Outputs, for REPLAY/REPEAT COMMANDS
-      if (parsedOut !== undefined && parsedOut !== '')
-      {
-        lastLines = parsedOut;
-        lastCount = ((lastLines.split('\n')).length + 1);
-      }
-
-      // Reset line buffer
-      parsedOut = '';
-
-      // Set to unknown command by default
-      commandKnown = false;
-
-      // releaseAll & noNewline & noDelay; *Line Modifiers*
-      noNewline = false;
-      noDelay = nextNoDelay;
-      nextNoDelay = false;
-
-      // Cut every line in words & store the first word in a var
-      wordArray = lineArray[i].split(' ');
-      wordOne = wordArray[0];
-
-      // Parse commands
-      switch(wordOne){
-        case "STRING":
-          wordArray.shift();
-
-          var textString = wordArray.join(' ');
-          parsedOut = '';
-
-          // Create 255-byte chunks
-          var chunks = textString.match(/[\s\S]{1,255}/g) || [];
-          for (var chunk in chunks) {
-
-            // Replace all '"' by '\"' and all '\' by '\\'
-            textString = chunks[chunk].split('\\').join('\\\\').split('"').join('\\"');
-            if (textString !== '')
-            {
-              strCount = strCount + 1
-              parsedOut += this.deviceMap['PARSE_STRING'](textString); 
-              commandKnown = true;
-            } else {
-              console.error('Error: at line: ' + (i + 1) + ', STRING needs a text');
-              return;
-            }
-          }
-
-          break;
-        case "DELAY":
-          wordArray.shift();
-
-          if(wordArray[0] === undefined || wordArray[0] === '') {
-            console.error('Error: at line: ' + (i + 1) + ', DELAY needs a time');
-            return;
-          }
-
-          if (! isNaN(wordArray[0]))
-          {
-            parsedOut = this.deviceMap['DELAY'](wordArray[0]);
-            commandKnown = true; noDelay = true; nextNoDelay = true;
-          } else {
-            console.error('Error: at line: ' + (i + 1) + ', DELAY only accepts numbers');
-            return;
-          }
-          break;
-        case "DEFAULT_DELAY":
-        case "DEFAULTDELAY":
-          wordArray.shift();
-
-          if(wordArray[0] === undefined || wordArray[0] === '') {
-            console.error('Error: at line: ' + (i + 1) + ', DEFAULT_DELAY needs a time');
-            return;
-          }
-
-          if (! isNaN(wordArray[0]))
-          {
-            defaultDelay = wordArray[0];
-            commandKnown = true; noNewline = true; noDelay = true;
-          } else {
-            console.error('Error: at line: ' + (i + 1) + ', DEFAULT_DELAY only accepts numbers');
-            return;
-          }
-          break;
-        case "TYPE":
-          wordArray.shift();
-
-          if(wordArray[0] === undefined || wordArray[0] === '') {
-            console.error('Error: at line: ' + (i + 1) + ', TYPE needs a key');
-            return;
-          }
-
-          if (this.keyMap[wordArray[0]] !== undefined)
-          {
-            commandKnown = true;
-            // Replace the DuckyScript key by the Arduino key name
-            parsedOut = this.deviceMap['KEY'](wordArray[0]);
-          } else {
-            console.error('Error: Unknown letter \'' + wordArray[0] +'\' at line: ' + (i + 1));
-            return;
-          }
-          break;
-        case "REM":
-          wordArray.shift();
-
-          // Placing the comment to arduino code
-          if (wordArray.length > 0)
+    + ' * Generated with <3 1="" by="" dckuino.js,="" an="" open source="" project="" !\n'="" +="" '="" *="" \n\n'="" this.devicemap['prolog']()="" parsedducky="" this.devicemap['epilog']();="" }="" the="" parsing="" function="" _parse(toparse)="" {="" init="" chronometer="" var="" timerstart="Date.now();" preset="" all="" used="" vars="" parsedscript="" ;="" lastlines;="" lastcount;="" parsedout="" commandknown="false;" nonewline="false;" nodelay="false;" nextnodelay="false;" wordarray;="" wordone;="" default delay="" defaultdelay="0;" trim="" whitespaces="" toparse="toParse.replace(/^" +|="" +$="" gm,="" '');="" remove="" *ugly*="" tabs="" cut="" input="" in="" lines="" linearray="toParse.split('\n');" loop every="" line="" for="" (var="" i="0;" <="" linearray.length;="" i++)="" empty,="" skip="" if="" (linearray[i]="==" ''="" ||="" linearray[i]="==" '\n')="" console.log('info:="" skipped="" (i="" 1)="" ',="" because="" was="" empty.');="" continue;="" outputs,="" replay="" repeat="" commands="" (parsedout="" !="=" undefined="" &&="" '')="" lastlines="parsedOut;" lastcount="((lastLines.split('\n')).length" 1);="" reset="" buffer="" set="" to="" unknown="" command="" releaseall="" &="" nodelay;="" *line="" modifiers*="" words="" store="" first="" word="" a="" wordarray="lineArray[i].split('" ');="" wordone="wordArray[0];" parse="" switch(wordone){="" case="" "string":="" wordarray.shift();="" textstring="wordArray.join('" create="" 255-byte="" chunks="" [];="" chunk="" chunks)="" replace="" '"'="" '\"'="" and="" '\'="" '\\'="" (textstring="" strcount="strCount" else="" console.error('error:="" at="" line:="" string="" needs="" text');="" return;="" break;="" "delay":="" if(wordarray[0]="==" wordarray[0]="==" time');="" (!="" isnan(wordarray[0]))="" only="" accepts="" numbers');="" "default_delay":="" "defaultdelay":="" default_delay="" "type":="" type="" key');="" (this.keymap[wordarray[0]]="" undefined)="" duckyscript="" key="" arduino="" name="" letter="" \''="" +'\'="" 1));="" "rem":="" placing="" comment="" code="" (wordarray.length=""> 0)
           {
             commandKnown = true; noDelay= true;
             parsedOut = '  // ' + wordArray.join(' ');
@@ -620,3 +462,4 @@ class Dckuinojs {
     return parsedScript;
   }
 }
+</3></avr></modifiers.length;>

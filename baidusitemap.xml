@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://ares-x.com/2018/05/09/%E4%BB%8ESqlilabs%E7%9A%84Less1%E5%92%8CLess2%E7%9C%8B%E5%AD%97%E7%AC%A6%E5%9E%8B%E5%92%8C%E6%95%B0%E5%AD%97%E5%9E%8B%E6%B3%A8%E5%85%A5/</loc>
+    <lastmod>2018-05-09T13:52:27.803Z</lastmod>
+    <data>
+        <display>
+        <title>从Sqlilabs的Less1和Less2看字符型和数字型注入</title>
+        <pubTime>2018-05-09T13:50:49.000Z</pubTime>
+        
+        <tag>SQL注入</tag>
+         
+         
+           
+             
+              <breadCrumb title="渗透不测试" url="https://ares-x.com/categories/%E6%B8%97%E9%80%8F%E4%B8%8D%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ares-x.com/2018/01/10/python%E5%86%99Excel/</loc>
     <lastmod>2018-05-09T13:24:18.356Z</lastmod>
     <data>
@@ -848,9 +868,9 @@
         <title>异域镇魂曲:主管信仰与客观实在</title>
         <pubTime>2017-08-04T06:43:26.000Z</pubTime>
         
-        <tag>哲学</tag>
-         
         <tag>异域镇魂曲</tag>
+         
+        <tag>哲学</tag>
          
         <tag>游戏</tag>
          
@@ -872,9 +892,9 @@
         <title>新的偶像</title>
         <pubTime>2017-07-30T07:45:52.000Z</pubTime>
         
-        <tag>杂文</tag>
-         
         <tag>哲学</tag>
+         
+        <tag>杂文</tag>
          
          
            

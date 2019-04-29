@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://ares-x.com/2019/04/29/Norepad-%E6%AD%A3%E5%88%99%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C/</loc>
+    <lastmod>2019-04-29T14:34:17.657Z</lastmod>
+    <data>
+        <display>
+        <title>Norepad++ 正则去除重复行</title>
+        <pubTime>2019-04-29T14:28:38.000Z</pubTime>
+        
+        <tag>正则</tag>
+         
+         
+           
+             
+              <breadCrumb title="屠龙之技" url="https://ares-x.com/categories/%E5%B1%A0%E9%BE%99%E4%B9%8B%E6%8A%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ares-x.com/2017/11/26/2017%E5%B9%B4%E6%B9%96%E6%B9%98%E6%9D%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9BWriteup/</loc>
     <lastmod>2018-11-28T13:54:56.832Z</lastmod>
     <data>
@@ -224,6 +244,46 @@
 
     
   <url>
+    <loc>https://ares-x.com/2018/02/02/Parrot%E7%BE%8E%E5%8C%96-%E4%B8%BAParrot%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AAdock/</loc>
+    <lastmod>2018-06-12T08:08:59.698Z</lastmod>
+    <data>
+        <display>
+        <title>Parrot美化-为Parrot添加一个dock</title>
+        <pubTime>2018-02-02T15:48:59.000Z</pubTime>
+        
+        <tag>Linux美化</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://ares-x.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ares-x.com/2017/12/26/ReverShellGenerator%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%BE%97%E5%88%B0%E5%90%84%E7%A7%8D%E5%8F%8D%E5%BC%B9shell/</loc>
+    <lastmod>2018-06-12T08:08:59.698Z</lastmod>
+    <data>
+        <display>
+        <title>ReverShellGenerator一句话得到各种反弹shell</title>
+        <pubTime>2017-12-26T07:19:28.000Z</pubTime>
+        
+        <tag>权限维持</tag>
+         
+         
+           
+             
+              <breadCrumb title="渗透不测试" url="https://ares-x.com/categories/%E6%B8%97%E9%80%8F%E4%B8%8D%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ares-x.com/2018/03/06/%E5%9C%A8Win10%E4%B8%8A%E5%AE%89%E8%A3%85KaliLinux/</loc>
     <lastmod>2018-06-12T08:08:59.698Z</lastmod>
     <data>
@@ -276,46 +336,6 @@
         <tag>BadUSB</tag>
          
         <tag>硬件</tag>
-         
-         
-           
-             
-              <breadCrumb title="渗透不测试" url="https://ares-x.com/categories/%E6%B8%97%E9%80%8F%E4%B8%8D%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ares-x.com/2018/02/02/Parrot%E7%BE%8E%E5%8C%96-%E4%B8%BAParrot%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AAdock/</loc>
-    <lastmod>2018-06-12T08:08:59.698Z</lastmod>
-    <data>
-        <display>
-        <title>Parrot美化-为Parrot添加一个dock</title>
-        <pubTime>2018-02-02T15:48:59.000Z</pubTime>
-        
-        <tag>Linux美化</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://ares-x.com/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ares-x.com/2017/12/26/ReverShellGenerator%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%BE%97%E5%88%B0%E5%90%84%E7%A7%8D%E5%8F%8D%E5%BC%B9shell/</loc>
-    <lastmod>2018-06-12T08:08:59.698Z</lastmod>
-    <data>
-        <display>
-        <title>ReverShellGenerator一句话得到各种反弹shell</title>
-        <pubTime>2017-12-26T07:19:28.000Z</pubTime>
-        
-        <tag>权限维持</tag>
          
          
            

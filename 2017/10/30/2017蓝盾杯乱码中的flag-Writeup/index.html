@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -21,13 +21,13 @@
     <!-- dns prefetch -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
-    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source"/>
+    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source">
 
 
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
 
 
-    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
 
 
 
@@ -58,14 +58,14 @@
     <link rel="icon shortcut" type="image/ico" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <link rel="icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="There is no description">
     <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,Writeup,Crypto">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -229,8 +229,8 @@
     <link rel="apple-touch-icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
-    <meta name="baidu-site-verification" content="w6yasXXGYf" />
+    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs">
+    <meta name="baidu-site-verification" content="w6yasXXGYf">
 
     <!-- RSS -->
     
@@ -253,7 +253,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2017/10/30/2017蓝盾杯乱码中的flag-Writeup/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -393,7 +393,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar">
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -423,7 +423,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/Crypto/">Crypto</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Writeup/">Writeup</a>
-    </ul>
+    </li></ul>
     
 
     <!-- Share -->
@@ -588,6 +588,7 @@ flag:bdctf{xxxx}
 <span class="token number">1179</span>
 <span class="token number">1191</span>
 <span class="token number">1287</span>
+
 </code></pre>
 <p>据459最近的是561,由于python中的字符串是从0开始计数的，则在程序中字符串位置为<code>560</code></p>
 <p>到这里，个位由9-&gt;10,10向十位进一，个位为0，十位45+10+1=56,则结果为560,与判断一致</p>
@@ -611,6 +612,7 @@ flag:bdctf{xxxx}
 1215 15
 1376 16
 1547 17
+
 </code></pre><p>第二列数字是十位之间的差，得到这个结果后用脚本依次输出所在位置的字符</p>
 <pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">63</span><span class="token punctuation">,</span><span class="token number">104</span><span class="token punctuation">,</span><span class="token number">155</span><span class="token punctuation">,</span><span class="token number">216</span><span class="token punctuation">,</span><span class="token number">287</span><span class="token punctuation">,</span><span class="token number">368</span><span class="token punctuation">,</span><span class="token number">459</span><span class="token punctuation">,</span><span class="token number">560</span><span class="token punctuation">,</span><span class="token number">671</span><span class="token punctuation">,</span><span class="token number">792</span><span class="token punctuation">,</span><span class="token number">923</span><span class="token punctuation">,</span><span class="token number">1064</span><span class="token punctuation">,</span><span class="token number">1215</span><span class="token punctuation">,</span><span class="token number">1376</span><span class="token punctuation">,</span><span class="token number">1547</span><span class="token punctuation">,</span><span class="token number">1728</span><span class="token punctuation">]</span>
 <span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> i <span class="token keyword">in</span> a<span class="token punctuation">:</span>
@@ -618,10 +620,11 @@ flag:bdctf{xxxx}
 
 
 f l a g <span class="token punctuation">:</span> b d c t f <span class="token punctuation">{</span> s K <span class="token number">7</span> <span class="token operator">%</span> <span class="token operator">*</span> k <span class="token punctuation">}</span>
+
 </code></pre>
 <p>去掉空格,得到<code>flag:bdctf{sK7%*k}</code></p>
 <hr>
-<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+<p>*<em>转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -645,7 +648,7 @@ f l a g <span class="token punctuation">:</span> b d c t f <span class="token pu
                 <!-- Post Comments -->
                 
                     
-    <div id="comment" style='padding:10px;' class="vcomment"></div>
+    <div id="comment" style="padding:10px;" class="vcomment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
@@ -781,8 +784,8 @@ f l a g <span class="token punctuation">:</span> b d c t f <span class="token pu
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">6</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">5</span></a>
+            </li></ul>
         </li>
         
     
@@ -799,8 +802,8 @@ f l a g <span class="token punctuation">:</span> b d c t f <span class="token pu
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
+            </li></ul>
         </li>
         
     
@@ -845,7 +848,7 @@ f l a g <span class="token punctuation">:</span> b d c t f <span class="token pu
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">50</span>
+                <span class="sidebar-badge">49</span>
             </a>
         </li>
         

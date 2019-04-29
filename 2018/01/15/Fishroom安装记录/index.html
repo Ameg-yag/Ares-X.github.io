@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -21,13 +21,13 @@
     <!-- dns prefetch -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
-    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source"/>
+    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source">
 
 
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
 
 
-    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
 
 
 
@@ -58,14 +58,14 @@
     <link rel="icon shortcut" type="image/ico" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
     <link rel="icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="There is no description">
     <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,IRC">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -229,8 +229,8 @@
     <link rel="apple-touch-icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs" />
-    <meta name="baidu-site-verification" content="w6yasXXGYf" />
+    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs">
+    <meta name="baidu-site-verification" content="w6yasXXGYf">
 
     <!-- RSS -->
     
@@ -253,7 +253,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://ares-x.com/2018/01/15/Fishroom安装记录/index.html" />
+        <link rel="canonical" href="https://ares-x.com/2018/01/15/Fishroom安装记录/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -350,8 +350,7 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -402,7 +401,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar">
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -432,7 +431,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/IRC/">IRC</a>
-    </ul>
+    </li></ul>
     
 
     <!-- Share -->
@@ -529,7 +528,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p><strong><a href="https://github.com/tuna/fishroom" target="_blank" rel="external">fishroom项目主页</a></strong></p>
+        <p><strong><a href="https://github.com/tuna/fishroom" target="_blank" rel="noopener">fishroom项目主页</a></strong></p>
 <hr>
 <h3 id="安装过程-直接在服务器上部署，不使用docker"><a href="#安装过程-直接在服务器上部署，不使用docker" class="headerlink" title="安装过程(直接在服务器上部署，不使用docker)"></a>安装过程(直接在服务器上部署，不使用docker)</h3><p><em>采用的系统是ubuntu 16.04,debian记忆中安装时候有报错</em></p>
 <h4 id="下载项目"><a href="#下载项目" class="headerlink" title="下载项目"></a>下载项目</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/tuna/fishroom
@@ -672,7 +671,7 @@ vim fishroom/config.py
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"teleboto"</span><span class="token punctuation">,</span>
     <span class="token property">"cmd_me"</span><span class="token operator">:</span> <span class="token string">"ParrotSecCN_bot"</span><span class="token punctuation">,</span>  # username of the telegram bot
 </code></pre>
-<p><code>baseurl</code>:设置成你web想要访问的url,如<a href="http://irc.parrotsec-cn.org" target="_blank" rel="external">http://irc.parrotsec-cn.org</a> ,需要注意的是这里会强制跳转,如果你这里写的是https,但是你并没有配置https，会导致web服务无法使用,如果你这里设置的是 <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a> 那么通过ip访问你的web服务的时候,会跳转到百度, 如果你dns中还没有添加a记录解析域名到你服务器的ip,这里先填 <a href="http://你的服务器ip地址" target="_blank" rel="external">http://你的服务器ip地址</a> 即可<br><code>cmd_me</code>:设置成你telegrambot的用户名,比如我的bot用户名是<code>ParrotSecCN_bot</code></p>
+<p><code>baseurl</code>:设置成你web想要访问的url,如<a href="http://irc.parrotsec-cn.org" target="_blank" rel="noopener">http://irc.parrotsec-cn.org</a> ,需要注意的是这里会强制跳转,如果你这里写的是https,但是你并没有配置https，会导致web服务无法使用,如果你这里设置的是 <a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a> 那么通过ip访问你的web服务的时候,会跳转到百度, 如果你dns中还没有添加a记录解析域名到你服务器的ip,这里先填 http://你的服务器ip地址 即可<br><code>cmd_me</code>:设置成你telegrambot的用户名,比如我的bot用户名是<code>ParrotSecCN_bot</code></p>
 <pre class=" language-json"><code class="language-json">    <span class="token property">"redis"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
         # <span class="token property">"unix_socket_path"</span><span class="token operator">:</span> <span class="token string">"/var/run/redis/redis.sock"</span>
         <span class="token property">"host"</span><span class="token operator">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>  # hostname for redis server
@@ -815,12 +814,13 @@ python3 -m fishroom.web
 <span class="token function">nohup</span> python3 -m fishroom.IRC <span class="token operator">></span> log/irc.txt 2<span class="token operator">></span><span class="token operator">&amp;</span>1 <span class="token operator">&amp;</span>
 <span class="token function">nohup</span> python3 -m fishroom.web <span class="token operator">></span> log/web.txt 2<span class="token operator">></span><span class="token operator">&amp;</span>1 <span class="token operator">&amp;</span>
 <span class="token function">nohup</span> python3 -m fishroom.telegram <span class="token operator">></span> log/telegram.txt 2<span class="token operator">></span><span class="token operator">&amp;</span>1 <span class="token operator">&amp;</span>
+
 </code></pre>
 <p>保存后添加执行权限<code>chmod +x start.sh</code></p>
 <p>启动:<code>./start.sh</code></p>
 <p>log会保存到<code>fishroom/log/</code>目录下</p>
 <hr>
-<p><em>*转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
+<p>*<em>转载请注明来自<a href="https://ares-x.com">AresX’s Blog</a></em></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -844,7 +844,7 @@ python3 -m fishroom.web
                 <!-- Post Comments -->
                 
                     
-    <div id="comment" style='padding:10px;' class="vcomment"></div>
+    <div id="comment" style="padding:10px;" class="vcomment"></div>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
@@ -980,8 +980,8 @@ python3 -m fishroom.web
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">6</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">5</span></a>
+            </li></ul>
         </li>
         
     
@@ -998,8 +998,8 @@ python3 -m fishroom.web
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
-            </ul>
+                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
+            </li></ul>
         </li>
         
     
@@ -1044,7 +1044,7 @@ python3 -m fishroom.web
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">50</span>
+                <span class="sidebar-badge">49</span>
             </a>
         </li>
         

